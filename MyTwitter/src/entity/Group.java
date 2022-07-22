@@ -10,6 +10,7 @@ public class Group {
     private ArrayList<Message> messages = new ArrayList<>();
     private ArrayList<User> members = new ArrayList<>();
     private ArrayList<User> admins = new ArrayList<>();
+    private ArrayList<User> bans = new ArrayList<>();
 
     public Group(String name, String bio, User creator) {
         this.name = name;
@@ -23,6 +24,14 @@ public class Group {
     }
 
     public Group() {
+    }
+
+    public ArrayList<User> getBans() {
+        return bans;
+    }
+
+    public void setBans(ArrayList<User> bans) {
+        this.bans = bans;
     }
 
     public String getName() {

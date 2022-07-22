@@ -10,9 +10,24 @@ public class GroupController {
     }
     static public void newAdmin(Group g, User u){
         g.getAdmins().add(u);
+        g.getBans().remove(u);
     }
     static public void deleteMessage(Group g, Message m){
         g.getMessages().remove(m);
+    }
+    static public void deleteAllMessageOfUser(Group g,User u){
+        for (Message m : g.getMessages()){
+            if(m.getUser().equals(u)){
+                if(!m.isForwarded()){
+                    deleteMessage(g,m);
+                }
+            }
+            if(m.isForwarded()){
+                if(m.getForwarder().equals(u)){
+                    deleteMessage(g,m);
+                }
+            }
+        }
     }
     static public void removeAdmin(Group g, User u){
         g.getAdmins().remove(u);
@@ -28,5 +43,12 @@ public class GroupController {
     }
     static public void changeName(Group g, String name){
         g.setName(name);
+    }
+    static public void banUser(Group g,User u){
+        g.getAdmins().remove(u);
+        g.getBans().add(u);
+    }
+    static public void unBanUser(Group g,User u){
+        g.getBans().remove(u);
     }
 }

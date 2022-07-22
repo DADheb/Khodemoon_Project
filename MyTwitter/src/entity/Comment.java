@@ -2,19 +2,20 @@ package entity;
 
 import java.util.ArrayList;
 
-public class Comment {
+public class Comment implements Comparable<Comment>{
     private User user ;
     private String text;
     private boolean type;
     private Post post;
     private Comment comment;
-    private int time;
+    private long time;
     private String date;
     private boolean edited = false;
     private int numberOfView = 0;
     private int numberOfLikes = 0;
     private ArrayList<User> viewers = new ArrayList<>();
     private ArrayList<Like> likes = new ArrayList<>();
+    private ArrayList<User> userLikes = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
 
     public Comment(User user, String text, boolean type, Post post) {
@@ -31,7 +32,7 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Comment(User user, String text, boolean type, Comment comment, int time, String date, boolean edited, int numberOfView, int numberOfLikes) {
+    public Comment(User user, String text, boolean type, Comment comment, long time, String date, boolean edited, int numberOfView, int numberOfLikes) {
         this.user = user;
         this.text = text;
         this.type = type;
@@ -43,7 +44,7 @@ public class Comment {
         this.numberOfLikes = numberOfLikes;
     }
 
-    public Comment(User user, String text, boolean type, Post post, int time, String date, boolean edited, int numberOfView, int numberOfLikes) {
+    public Comment(User user, String text, boolean type, Post post, long time, String date, boolean edited, int numberOfView, int numberOfLikes) {
         this.user = user;
         this.text = text;
         this.type = type;
@@ -58,11 +59,19 @@ public class Comment {
     public Comment() {
     }
 
-    public int getTime() {
+    public ArrayList<User> getUserLikes() {
+        return userLikes;
+    }
+
+    public void setUserLikes(ArrayList<User> userLikes) {
+        this.userLikes = userLikes;
+    }
+
+    public long getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
@@ -160,5 +169,10 @@ public class Comment {
 
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public int compareTo(Comment o) {
+        return -Long.compare(this.time,o.getTime());
     }
 }

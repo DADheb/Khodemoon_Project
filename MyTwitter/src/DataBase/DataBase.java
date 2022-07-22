@@ -3,8 +3,11 @@ package DataBase;
 import entity.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataBase {
+
+    public static Scanner scanner = new Scanner(System.in);
     static private ArrayList<User> users = new ArrayList<>();
     static private ArrayList<User> businessUsers = new ArrayList<>();
     static private ArrayList<Post> posts = new ArrayList<>();
@@ -68,5 +71,8 @@ public class DataBase {
     }
     public static int getUserID(User user){
         return users.indexOf(user);
+    }
+    public static int getMessageID(Message message){
+        return messages.indexOf(message);
     }
 }

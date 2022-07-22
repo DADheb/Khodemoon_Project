@@ -1,6 +1,8 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class User {
     private String userName;
@@ -10,6 +12,7 @@ public class User {
     private String lastName;
     private String birthday;
     private String email;
+    private String date;
     private String securityQuestionsAnswers;
     private boolean privacy=false;
     private boolean userType;
@@ -24,6 +27,10 @@ public class User {
     private ArrayList<Chat> chats = new ArrayList<>();
     private ArrayList<User> followRequests = new ArrayList<>();
     private ArrayList<User> requests = new ArrayList<>();
+    private ArrayList<User> block = new ArrayList<>();
+    private HashMap<String,Integer> viewPD = new HashMap<String,Integer>();
+    private HashMap<User,Integer> interest = new HashMap<User,Integer>();
+    private HashMap<User,Integer> interestAD = new HashMap<User,Integer>();
 
 
     public User(String userName) {
@@ -65,6 +72,54 @@ public class User {
     }
 
     public User() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userName, user.userName);
+    }
+
+    public HashMap<User, Integer> getInterestAD() {
+        return interestAD;
+    }
+
+    public void setInterestAD(HashMap<User, Integer> interestAD) {
+        this.interestAD = interestAD;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public ArrayList<User> getBlock() {
+        return block;
+    }
+
+    public void setBlock(ArrayList<User> block) {
+        this.block = block;
+    }
+
+    public HashMap<User, Integer> getInterest() {
+        return interest;
+    }
+
+    public void setInterest(HashMap<User, Integer> interest) {
+        this.interest = interest;
+    }
+
+    public HashMap<String, Integer> getViewPD() {
+        return viewPD;
+    }
+
+    public void setViewPD(HashMap<String, Integer> viewPD) {
+        this.viewPD = viewPD;
     }
 
     public boolean isPrivacy() {

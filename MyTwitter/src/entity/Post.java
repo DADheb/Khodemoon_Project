@@ -1,18 +1,22 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Post {
+public class Post implements Comparable<Post>{
     private User user;
     private String text;
-    private int time;
+    private long time;
     private String date;
     private boolean edited = false;
     private int numberOfView = 0;
     private int numberOfLikes = 0;
     private ArrayList<User> viewers = new ArrayList<>();
     private ArrayList<Like> likes = new ArrayList<>();
+    private ArrayList<User> userLikes = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
+    private HashMap<String,Integer> likePD = new HashMap<String,Integer>();
+    private HashMap<String,Integer> viewPD = new HashMap<String,Integer>();
 
     public Post(User user, String text) {
         this.user = user;
@@ -30,6 +34,30 @@ public class Post {
     }
 
     public Post() {
+    }
+
+    public ArrayList<User> getUserLikes() {
+        return userLikes;
+    }
+
+    public void setUserLikes(ArrayList<User> userLikes) {
+        this.userLikes = userLikes;
+    }
+
+    public HashMap<String, Integer> getLikePD() {
+        return likePD;
+    }
+
+    public void setLikePD(HashMap<String, Integer> likePD) {
+        this.likePD = likePD;
+    }
+
+    public HashMap<String, Integer> getViewPD() {
+        return viewPD;
+    }
+
+    public void setViewPD(HashMap<String, Integer> viewPD) {
+        this.viewPD = viewPD;
     }
 
     public User getUser() {
@@ -56,11 +84,11 @@ public class Post {
         this.text = text;
     }
 
-    public int getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
@@ -118,5 +146,10 @@ public class Post {
 
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public int compareTo(Post o) {
+        return -Long.compare(this.time,o.getTime());
     }
 }

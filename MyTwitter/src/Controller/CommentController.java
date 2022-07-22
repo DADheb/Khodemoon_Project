@@ -5,10 +5,13 @@ import entity.Like;
 import entity.User;
 
 import java.time.Clock;
+import java.time.LocalDateTime;
+
 
 public class CommentController {
     public static void newLike(Comment c, Like l){
         c.getLikes().add(l);
+        c.getUserLikes().add(l.getUser());
         c.setNumberOfLikes(c.getNumberOfLikes()+1);
     }
     public static void newView(Comment c, User u){
@@ -19,11 +22,12 @@ public class CommentController {
         c.getComments().add(cc);
     }
     public static void setTime(Comment c){
-        c.setTime((int) (Clock.systemUTC().millis()));
-        c.setDate(Clock.systemUTC().toString());
+        c.setTime(Clock.systemUTC().millis());
+        c.setDate(LocalDateTime.now().toString());
     }
-    public static void disLiki(Comment c, Like l){
+    public static void disLike(Comment c, Like l){
         c.getLikes().remove(l);
+        c.getUserLikes().remove(l.getUser());
         c.setNumberOfLikes(c.getNumberOfLikes()-1);
     }
     public static void deleteComment(Comment c, Comment cc){

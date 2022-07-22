@@ -1,16 +1,22 @@
 package entity;
 
-public class Message {
+import java.util.ArrayList;
+
+public class Message implements Comparable<Message>{
     private User user;
     private String text;
     private boolean type;
     private Chat chat;
     private Group group;
-    private boolean reply;
+    private boolean reply = false;
     private Message message;
     private boolean edited = false;
     private boolean seen = false;
-    private int time;
+    private long time;
+    private String date;
+    private ArrayList<Message> replyOn = new ArrayList<>();
+    private boolean forwarded = false;
+    private User forwarder;
 
     public Message(User user, String text, boolean type, Group group) {
         this.user = user;
@@ -44,7 +50,7 @@ public class Message {
         this.message = message;
     }
 
-    public Message(User user, String text, boolean type, Group group, boolean reply, Message message, boolean edited, boolean seen, int time) {
+    public Message(User user, String text, boolean type, Group group, boolean reply, Message message, boolean edited, boolean seen, long time) {
         this.user = user;
         this.text = text;
         this.type = type;
@@ -56,7 +62,7 @@ public class Message {
         this.seen=seen;
     }
 
-    public Message(User user, String text, boolean type, Chat chat, boolean reply, Message message, boolean edited, boolean seen, int time) {
+    public Message(User user, String text, boolean type, Chat chat, boolean reply, Message message, boolean edited, boolean seen, long time) {
         this.user = user;
         this.text = text;
         this.type = type;
@@ -69,6 +75,38 @@ public class Message {
     }
 
     public Message() {
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public ArrayList<Message> getReplyOn() {
+        return replyOn;
+    }
+
+    public void setReplyOn(ArrayList<Message> replyOn) {
+        this.replyOn = replyOn;
+    }
+
+    public boolean isForwarded() {
+        return forwarded;
+    }
+
+    public void setForwarded(boolean forwarded) {
+        this.forwarded = forwarded;
+    }
+
+    public User getForwarder() {
+        return forwarder;
+    }
+
+    public void setForwarder(User forwarder) {
+        this.forwarder = forwarder;
     }
 
     public boolean isSeen() {
@@ -127,11 +165,11 @@ public class Message {
         this.chat = chat;
     }
 
-    public int getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
@@ -149,5 +187,10 @@ public class Message {
 
     public void setMessage(Message message) {
         this.message = message;
+    }
+
+    @Override
+    public int compareTo(Message o) {
+        return -Long.compare(this.time,o.getTime());
     }
 }
