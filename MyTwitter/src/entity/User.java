@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class User {
+public class User implements Comparable<User>{
     private String userName;
     private String password;
     private String bio;
@@ -292,5 +292,10 @@ public class User {
 
     public ArrayList<User> getFollowRequests() {
         return followRequests;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return Integer.compare(this.numberOfFollowers,o.numberOfFollowers);
     }
 }

@@ -15,7 +15,6 @@ public class CommentController {
         c.setNumberOfLikes(c.getNumberOfLikes()+1);
     }
     public static void newView(Comment c, User u){
-        c.getViewers().add(u);
         c.setNumberOfView(c.getNumberOfView()+1);
     }
     public static void newComment(Comment c, Comment cc){

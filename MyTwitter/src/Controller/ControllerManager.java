@@ -3,6 +3,8 @@ package Controller;
 import DataBase.DataBase;
 import entity.*;
 
+import java.time.LocalDate;
+
 public class ControllerManager {
     static public void likeP(User a, Post p){
         Like l = new Like(a,true,p);
@@ -166,5 +168,40 @@ public class ControllerManager {
             return 0;
         }
         return -1;
+    }
+    static public Group newGroup(User u,String name){
+        Group group = new Group();
+        group.setCreator(u);
+        group.setCreatDate(LocalDate.now().toString());
+        group.getMembers().add(u);
+        group.getAdmins().add(u);
+        group.setName(name);
+        DataBase.getGroups().add(group);
+        return group;
+    }
+    static public void deleteGroup(Group g){
+        for (User u : g.getMembers()){
+            GroupController.removeMember(g,u);
+        }
+        for (Message m : g.getMessages()){
+            GroupController.deleteMessage(g,m);
+        }
+        DataBase.getGroups().remove(g);
+    }
+    static public Chat newChat(User u,User a){
+        Chat chat = new Chat(u,a);
+        UserController.newChat(u,chat);
+        UserController.newChat(a,chat);
+        DataBase.getChats().add(chat);
+        return chat;
+    }
+    static public void deleteChat(Chat chat){
+        for (User u : chat.getUsers()){
+            UserController.deleteChat(u,chat);
+        }
+        for (Message m : chat.getMessages()){
+            ChatController.deleteMessage(chat,m);
+        }
+        DataBase.getChats().remove(chat);
     }
 }

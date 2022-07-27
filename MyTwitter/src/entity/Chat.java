@@ -1,31 +1,24 @@
 package entity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Chat {
-    private User A;
-    private User B;
+    private Set<User> users = new HashSet<>();
     private ArrayList<Message> messages = new ArrayList<>();
 
     public Chat(User a, User b) {
-        A = a;
-        B = b;
+        users.add(a);
+        users.add(b);
     }
 
-    public User getA() {
-        return A;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setA(User a) {
-        A = a;
-    }
-
-    public User getB() {
-        return B;
-    }
-
-    public void setB(User b) {
-        B = b;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public ArrayList<Message> getMessages() {

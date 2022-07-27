@@ -225,6 +225,9 @@ class UserRepository {
             }
             user.setDate(resultSet.getString("date"));
             DataBase.getUsers().add(user);
+            if(user.isUserType()){
+                DataBase.getBusinessUsers().add(user);
+            }
         }
 
         statement.close();
@@ -326,8 +329,9 @@ class ChatRepository {
         while (resultSet.next()){
             Chat chat = new Chat(DataBase.getUsers().get(resultSet.getInt("userA_id")-1),DataBase.getUsers().get(resultSet.getInt("userB_id")-1));
             DataBase.getChats().add(chat);
-            chat.getA().getChats().add(chat);
-            chat.getB().getChats().add(chat);
+            for (User u : chat.getUsers()) {
+                u.getChats().add(chat);
+            }
         }
         statement.close();
     }
@@ -339,8 +343,15 @@ class ChatRepository {
             PreparedStatement preparedStatementA = connection.prepareStatement(
                     "INSERT INTO chat(userA_id, userB_id)"+
                             "VALUES (?, ?)");
-            preparedStatementA.setInt(1,DataBase.getUserID(chat.getA())+1);
-            preparedStatementA.setInt(2,DataBase.getUserID(chat.getB())+1);
+            boolean frist = true;
+            for (User u : chat.getUsers()){
+                if(frist){
+                    preparedStatementA.setInt(1,DataBase.getUserID(u)+1);
+                    frist=false;
+                } else {
+                    preparedStatementA.setInt(2,DataBase.getUserID(u)+1);
+                }
+            }
 
             preparedStatementA.executeUpdate();
         }

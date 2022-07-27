@@ -1,12 +1,12 @@
 package View;
 
 import Controller.ControllerManager;
+import Controller.UserController;
 import DataBase.DataBase;
 import entity.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Show {
     public static Scanner scan = DataBase.scanner;
@@ -20,7 +20,38 @@ public class Show {
     static public void showSecurityQuestion() {
         System.out.print("What is your favorite animal? ");
     }
-
+    public static int inputProcessor(int start, int end) {
+        int inputNumber=0;
+        while (true) {
+            String input = scan.nextLine();
+            if (input.length() == 0) {
+                input = scan.nextLine();
+            }
+            try {
+                inputNumber = Integer.parseInt(input.trim());
+            } catch (Exception e){
+                System.out.println("Invalid number!");
+                System.out.println("Please choose again");
+                continue;
+            }
+            if(inputNumber<=end && inputNumber>=start){
+                return inputNumber;
+            }
+            System.out.println("Invalid number!");
+            System.out.println("Please choose again");
+        }
+    }
+    static public String getString(){
+        while (true) {
+            String input = scan.nextLine();
+            if (input.length() != 0) {
+                return input;
+            }
+        }
+    }
+    static public int getInt(){
+        return scan.nextInt();
+    }
     static public void showSpace(int space) {
         for (int i = 0; i < space; i++) {
             System.out.print("\t");
@@ -33,6 +64,8 @@ public class Show {
         System.out.println(u.getUserName());
         showSpace(space);
         System.out.println(u.getName() + " " + u.getLastName());
+        showSpace(space);
+        System.out.println("ID : "+DataBase.getUserID(u)+1);
         printLine();
     }
 
@@ -46,7 +79,7 @@ public class Show {
         System.out.println();
         printLine();
         if (DataBase.getUser().equals(u) || (!u.isPrivacy()) || DataBase.getUser().getFollowings().contains(u)) {
-            showPostList(u.getPosts(), 0, 10, 1);
+            showPostList(u.getPosts(), 0,10, 1);
         } else {
             System.out.println("this account is private");
         }
@@ -244,17 +277,18 @@ public class Show {
     }
 
     static public void showShortChat(Chat c, int space) {
-        if (c.getA().equals(DataBase.getUser())) {
+        ArrayList<User> users = new ArrayList<>(c.getUsers());
+        if (users.get(0).equals(DataBase.getUser())) {
             printLine();
             showSpace(space);
-            System.out.println("Chat with : " + c.getB().getUserName());
+            System.out.println("Chat with : " + users.get(1).getUserName());
             showSpace(space);
             System.out.println("ID : " + DataBase.getComments().indexOf(c));
             printLine();
-        } else if (c.getB().equals(DataBase.getUser())) {
+        } else if (users.get(1).equals(DataBase.getUser())) {
             printLine();
             showSpace(space);
-            System.out.println("Chat with : " + c.getA().getUserName());
+            System.out.println("Chat with : " + users.get(0).getUserName());
             showSpace(space);
             System.out.println("ID : " + DataBase.getComments().indexOf(c));
             printLine();
@@ -265,16 +299,17 @@ public class Show {
     }
 
     static public void showLongChat(Chat c) {
-        if (c.getA().equals(DataBase.getUser())) {
+        ArrayList<User> users = new ArrayList<>(c.getUsers());
+        if (users.get(0).equals(DataBase.getUser())) {
             printLine();
-            System.out.println("Chat whit : " + c.getB().getName() + " " + c.getB().getLastName());
-            System.out.println(c.getB().getUserName());
+            System.out.println("Chat whit : " + users.get(1).getName() + " " + users.get(1).getLastName());
+            System.out.println(users.get(1).getUserName());
             printLine();
             showMessageList(c.getMessages(), 0, 5);
-        } else if (c.getB().equals(DataBase.getUser())) {
+        } else if (users.get(1).equals(DataBase.getUser())) {
             printLine();
-            System.out.println("Chat whit : " + c.getA().getName() + " " + c.getA().getLastName());
-            System.out.println(c.getA().getUserName());
+            System.out.println("Chat whit : " +users.get(0).getName() + " " +users.get(0).getLastName());
+            System.out.println(users.get(0).getUserName());
             printLine();
             showMessageList(c.getMessages(), 0, 5);
         } else {
@@ -368,7 +403,7 @@ public class Show {
 
     static public void showUserList(ArrayList<User> users, int start, int limit, int space) {
         limit = Math.min(users.size()-start,limit);
-        for (int i = start; i < start + limit; i++) {
+        for (int i = start; i < users.size(); i++) {
             showShortUser(users.get(i), space);
         }
     }
@@ -376,7 +411,7 @@ public class Show {
     static public void showMessageList(ArrayList<Message> messages, int start, int limit) {
         limit = Math.min(messages.size()-start,limit);
         Collections.sort(messages);
-        for (int i = start; i < start + limit; i++) {
+        for (int i = start; i < messages.size(); i++) {
             showMessage(messages.get(i));
         }
     }
@@ -384,7 +419,7 @@ public class Show {
     static public void showPostList(ArrayList<Post> posts, int start, int limit, int space) {
         limit = Math.min(posts.size()-start,limit);
         Collections.sort(posts);
-        for (int i = start; i < start + limit; i++) {
+        for (int i = start; i < posts.size(); i++) {
             showShortPost(posts.get(i), space);
         }
     }
@@ -392,11 +427,22 @@ public class Show {
     static public void showCommentList(ArrayList<Comment> comments, int start, int limit, int space) {
         Collections.sort(comments);
         limit = Math.min(comments.size()-start,limit);
-        for (int i = start; i < start + limit; i++) {
+        for (int i = start; i < comments.size(); i++) {
             showShortComment(comments.get(i), space);
         }
     }
-
+    static public void showChatList(ArrayList<Chat> chats,int start,int limit,int space){
+        limit = Math.min(chats.size()-start,limit);
+        for (int i = start;i< chats.size();i++){
+            showShortChat(chats.get(i),space);
+        }
+    }
+    static public void showGroupList(ArrayList<Group> groups,int start,int limit,int space){
+        limit = Math.min(groups.size()-start,limit);
+        for (int i = start;i< groups.size();i++){
+            showShortGroup(groups.get(i),space);
+        }
+    }
     static public void showUserFollowers(User u){
         printLine();
         showShortUser(u,0);
@@ -410,5 +456,106 @@ public class Show {
         printLine();
         showUserList(u.getFollowings(),0,5,1);
     }
-
+    static public void showAds(User u){
+        Stream<Map.Entry<User, Integer>> sorted = u.getInterestAD().entrySet().stream().sorted(Map.Entry.comparingByValue());
+        int size = u.getInterestAD().size();
+        int limit = Math.min(size,5);
+        ArrayList<Post> posts = new ArrayList<>();
+        User[] users = (User[]) sorted.toArray();
+        for (int i = size-1;i>=size-limit;i--){
+            User user = users[i];
+            for (Post p : user.getPosts()){
+                if(!p.getUserLikes().contains(u)) {
+                    posts.add(p);
+                }
+            }
+        }
+        limit = Math.min(posts.size(),5);
+        ArrayList<Post> selectedPosts = new ArrayList<>();
+        for (int i = 0 ; i<limit;i++){
+            selectedPosts.add(posts.get(i));
+        }
+        Collections.sort(DataBase.getPosts());
+        int number=0;
+        for (Post p : DataBase.getPosts()){
+            if(p.getUser().equals(u)){
+                continue;
+            }
+            if(p.getUserLikes().contains(u)){
+                continue;
+            }
+            if(posts.contains(p)){
+                continue;
+            }
+            number++;
+        }
+        int n = Math.min(5 - limit,number);
+        int i=0;
+        while (n>0){
+            Post p = DataBase.getPosts().get(i);
+            if(p.getUser().equals(u)){
+                i++;
+                continue;
+            }
+            if(p.getUserLikes().contains(u)){
+                i++;
+                continue;
+            }
+            if(posts.contains(p)){
+                i++;
+                continue;
+            }
+            n--;
+            selectedPosts.add(p);
+        }
+        showPostList(selectedPosts,0,10,0);
+    }
+    static public void showInterestUser(User u){
+        Stream<Map.Entry<User, Integer>> sorted = u.getInterest().entrySet().stream().sorted(Map.Entry.comparingByValue());
+        int size = u.getInterest().size();
+        int limit = Math.min(size,5);
+        User[] users = (User[]) sorted.toArray();
+        ArrayList<User> selectedUsers = new ArrayList<>();
+        for (int i=size-1;i>=size-limit;i--){
+            selectedUsers.add(users[i]);
+        }
+        limit = Math.min(5-limit,DataBase.getUsers().size()-1-limit);
+        Collections.sort(DataBase.getUsers());
+        for (int i = 0 ; i<limit;i++){
+            if(DataBase.getUsers().get(i).equals(u)){
+                selectedUsers.add(DataBase.getUsers().get(limit));
+            } else {
+                selectedUsers.add(DataBase.getUsers().get(i));
+            }
+        }
+        showUserList(selectedUsers,0,10,0);
+    }
+    static public void showAllCG(User u){
+        showChatList(u.getChats(),0,10,1);
+        showGroupList(u.getGroups(),0,10,1);
+    }
+    static public void checkAccept(int ID){
+        if(ID>=DataBase.getUsers().size()){
+            System.out.println("Invalid commands");
+        }
+        User u = DataBase.getUsers().get(ID -1);
+        if(!DataBase.getUser().getFollowRequests().contains(u)){
+            System.out.println("Invalid commands");
+        } else {
+            UserController.acceptRequest(u,DataBase.getUser());
+            System.out.println("Done");
+        }
+    }
+    static public void checkIgnore(int ID){
+        if(ID>=DataBase.getUsers().size()){
+            System.out.println("Invalid commands");
+        }
+        User u = DataBase.getUsers().get(ID -1);
+        if(!DataBase.getUser().getFollowRequests().contains(u)){
+            System.out.println("Invalid commands");
+        } else {
+            UserController.unRequest(u,DataBase.getUser());
+            System.out.println("Done");
+        }
+    }
 }

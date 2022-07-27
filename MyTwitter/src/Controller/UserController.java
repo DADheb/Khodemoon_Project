@@ -14,6 +14,8 @@ public class UserController {
         if (a.getPrivacy()) {
             a.getFollowRequests().add(u);
             u.getRequests().add(a);
+            u.getInterest().remove(a);
+            u.getInterestAD().remove(a);
             return 2;
         }
         a.getFollowers().add(u);
@@ -34,7 +36,7 @@ public class UserController {
 
     static public void unRequest(User u, User a) {
         a.getFollowRequests().remove(u);
-        u.getRequests().add(a);
+        u.getRequests().remove(a);
     }
 
     static public void acceptRequest(User u, User a) {
@@ -73,7 +75,10 @@ public class UserController {
     }
 
     static public void changeUserName(User u, String s) {
+        int index = DataBase.getUserNames().indexOf(u.getUserName());
         u.setUserName(s);
+        DataBase.getUserNames().remove(index);
+        DataBase.getUserNames().add(index,s);
     }
 
     static public void changeName(User u, String s) {
@@ -101,7 +106,10 @@ public class UserController {
     }
 
     static public void changePassword(User u, String s) {
+        int index = DataBase.getUserNames().indexOf(u.getUserName());
         u.setPassword(s);
+        DataBase.getUserPasswords().remove(index);
+        DataBase.getUserPasswords().add(index,s);
     }
 
     static public void changeSecurityQuestionsAnswers(User u, String s) {

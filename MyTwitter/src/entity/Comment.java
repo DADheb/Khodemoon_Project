@@ -13,7 +13,7 @@ public class Comment implements Comparable<Comment>{
     private boolean edited = false;
     private int numberOfView = 0;
     private int numberOfLikes = 0;
-    private ArrayList<User> viewers = new ArrayList<>();
+    //private ArrayList<User> viewers = new ArrayList<>();
     private ArrayList<Like> likes = new ArrayList<>();
     private ArrayList<User> userLikes = new ArrayList<>();
     private ArrayList<Comment> comments = new ArrayList<>();
@@ -145,14 +145,6 @@ public class Comment implements Comparable<Comment>{
 
     public void setNumberOfLikes(int numberOfLikes) {
         this.numberOfLikes = numberOfLikes;
-    }
-
-    public ArrayList<User> getViewers() {
-        return viewers;
-    }
-
-    public void setViewers(ArrayList<User> viewers) {
-        this.viewers = viewers;
     }
 
     public ArrayList<Like> getLikes() {
