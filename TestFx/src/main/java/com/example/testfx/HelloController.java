@@ -32,7 +32,7 @@ public class HelloController implements Initializable {
         circle.setCenterY(circles.size()*circle.getRadius()*3+100);
         circles.add(circle);
         mainPain.getChildren().add(circle);
-        mainPain.setPrefHeight(mainPain.getPrefWidth()+circle.getRadius()*4);
+        mainPain.setPrefHeight(mainPain.getPrefHeight()+circle.getRadius()*3);
     }
 
     @Override
@@ -53,6 +53,7 @@ public class HelloController implements Initializable {
                     circle.setCenterY(n*circle.getRadius()*3+100);
                     n++;
                 }
+                mainPain.setPrefHeight(circles.size()*mainPain.getPrefWidth()/50*3+100);
             }
         });
     }
