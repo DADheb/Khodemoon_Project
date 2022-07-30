@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.Pane?>
+
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testfx.HelloController">
+   <content>
+      <Pane fx:id="mainPain" prefHeight="519.0" prefWidth="583.0">
+         <children>
+            <Button fx:id="button" layoutX="266.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#add" text="Button" />
+         </children>
+      </Pane>
+   </content>
+</ScrollPane>
