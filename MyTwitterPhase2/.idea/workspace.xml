@@ -26,23 +26,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/behda/Downloads/HW3_Q2/MyTwitterPhase2/src/main/java/com/example/mytwitterphase2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/behda/.m2/repository/org/kordamp&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/behda/Downloads/HW3_Q2/MyTwitterPhase2/src/main/java/com/example/mytwitterphase2",
+    "last_opened_file_path": "C:/Users/behda/.m2/repository/org/kordamp",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\behda\Downloads\HW3_Q2\MyTwitterPhase2\src\main\java\com\example\mytwitterphase2" />
@@ -78,6 +79,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainGraphic" />
+        <item itemvalue="Application.MainCommand" />
       </list>
     </recent_temporary>
   </component>
@@ -92,7 +94,8 @@
       <workItem from="1659189743153" duration="2370000" />
       <workItem from="1659210685693" duration="39000" />
       <workItem from="1659239528587" duration="22037000" />
-      <workItem from="1659332289432" duration="921000" />
+      <workItem from="1659332289432" duration="7843000" />
+      <workItem from="1659349547947" duration="5373000" />
     </task>
     <servers />
   </component>
