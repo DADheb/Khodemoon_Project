@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.usersettings.FXMLController.SettingController">
+   <center>
+      <GridPane fx:id="mainGridPane" prefHeight="354.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="217.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="260.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="usernameL" alignment="CENTER" contentDisplay="CENTER" text="UserName" textAlignment="CENTER" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="passL" text="Password" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="nameL" text="Name" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="lastnameL" text="LastName" textAlignment="CENTER" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="bioL" text="Bio" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="emailL" text="Email" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="birthL" text="BirthDay" textAlignment="CENTER" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="privacyL" text="Privacy" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="questionL" text="Security Question" textFill="#78a1d1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="usernameField" alignment="CENTER" prefHeight="25.0" prefWidth="260.0" promptText="UserName" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <ChoiceBox fx:id="privacyChoice" prefHeight="25.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <TextField fx:id="nameField" alignment="CENTER" prefHeight="25.0" prefWidth="260.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="lastNameField" alignment="CENTER" prefHeight="25.0" prefWidth="260.0" promptText="LastName" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="bioField" alignment="CENTER" prefHeight="25.0" prefWidth="260.0" promptText="Bio" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField fx:id="emailField" alignment="CENTER" prefHeight="25.0" prefWidth="260.0" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <DatePicker fx:id="birthPicker" editable="false" prefHeight="25.0" prefWidth="260.0" promptText="BithDay" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <TextField fx:id="questionField" alignment="CENTER" prefHeight="25.0" prefWidth="260.0" promptText="Security Question" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <Label fx:id="proL" text="Profile" textFill="#78a1d1" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Circle fill="#5c7ea4" radius="16.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="changwUsernameB" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="changePassB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Button fx:id="changeNameB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Button fx:id="changeLastB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Button fx:id="changeBioB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Button fx:id="changeEmailB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Button fx:id="changeBirthB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <Button fx:id="changePrivacyB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <Button fx:id="changeQuestionB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+            <Button fx:id="changeProB" alignment="BOTTOM_CENTER" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+   </center>
+   <left>
+      <Region fx:id="leftRegion" prefHeight="366.0" prefWidth="12.0" style="-fx-background-color: #78a1d1 #78a1d1;" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Region fx:id="rightRegion" prefHeight="381.0" prefWidth="12.0" style="-fx-background-color: #78a1d1 #78a1d1;" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <Pane prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #78a1d1 #78a1d1;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="settingL" alignment="CENTER" contentDisplay="CENTER" layoutX="261.0" layoutY="-1.0" text="SETTINGS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #78a1d1 #78a1d1;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="15.0" layoutY="2.0" text="CANCEL" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
