@@ -16,6 +16,10 @@ public class Windows {
         Windows.stage = stage;
     }
 
+    public static Stage getStage() {
+        return stage;
+    }
+
     public static void setting() {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Setting.fxml")));

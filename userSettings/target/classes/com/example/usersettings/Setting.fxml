@@ -102,8 +102,8 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Circle fill="#5c7ea4" radius="16.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="changwUsernameB" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Circle fx:id="proPhoto" fill="#5c7ea4" radius="16.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="changeUsernameB" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Button fx:id="changePassB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Button fx:id="changeNameB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <Button fx:id="changeLastB" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
@@ -125,7 +125,7 @@
    <top>
       <Pane prefHeight="20.0" prefWidth="600.0" style="-fx-background-color: #78a1d1 #78a1d1;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="settingL" alignment="CENTER" contentDisplay="CENTER" layoutX="261.0" layoutY="-1.0" text="SETTINGS" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="settingTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="261.0" layoutY="-1.0" text="SETTINGS" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>

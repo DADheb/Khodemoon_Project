@@ -26,8 +26,8 @@ public class SettingController implements Initializable {
     private BorderPane mainBorderPane;
     @FXML
     private GridPane mainGridPane;
-    @FXML
-    private Label cancelL;
+    //@FXML
+    //private Label cancelL;
     @FXML
     private Label settingTitle;
     @FXML
@@ -52,8 +52,8 @@ public class SettingController implements Initializable {
     private Label proL;
     @FXML
     private TextField usernameField;
-    @FXML
-    private PasswordField passField;
+    //@FXML
+    //private PasswordField passField;
     @FXML
     private TextField nameField;
     @FXML
@@ -105,24 +105,19 @@ public class SettingController implements Initializable {
         this.mainBorderPane.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                SettingController.this.mainBorderPane.setPrefWidth(t1.doubleValue());
-                SettingController.this.widthScale = mainBorderPane.getPrefWidth() / 600;
+                //mainBorderPane.getPrefWidth() / 600;
+                System.out.println(1);
+                initial(Windows.getStage().getWidth() / 600);
             }
         });
-        this.mainBorderPane.heightProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                SettingController.this.mainGridPane.setPrefHeight(t1.doubleValue());
-                SettingController.this.widthScale = mainGridPane.getPrefHeight() / 400;
-            }
-        });
-        initial();
+        initial(1);
     }
 
-    public void initial() {
+    public void initial(double s) {
         // x , y moondeh
         //initialValues();
-        double scale = widthScale * heightScale;
+        double scale = s ;
+        heightScale = s;
         this.settingTitle.setFont(Font.font(17D * scale));
         this.usernameL.setFont(Font.font(14D * scale));
         this.passL.setFont(Font.font(14D * scale));
@@ -135,10 +130,10 @@ public class SettingController implements Initializable {
         this.birthL.setFont(Font.font(14D * scale));
         this.privacyL.setFont(Font.font(14D * scale));
         this.questionL.setFont(Font.font(14D * scale));
-        this.cancelL.setFont(Font.font(13D * scale));
+        //this.cancelL.setFont(Font.font(13D * scale));
 
         this.usernameField.setFont(Font.font(14D * scale));
-        this.passField.setFont(Font.font(14D * scale));
+        //this.passField.setFont(Font.font(14D * scale));
         this.nameField.setFont(Font.font(14D * scale));
         this.lastNameField.setFont(Font.font(14D * scale));
         this.bioField.setFont(Font.font(14D * scale));
@@ -146,7 +141,7 @@ public class SettingController implements Initializable {
         this.questionField.setFont(Font.font(14D * scale));
 
         this.usernameField.setPrefWidth(260D * widthScale);
-        this.passField.setPrefWidth(260D * widthScale);
+        //this.passField.setPrefWidth(260D * widthScale);
         this.nameField.setPrefWidth(260D * widthScale);
         this.lastNameField.setPrefWidth(260D * widthScale);
         this.bioField.setPrefWidth(260D * widthScale);
@@ -157,7 +152,7 @@ public class SettingController implements Initializable {
         this.questionField.setPrefWidth(260D * widthScale);
 
         this.usernameField.setPrefHeight(25D * heightScale);
-        this.passField.setPrefHeight(25D * heightScale);
+        //this.passField.setPrefHeight(25D * heightScale);
         this.nameField.setPrefHeight(25D * heightScale);
         this.lastNameField.setPrefHeight(25D * heightScale);
         this.bioField.setPrefHeight(25D * heightScale);
