@@ -12,13 +12,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ import java.util.ResourceBundle;
 public class SettingController implements Initializable {
 
     private Image image;
+    private ImageView imageView;
     @FXML
     private Pane mainPane;
     @FXML
@@ -149,7 +153,8 @@ public class SettingController implements Initializable {
 
     private Color themeColor;
     private Color mode;
-    //private Colo
+
+     final FileChooser fileChooser = new FileChooser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -201,7 +206,8 @@ public class SettingController implements Initializable {
         this.birthPicker.setPrefWidth(425D * scale);
         this.birthPicker.setPrefHeight(35 * scale);
 
-        this.titleSettingL.setLayoutX(this.mainBorderPane.getPrefWidth() / 2 - 54);
+        //this.titleSettingL.setLayoutX(this.mainBorderPane.getPrefWidth() / 2 - 54);
+        this.titleSettingL.setLayoutX(446 *scale);
         this.titleSettingL.setPrefWidth(109 * scale);
         // y moonde
 
@@ -422,7 +428,7 @@ public class SettingController implements Initializable {
 
     public void changeEmail(ActionEvent event) {
         String newEmail = this.emailField.getText();
-        UserController.changeBio(DataBase.getUser(), newEmail);
+        UserController.changeEmail(DataBase.getUser(), newEmail);
     }
 
     public void changeBirth(ActionEvent event) {
@@ -539,5 +545,23 @@ public class SettingController implements Initializable {
         if (!this.lightBlueB.equals(button)) {
             lightBlueB.setStyle("-fx-background-color:   #78a1d1; -fx-background-radius: 15");
         }
+    }
+
+    public void changePro(ActionEvent event) {
+        fileChooser.setTitle("choose profile photo");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+        fileChooser.getExtensionFilters().clear();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter( "Image Files","*.png","*.jpg"));
+        File file = fileChooser.showOpenDialog(null);
+        if (file !=null){
+            System.out.println("are");
+            this.image = new Image(file.toURI().toString());
+            DataBase.getUser().setProfileImage(this.image);
+            this.proPhoto.setFill(new ImagePattern(image));
+        }
+        else{
+            System.out.println("na");
+        }
+
     }
 }

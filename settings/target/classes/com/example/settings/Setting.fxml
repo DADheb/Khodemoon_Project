@@ -165,7 +165,7 @@
                                     <font>
                                         <Font size="16.0" />
                                     </font></Button>
-                                <Button fx:id="changeProB" alignment="BOTTOM_CENTER" mnemonicParsing="false" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                                <Button fx:id="changeProB" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#changePro" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="CHANGE" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                                     <font>
                                         <Font size="16.0" />
                                     </font>

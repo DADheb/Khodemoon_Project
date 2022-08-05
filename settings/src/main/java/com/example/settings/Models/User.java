@@ -41,6 +41,10 @@ public class User implements Comparable<User>{
         return profileImage;
     }
 
+    public void setProfileImage(Image profileImage) {
+        this.profileImage = profileImage;
+    }
+
     private Image profileImage = new Image(Objects.requireNonNull(Main.class.getResource("UserProfWhite.png")).toExternalForm());
 
 
