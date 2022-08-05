@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomytwitter.SignInDetailController">
+   <content>
+      <AnchorPane fx:id="anchorPane" prefHeight="408.0" prefWidth="601.0">
+         <children>
+            <ImageView fx:id="twitterImg" fitHeight="101.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-twitter-400.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="completeText" fill="#78a1d1" layoutX="101.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compelete your information" wrappingWidth="499.478515625">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <TextField fx:id="nameField" layoutX="285.0" layoutY="60.0" prefHeight="35.0" prefWidth="227.0" promptText="Name">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="lastnameField" layoutX="285.0" layoutY="107.0" prefHeight="35.0" prefWidth="227.0" promptText="Lastname">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailField" layoutX="285.0" layoutY="203.0" prefHeight="35.0" prefWidth="227.0" promptText="XXX@gmail.com">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="bioField" layoutX="285.0" layoutY="251.0" prefHeight="35.0" prefWidth="227.0" promptText="Biography">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Text fx:id="nameText" layoutX="188.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="lastnameText" layoutX="182.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="birthdayText" layoutX="188.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="gmailText" layoutX="199.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gmail:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="bioText" layoutX="181.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Biography:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="typeText" layoutX="202.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="birthdayPick" layoutX="285.0" layoutY="155.0" prefHeight="40.0" prefWidth="227.0" promptText="Birthday" />
+            <RadioButton fx:id="publicButton" layoutX="290.0" layoutY="296.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" selected="true" text="Public">
+               <toggleGroup>
+                  <ToggleGroup fx:id="accountType" />
+               </toggleGroup>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="privateButton" layoutX="399.0" layoutY="296.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Private" toggleGroup="$accountType">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+            <Rectangle fx:id="doneRect" arcHeight="5.0" arcWidth="5.0" fill="#78a1d1" height="40.0" layoutX="189.0" layoutY="346.0" onMouseClicked="#onDoneClicked" stroke="#78a1d1" strokeType="INSIDE" width="193.0" />
+            <Circle fx:id="doneCirc1" fill="#78a1d1" layoutX="189.0" layoutY="366.0" onMouseClicked="#onDoneClicked" radius="20.0" stroke="#78a1d1" strokeType="INSIDE" />
+            <Circle fx:id="doneCirc2" fill="#78a1d1" layoutX="379.0" layoutY="366.0" onMouseClicked="#onDoneClicked" radius="20.0" stroke="#78a1d1" strokeType="INSIDE" />
+            <Text fx:id="doneText" fill="WHITE" layoutX="263.0" layoutY="373.0" onMouseClicked="#onDoneClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Done">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
