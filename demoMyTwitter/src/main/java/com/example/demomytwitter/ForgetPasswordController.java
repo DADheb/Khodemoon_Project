@@ -55,12 +55,8 @@ public class ForgetPasswordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialValues();
-        this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                initial(mainPane.widthProperty().doubleValue() / 600);
-            }
-        });
+        initial(Creator.scale);
+
     }
 
     public void initial(double scale) {
@@ -166,39 +162,34 @@ public class ForgetPasswordController implements Initializable {
 
     @FXML
     protected void onSignUpClicked (MouseEvent e) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        // with node
     }
 
     @FXML
     protected void onLogInClicked (MouseEvent e) throws IOException {
-//        initialValues();
-//        username = usernameField.getText();
-//        password = passwordField.getText();
-//        question = questionField.getText();
-//        int index = DataBase.getUserNames().indexOf(username);
-//        if (index == -1){
-//            clearALL();
-//            noUserText.setVisible(true);
-//        }
-//        else {
-//            if(!DataBase.getUsers().get(DataBase.getUserID(username)).getSecurityQuestionsAnswers().equals(question)){
-//                clearALL();
-//                answerText.setVisible(true);
-//            }
-//            else{
-//                if(passwordCheck1(password) && passwordCheck2(password)){
-//                    // بره تو اکانت
-//                }
-//                else{
-//                    clearALL();
-//                }
-//            }
-//        }
+        initialValues();
+        Creator.setUsername = usernameField.getText();
+        Creator.setPassword = passwordField.getText();
+        Creator.setQuestion = questionField.getText();
+        int index = DataBase.getUserNames().indexOf(username);
+        if (index == -1){
+            clearALL();
+            noUserText.setVisible(true);
+        }
+        else {
+            if(!DataBase.getUsers().get(DataBase.getUserID(username)).getSecurityQuestionsAnswers().equals(question)){
+                clearALL();
+                answerText.setVisible(true);
+            }
+            else{
+                if(passwordCheck1(password) && passwordCheck2(password)){
+                    // بره تو صفحه اصلی اکانت
+                }
+                else{
+                    clearALL();
+                }
+            }
+        }
     }
 
     @FXML

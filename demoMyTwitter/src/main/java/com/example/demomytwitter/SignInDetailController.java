@@ -47,12 +47,11 @@ public class SignInDetailController implements Initializable {
     Boolean type = true;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                initial(mainPane.widthProperty().doubleValue() / 600);
-            }
-        });
+        initial(Creator.scale);
+        initialValues();
+        this.username = Creator.setUsername;
+        this.question = Creator.setQuestion;
+        this.password = Creator.setPassword;
     }
 
     public void initial(double scale) {
@@ -146,13 +145,6 @@ public class SignInDetailController implements Initializable {
         publicButton.setSelected(true);
     }
 
-
-    public void fill (String username, String question, String password){
-        this.username = username;
-        this.question = question;
-        this.password = password;
-    }
-
     @FXML
     protected void onDoneClicked (MouseEvent e) throws IOException {
         birthday = "";
@@ -168,8 +160,8 @@ public class SignInDetailController implements Initializable {
         }
         else
             type = true;
-        //ControllerManager.newUser(username,password,type,name,lastname,bio,question,birthday,email);
-        //todo وارد منو شود
+        ControllerManager.newUser(username,password,type,name,lastname,bio,question,birthday,email);
+        // وارد اکانت شود
 
     }
 

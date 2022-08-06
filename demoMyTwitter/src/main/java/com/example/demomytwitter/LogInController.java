@@ -52,12 +52,7 @@ public class LogInController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialValues();
-        this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                initial(mainPane.widthProperty().doubleValue() / 600);
-            }
-        });
+        initial(Creator.scale);
     }
 
     public void initial(double scale) {
@@ -124,43 +119,26 @@ public class LogInController implements Initializable {
     @FXML
     public void onNextClicked (MouseEvent e) throws IOException{
         String username = usernameField.getText();
+        Creator.setUsername = username;
 
         if(!username.isEmpty()){
-//            if (!DataBase.getUserNames().contains(username)){
-//                // DataBase.getUserNames().indexOf(username) یا این !
-//                notFound.setDisable(true);
-//                usernameField.clear();
-//            }
-//            else{
-//                Parent root;
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
-//                root = loader.load();
-//                SignInController signInController = loader.getController();
-//                signInController.fillUsername (username);
-//                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.show();
-//            }
+            if (!DataBase.getUserNames().contains(username)){
+                // DataBase.getUserNames().indexOf(username) یا این !
+                notFound.setDisable(true);
+                usernameField.clear();
+            }
+            else{
+                // with node signin
+            }
         }
     }
     @FXML
     public void onForgetClicked(MouseEvent e) throws IOException{
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("ForgetPassword.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        // with node
     }
     @FXML
     public void onSignUpClicked (MouseEvent e) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+       // with node
     }
 
     @FXML

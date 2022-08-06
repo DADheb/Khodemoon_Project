@@ -52,12 +52,7 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initialValues();
-        this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                initial(mainPane.widthProperty().doubleValue() / 600);
-            }
-        });
+        initial(Creator.scale);
     }
 
     public void initial(double scale) {
@@ -160,27 +155,23 @@ public class SignUpController implements Initializable {
         initialValues();
         String username, question,password;
         username = usernameField.getText();
+        Creator.setUsername = username;
         question = questionField.getText();
-        password = questionField.getText();
+        Creator.setQuestion = question;
+        password = passwordField.getText();
+        Creator.setPassword = password;
+
         if(!username.isEmpty() && !question.isEmpty() && !password.isEmpty()){
-//            if(!DataBase.getUserNames().contains(username)) {
-//                if(passwordCheck1(password) && passwordCheck2(password)){
-//                    Parent root;
-//                    FXMLLoader loader = new FXMLLoader(getClass().getResource("SignInDetail.fxml"));
-//                    root = loader.load();
-//                    SignInDetailController signIndetailController = loader.getController();
-//                    signIndetailController.fill(username, question, password);
-//                    stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-//                    scene = new Scene(root);
-//                    stage.setScene(scene);
-//                    stage.show();
-//                }
+            if(!DataBase.getUserNames().contains(username)) {
+                if(passwordCheck1(password) && passwordCheck2(password)){
+                    // with node sign in detail
+                }
             clearAll();
-//            }
-//            else{
-//                existsText.setVisible(true);
-//                clearAll();
-//            }
+            }
+            else{
+                existsText.setVisible(true);
+                clearAll();
+            }
 
         }
         else{
@@ -189,12 +180,7 @@ public class SignUpController implements Initializable {
     }
     @FXML
     protected void onLogInClicked(MouseEvent e) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        // with node
     }
 
     @FXML
