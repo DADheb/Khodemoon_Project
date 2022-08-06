@@ -3,6 +3,7 @@ package com.example.users.FXMLController;
 import com.example.users.Controller.UserController;
 import com.example.users.DataBase.DataBase;
 import com.example.users.FXMLController.Creator;
+import com.example.users.Main;
 import com.example.users.Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -19,6 +21,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class OthersProfileHeader implements Initializable {
@@ -51,6 +54,9 @@ public class OthersProfileHeader implements Initializable {
     private Button sendMessage;
     @FXML
     private Button blockB;
+    @FXML
+    private ImageView backImage;
+
     private double scale;
     private Image image;
     private Color themeColor;
@@ -109,6 +115,11 @@ public class OthersProfileHeader implements Initializable {
         this.proHeadPane.setPrefWidth(600 * scale);
         this.proHeadPane.setPrefHeight(180 * scale);
 
+        this.backImage.setLayoutX(14 * scale);
+        this.backImage.setLayoutY(8 * scale);
+        this.backImage.setFitWidth(27 * scale);
+        this.backImage.setFitHeight(23 * scale);
+
         //theme
         this.userNameL.setTextFill(themeColor);
         this.followersL.setTextFill(themeColor);
@@ -152,18 +163,26 @@ public class OthersProfileHeader implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
         }
     }

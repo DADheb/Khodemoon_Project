@@ -1,12 +1,14 @@
 package com.example.users.FXMLController;
 
 import com.example.users.DataBase.DataBase;
+import com.example.users.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,6 +19,7 @@ import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.Date;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MyProfileHeader implements Initializable {
@@ -47,7 +50,8 @@ public class MyProfileHeader implements Initializable {
     @FXML
     private Circle proPhoto;
     @FXML
-    private Button addPostB;
+    private ImageView backImage;
+
     private double scale;
     private Image image;
     private Color themeColor;
@@ -71,7 +75,6 @@ public class MyProfileHeader implements Initializable {
         this.numOfFollowingsL.setFont(Font.font(18 * scale));
         this.numOfFollowersL.setFont(Font.font(18 * scale));
         this.numOfPostL.setFont(Font.font(18 * scale));
-        this.addPostB.setFont(Font.font(14 * scale));
 
         this.proPhoto.setRadius(56 * scale);
         this.topLine.setEndX(600 * scale);
@@ -86,7 +89,7 @@ public class MyProfileHeader implements Initializable {
         this.numOfFollowersL.setLayoutX(362 * scale);
         this.numOfFollowingsL.setLayoutX(476 * scale);
         this.proPhoto.setLayoutX(112 * scale);
-        this.addPostB.setLayoutX(546 * scale);
+        this.backImage.setLayoutX(14 * scale);
 
         this.userNameL.setLayoutY(5 * scale);
         this.followingsL.setLayoutY(93 * scale);
@@ -99,10 +102,13 @@ public class MyProfileHeader implements Initializable {
         this.proPhoto.setLayoutY(100 * scale);
         this.topLine.setLayoutY(45 * scale);
         this.bottomLine.setLayoutY(175 * scale);
-        this.addPostB.setLayoutY(120 * scale);
+        this.backImage.setLayoutY(8 * scale);
 
         this.proHeadPane.setPrefWidth(600 * scale);
         this.proHeadPane.setPrefHeight(180 * scale);
+
+        this.backImage.setFitWidth(27 * scale);
+        this.backImage.setFitHeight(23 * scale);
 
         //theme
         this.userNameL.setTextFill(themeColor);
@@ -115,8 +121,6 @@ public class MyProfileHeader implements Initializable {
         this.numOfFollowersL.setTextFill(themeColor);
         this.topLine.setFill(themeColor);
         this.bottomLine.setFill(themeColor);
-        this.addPostB.setTextFill(mode);
-        this.addPostB.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         this.proHeadPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.proPhoto.setStroke(themeColor);
     }
@@ -140,24 +144,28 @@ public class MyProfileHeader implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
         }
-    }
-
-    public void createPost(ActionEvent event) {
-        //call createPost heliya
     }
 
     public void showUserFollowers(MouseEvent mouseEvent) {
@@ -173,5 +181,9 @@ public class MyProfileHeader implements Initializable {
     public void showViewers(MouseEvent mouseEvent) {
         Creator.showViewers(this.scale);
         // add she
+    }
+
+    public void back(MouseEvent mouseEvent) {
+
     }
 }

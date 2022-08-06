@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
@@ -9,7 +10,7 @@
 
 <Pane fx:id="proHeadPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.MyProfileHeader">
    <children>
-      <Label fx:id="userNameL" layoutX="251.0" layoutY="5.0" text="UserName" textFill="#78a1d1">
+      <Label fx:id="userNameL" layoutX="244.0" layoutY="8.0" text="UserName" textFill="#78a1d1">
          <font>
             <Font size="22.0" />
          </font>
@@ -52,10 +53,10 @@
          </font>
       </Label>
       <Line fx:id="bottomLine" endX="600.0" endY="-9.0" layoutY="175.0" startY="-9.0" stroke="#78a1d1" />
-      <Button fx:id="addPostB" layoutX="546.0" layoutY="120.0" mnemonicParsing="false" onAction="#createPost" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: #78a1d1;" text="+" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <ImageView fx:id="backImage" fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="8.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photo/Project/BackDark.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -4,6 +4,7 @@ import com.example.users.DataBase.DataBase;
 import com.example.users.Main;
 import com.example.users.Models.User;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -99,11 +100,9 @@ public class Suggestions implements Initializable {
 
     public Node addComment(Comment comment) throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new
-                FXMLLoader(HelloApplication.class.getResource("TextComment.fxml"));
-        TextCommentController textCommentController =
-                fxmlLoader.getController();
-￼textCommentController.fillComment(comment, Creator.scale);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TextComment.fxml"));
+        TextCommentController textCommentController = fxmlLoader.getController();
+        textCommentController.fillComment(comment, Creator.scale);
         node = fxmlLoader.load();
         return node;
     }
@@ -113,8 +112,7 @@ public class Suggestions implements Initializable {
     }
 
     public ArrayList<Post> showAds(User u) {
-        Stream<Map.Entry<User, Integer>> sorted =
-                u.getInterestAD().entrySet().stream().sorted(Map.Entry.comparingByValue());
+        Stream<Map.Entry<User, Integer>> sorted = u.getInterestAD().entrySet().stream().sorted(Map.Entry.comparingByValue());
         int size = u.getInterestAD().size();
         int limit = Math.min(size, 5);
         ArrayList<Post> posts = new ArrayList<>();
