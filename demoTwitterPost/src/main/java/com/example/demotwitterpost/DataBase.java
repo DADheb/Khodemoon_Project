@@ -19,7 +19,7 @@ public class DataBase {
     static private ArrayList<String> userPasswords = new ArrayList<>();
     static private User mainUser;
     private static double scale;
-    public static int theme = 3;
+    public static int theme = 1;
 
     public static void setTheme(int theme) {
         DataBase.theme = theme;

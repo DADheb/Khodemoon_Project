@@ -171,7 +171,8 @@ public class CreatePostController implements Initializable {
             String text = textArea.getText();
             //post = ControllerManager.post(DataBase.getUser(),text,0);
             Creator.setPost(post);
-            // توی خود پست درست کردم کانستراکتورشو ولی منیجر رو نیاودم
+            // توی خود پست درست کردم کانستراکتورشو ولی منیجر رو نیاودم ، تو فایل اصلی ادیت شه
+            // یک اینت تایپ هست که صفر باشه تکسته ۱ باشه url
             //// برگرده به صفحه منو!
         }
         else{

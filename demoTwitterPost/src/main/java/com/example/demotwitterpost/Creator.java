@@ -10,6 +10,9 @@ public class Creator {
     static Post post;
     static Comment comment;
     static int type = 0;
+    static User user;
+    static Double usersPostVBox;
+    // 0 :comment on post  1 :comment on comment
 
     public static void setType(int type) {
         Creator.type = type;
@@ -39,7 +42,7 @@ public class Creator {
         return node;
     }
 
-    public static Node viewPost (Double s) throws IOException {
+    public static Node viewPosts (Double s) throws IOException {
         scale = s;
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewPosts.fxml"));
@@ -54,4 +57,45 @@ public class Creator {
         node = fxmlLoader.load();
         return node;
     }
+
+    public static Node morePublicUser (Double s) throws IOException {
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MoreTextPost.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
+    public static Node morePrivateUser (Double s) throws IOException {
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MoreImagePost.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
+    public static Node moreComment (Double s) throws IOException {
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("MoreComment.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
+    public static Node createPost (Double s) throws IOException {
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreatePost.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
+    public static Node createComment (Double s) throws IOException {
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("CreateComment.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
 }

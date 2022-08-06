@@ -29,17 +29,17 @@ public class ShowUsersPostsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
         try{
-            Collections.sort(DataBase.getUser().getPosts());
-            for (int i = 0; i < DataBase.getUser().getPosts().size(); i++) {
+            Collections.sort(Creator.user.getPosts());
+            for (int i = 0; i < Creator.user.getPosts().size(); i++) {
                 this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
-                this.myBox.getChildren().add((Pane) addPost(DataBase.getUser().getPosts().get(i)));
-                Collections.sort(DataBase.getUser().getPosts().get(i).getComments());
-                for (int j = 0; j < DataBase.getUser().getPosts().get(i).getComments().size(); j++) {
+                this.myBox.getChildren().add((Pane) addPost(Creator.user.getPosts().get(i)));
+                Collections.sort(Creator.user.getPosts().get(i).getComments());
+                for (int j = 0; j < Creator.user.getPosts().get(i).getComments().size(); j++) {
                     this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
-                    this.myBox.getChildren().add((Pane) addComment (DataBase.getUser().getPosts().get(i).getComments().get(j)));
+                    this.myBox.getChildren().add((Pane) addComment (Creator.user.getPosts().get(i).getComments().get(j)));
                 }
-                // شاید بهتر باشه که نشون ندیمش!
             }
+            Creator.usersPostVBox = myBox.getPrefHeight();
         } catch (IOException e){
             e.printStackTrace();
         }

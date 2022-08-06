@@ -46,7 +46,8 @@ public class MoreCommentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-        fillInfo();
+        this.comment = Creator.comment;
+        textArea.setText(comment.getText());
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -125,11 +126,6 @@ public class MoreCommentController implements Initializable {
         }
     }
 
-    public void fillInfo () {
-//        this.comment = Creator.comment;
-//        textArea.setText(comment.getText());
-    }
-
     @FXML
     protected void onDoneClicked (ActionEvent e) throws IOException {
         Creator.setComment(comment);
@@ -143,11 +139,10 @@ public class MoreCommentController implements Initializable {
     protected void onDeleteClicked (ActionEvent e) throws IOException {
         Creator.setComment(comment);
             if(!comment.isType()){
-                //ManagerController.deleteCommentP(comment.getPost(), comment);
+                //ManagerController.deleteCommentC(comment.getPost(), comment);
             }
             else{
-                //ManagerController.deleteCommentC(comment.getComment(), comment);
+                //ManagerController.deleteCommentP(comment.getComment(), comment);
             }
-            // اگه درست فهمیده باشم که type==true یعنی کامنت یک کامنت
     }
 }

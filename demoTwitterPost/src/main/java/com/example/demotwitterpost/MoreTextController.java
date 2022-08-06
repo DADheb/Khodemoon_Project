@@ -211,5 +211,4 @@ public class MoreTextController implements Initializable {
         //ControllerManager.deletePost(post);
     }
 
-    // این صفحه نیاز به پست داره امتحانش..
 }

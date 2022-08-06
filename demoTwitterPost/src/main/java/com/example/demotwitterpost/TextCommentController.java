@@ -189,12 +189,7 @@ public class TextCommentController implements Initializable {
     @FXML
     protected void onMoreClicked (MouseEvent e) throws IOException {
         Creator.setComment(comment);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreComment.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("New Comment");
-        stage.setScene(new Scene(root1));
-        stage.show();
+        // with node MoreComment
     }
     @FXML
     protected void onLikeClicked (MouseEvent e) throws IOException {
@@ -219,16 +214,14 @@ public class TextCommentController implements Initializable {
         stage.setTitle("New Comment");
         stage.setScene(new Scene(root1));
         stage.show();
+        // استثنا بود
     }
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
         Creator.setComment(comment);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewComments.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("More Comments");
-        stage.setScene(new Scene(root1));
-        stage.show();
+        // todo بره صفحه کامنت
+        // fxml name : ViewComments
+        // node in Creator name : viewComments
     }
 
 }

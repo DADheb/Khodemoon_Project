@@ -42,7 +42,9 @@ public class MoreImagePostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-        fillInfo();
+        this.post = Creator.post;
+        textArea.setText(post.getText());
+
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -121,17 +123,12 @@ public class MoreImagePostController implements Initializable {
         }
     }
 
-    public void fillInfo () {
-//        this.post = Creator.post;
-//        textArea.setText(post.getText());
-    }
-
     @FXML
     protected void onDoneClicked (ActionEvent e) throws IOException {
         Creator.setPost(post);
         String newText = textArea.getText();
         if(!newText.isEmpty()) {
-            // PostManager.editText(poost, newText)
+            // PostManager.editText(post, newText);
         }
     }
 

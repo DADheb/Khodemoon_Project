@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
@@ -14,6 +15,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +27,13 @@ import java.util.ResourceBundle;
 public class ViewCommentsController implements Initializable {
     @FXML
     private ScrollPane mainPane;
+    @FXML
+    private AnchorPane anchorPane;
     public VBox myVBox;
+    @FXML
+    private Text seeText;
+    @FXML
+    private Button backButton;
 
     private Color themeColor;
     private Color mode;
@@ -48,12 +57,30 @@ public class ViewCommentsController implements Initializable {
 
     public void initial(double scale) {
         theme();
+        this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+        this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefHeight(450 * scale);
+        this.anchorPane.setPrefHeight(450 * scale);;
         this.myVBox.setPrefWidth(600 * scale);
         this.myVBox.setPrefHeight(600 * scale);
-        this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.myVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+
+        this.seeText.setFill(themeColor);
+        this.seeText.setFont(Font.font(30D * scale));
+        this.seeText.setLayoutX (81d* scale);
+        this.seeText.setLayoutY(45d * scale);
+
+        this.backButton.setStyle("-fx-background-radius: 15; -fx-background-color: #" + themeColor.toString().substring(2));
+        this.backButton.setTextFill(mode);
+        this.backButton.setFont(Font.font(20D * scale));
+        this.backButton.setLayoutX (469d* scale);
+        this.backButton.setLayoutY(14d * scale);
+        this.backButton.setPrefWidth(91d * scale);
+        this.backButton.setPrefHeight(40d * scale);
+
+
     }
 
     public void theme() {
@@ -79,6 +106,11 @@ public class ViewCommentsController implements Initializable {
                 this.opposite = Color.WHITE;
                 break;
         }
+    }
+
+    @FXML
+    protected void onBackClicked (ActionEvent e) throws IOException {
+        //todo برگرده عقب
     }
 
     public Node addComment(Comment comment) throws IOException {

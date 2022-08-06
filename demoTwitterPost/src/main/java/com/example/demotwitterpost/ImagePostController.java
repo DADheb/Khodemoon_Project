@@ -195,22 +195,11 @@ public class ImagePostController implements Initializable {
         Creator.setPost(post);
         // if false == public account..
         if(!post.getUser().getPrivacy()) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreTextPost.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("New Comment");
-            stage.setScene(new Scene(root1));
-            stage.show();
+            // with node  morePublicUser
         }
         else{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreImagePost.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("New Comment");
-            stage.setScene(new Scene(root1));
-            stage.show();
+            // with node morePrivateUser
         }
-        // الان نال میخوره
     }
     @FXML
     protected void onLikeClicked (MouseEvent e) throws IOException {
@@ -235,6 +224,7 @@ public class ImagePostController implements Initializable {
         stage.setTitle("New Comment");
         stage.setScene(new Scene(root1));
         stage.show();
+        // استثنا قرار شد تب جدید باشه!
     }
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
