@@ -48,6 +48,7 @@ public class SignUpController implements Initializable {
     @FXML
     private Scene scene;
     private Stage stage;
+    private Double myScale = 1.0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,63 +57,66 @@ public class SignUpController implements Initializable {
     }
 
     public void initial(double scale) {
-        this.mainPane.setPrefWidth(1000 * scale);
-        this.anchorPane.setPrefWidth(1000 * scale);
-        this.mainPane.setPrefHeight(600 * scale);
-        this.anchorPane.setPrefHeight(600 * scale);
-        this.joinText.setLayoutX (195d* scale);
+        initialValues();
+        myScale = scale;
+        scale *= 1.5;
+        this.mainPane.setPrefWidth(1000 * myScale);
+        this.anchorPane.setPrefWidth(1000 * myScale);
+        this.mainPane.setPrefHeight(600 * myScale);
+        this.anchorPane.setPrefHeight(600 * myScale);
+        this.joinText.setLayoutX (235d* scale);
         this.joinText.setLayoutY(121d * scale);
         this.joinText.setFont(Font.font(24D * scale));
         this.usernameField.setPrefWidth(227d * scale);
         this.usernameField.setPrefHeight(35d * scale);
         this.usernameField.setFont(Font.font(16D * scale));
-        this.usernameField.setLayoutX(190d * scale);
+        this.usernameField.setLayoutX(230d * scale);
         this.usernameField.setLayoutY(141d * scale);
         this.passwordField.setPrefWidth(227d * scale);
         this.passwordField.setPrefHeight(35d * scale);
         this.passwordField.setFont(Font.font(16D * scale));
-        this.passwordField.setLayoutX(190d * scale);
+        this.passwordField.setLayoutX(230d * scale);
         this.passwordField.setLayoutY(254d * scale);
         this.questionField.setPrefWidth(227d * scale);
         this.questionField.setPrefHeight(35d * scale);
         this.questionField.setFont(Font.font(16D * scale));
-        this.questionField.setLayoutX(190d * scale);
+        this.questionField.setLayoutX(230d * scale);
         this.questionField.setLayoutY(212d * scale);
-        this.existsText.setLayoutX (191d* scale);
+        this.existsText.setLayoutX (231d* scale);
         this.existsText.setLayoutY(188d * scale);
         this.existsText.setFont(Font.font(12D * scale));
-        this.animalText.setLayoutX (193d* scale);
+        this.animalText.setLayoutX (233d* scale);
         this.animalText.setLayoutY(206d * scale);
         this.animalText.setFont(Font.font(15D * scale));
-        this.tooShortText.setLayoutX (193d* scale);
+        this.tooShortText.setLayoutX (233d* scale);
         this.tooShortText.setLayoutY(301d * scale);
         this.tooShortText.setFont(Font.font(12D * scale));
-        this.WrongText.setLayoutX (193d* scale);
+        this.WrongText.setLayoutX (233d* scale);
         this.WrongText.setLayoutY(301d * scale);
         this.WrongText.setFont(Font.font(12D * scale));
-        this.Cicl1.setLayoutX(206d * scale);
+        this.Cicl1.setLayoutX(246d * scale);
         this.Cicl1.setLayoutY(333d * scale);
         this.Cicl1.setRadius(20d * scale);
-        this.Cicl2.setLayoutX(399d * scale);
+        this.Cicl2.setLayoutX(439d * scale);
         this.Cicl2.setLayoutY(333d * scale);
         this.Cicl2.setRadius(20d * scale);
-        this.signUpRect.setLayoutX(206d * scale);
+        this.signUpRect.setLayoutX(246d * scale);
         this.signUpRect.setLayoutY(313d * scale);
         this.signUpRect.setHeight(40d * scale);
         this.signUpRect.setWidth(193d * scale);
         this.signUpText.setFont(Font.font(20D * scale));
-        this.signUpText.setLayoutX(270d * scale);
+        this.signUpText.setLayoutX(310d * scale);
         this.signUpText.setLayoutY(340d * scale);
-        this.tooShortText.setLayoutX (193d* scale);
+        this.tooShortText.setLayoutX (233d* scale);
         this.tooShortText.setLayoutY(301d * scale);
         this.tooShortText.setFont(Font.font(12D * scale));
-        this.alreadyHaveText.setLayoutX (182d* scale);
+        this.alreadyHaveText.setLayoutX (222d* scale);
         this.alreadyHaveText.setLayoutY(378d * scale);
         this.alreadyHaveText.setFont(Font.font(16D * scale));
-        this.logInText.setLayoutX (363d* scale);
+        this.logInText.setLayoutX (403d* scale);
         this.logInText.setLayoutY(378d * scale);
         this.logInText.setFont(Font.font(16D * scale));
-        this.twitterImg.setLayoutX(252d * scale);
+        this.twitterImg.setLayoutX(292d * scale);
         this.twitterImg.setLayoutY(0d * scale);
         this.twitterImg.setFitHeight(107d * scale);
         this.twitterImg.setFitWidth(119d * scale);
@@ -120,6 +124,7 @@ public class SignUpController implements Initializable {
         this.exitImg.setLayoutY(1d * scale);
         this.exitImg.setFitHeight(54d * scale);
         this.exitImg.setFitWidth(51d * scale);
+        Creator.scale = myScale;
     }
     public void initialValues() {
         existsText.setVisible(false);
@@ -163,7 +168,7 @@ public class SignUpController implements Initializable {
         password = passwordField.getText();
         Creator.setPassword = password;
 
-        if(!username.isEmpty() && !question.isEmpty() && !password.isEmpty()){
+        if(!username.isEmpty() && !question.isEmpty() && !password.isEmpty()) {
             if(!DataBase.getUserNames().contains(username)) {
                 if(passwordCheck1(password) && passwordCheck2(password)){
                     // with node sign in detail
@@ -178,6 +183,7 @@ public class SignUpController implements Initializable {
         }
         else{
             clearAll();
+        }
         }
     }
     @FXML

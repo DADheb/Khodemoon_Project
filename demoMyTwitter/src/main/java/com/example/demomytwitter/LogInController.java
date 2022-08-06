@@ -48,6 +48,7 @@ public class LogInController implements Initializable {
     @FXML
     private Scene scene;
     private Stage stage;
+    private Double myScale = 1.0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,54 +57,56 @@ public class LogInController implements Initializable {
     }
 
     public void initial(double scale) {
-        this.mainPane.setPrefWidth(1000 * scale);
-        this.anchorPane.setPrefWidth(1000 * scale);
-        this.mainPane.setPrefHeight(600 * scale);
-        this.anchorPane.setPrefHeight(600 * scale);
+        myScale = scale;
+        scale *= 1.5;
+        this.mainPane.setPrefWidth(1000 * myScale);
+        this.anchorPane.setPrefWidth(1000 * myScale);
+        this.mainPane.setPrefHeight(600 * myScale);
+        this.anchorPane.setPrefHeight(600 * myScale);
         this.usernameField.setPrefWidth(227d * scale);
         this.usernameField.setPrefHeight(35d * scale);
         this.usernameField.setFont(Font.font(16D * scale));
-        this.usernameField.setLayoutX(190d * scale);
+        this.usernameField.setLayoutX(221d * scale);
         this.usernameField.setLayoutY(141d * scale);
-        this.signInText.setLayoutX (188d* scale);
+        this.signInText.setLayoutX (228d* scale);
         this.signInText.setLayoutY(131d * scale);
         this.signInText.setFont(Font.font(25D * scale));
-        this.notFound.setLayoutX(182d * scale);
+        this.notFound.setLayoutX(222d * scale);
         this.notFound.setLayoutY(214d * scale);
         this.notFound.setFont(Font.font(12D * scale));
-        this.nextCirc1.setLayoutX(391d * scale);
+        this.nextCirc1.setLayoutX(431d * scale);
         this.nextCirc1.setLayoutY(255d * scale);
         this.nextCirc1.setRadius(19d * scale);
-        this.nextCirc2.setLayoutX(199d * scale);
+        this.nextCirc2.setLayoutX(239d * scale);
         this.nextCirc2.setLayoutY(255d * scale);
         this.nextCirc2.setRadius(19d * scale);
-        this.nextRect.setLayoutX(198d * scale);
+        this.nextRect.setLayoutX(238d * scale);
         this.nextRect.setLayoutY(236d * scale);
         this.nextRect.setHeight(38d * scale);
         this.nextRect.setWidth(193d * scale);
         this.nextText.setFont(Font.font(20D * scale));
-        this.nextText.setLayoutX(275d * scale);
+        this.nextText.setLayoutX(315d * scale);
         this.nextText.setLayoutY(262d * scale);
-        this.forgetCirc1.setLayoutX(391d * scale);
+        this.forgetCirc1.setLayoutX(431d * scale);
         this.forgetCirc1.setLayoutY(308d * scale);
         this.forgetCirc1.setRadius(19d * scale);
-        this.forgetCirc2.setLayoutX(198d * scale);
+        this.forgetCirc2.setLayoutX(238d * scale);
         this.forgetCirc2.setLayoutY(308d * scale);
         this.forgetCirc2.setRadius(19d * scale);
-        this.forgetRect.setLayoutX(198d * scale);
+        this.forgetRect.setLayoutX(238d * scale);
         this.forgetRect.setLayoutY(290d * scale);
         this.forgetRect.setHeight(38d * scale);
         this.forgetRect.setWidth(193d * scale);
         this.forgetText.setFont(Font.font(20D * scale));
-        this.forgetText.setLayoutX(225d * scale);
+        this.forgetText.setLayoutX(265d * scale);
         this.forgetText.setLayoutY(316d * scale);
         this.accountText.setFont(Font.font(16D * scale));
-        this.accountText.setLayoutX(183d * scale);
+        this.accountText.setLayoutX(223d * scale);
         this.accountText.setLayoutY(366d * scale);
         this.signUpText.setFont(Font.font(16D * scale));
-        this.signUpText.setLayoutX(348d * scale);
+        this.signUpText.setLayoutX(388d * scale);
         this.signUpText.setLayoutY(366d * scale);
-        this.twitterImg.setLayoutX(252d * scale);
+        this.twitterImg.setLayoutX(292d * scale);
         this.twitterImg.setLayoutY(0d * scale);
         this.twitterImg.setFitHeight(107d * scale);
         this.twitterImg.setFitWidth(119d * scale);
@@ -111,6 +114,7 @@ public class LogInController implements Initializable {
         this.exitImg.setLayoutY(1d * scale);
         this.exitImg.setFitHeight(54d * scale);
         this.exitImg.setFitWidth(51d * scale);
+        Creator.scale = myScale;
 
     }
 

@@ -22,7 +22,7 @@
                   <Image url="@icons8-twitter-400.png" />
                </image>
             </ImageView>
-            <Text fx:id="completeText" fill="#78a1d1" layoutX="101.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compelete your information" wrappingWidth="499.478515625">
+            <Text fx:id="completeText" fill="#78a1d1" layoutX="101.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compelete your information" wrappingWidth="600">
                <font>
                   <Font size="30.0" />
                </font>

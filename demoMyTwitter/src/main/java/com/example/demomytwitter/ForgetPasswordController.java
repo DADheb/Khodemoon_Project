@@ -51,6 +51,7 @@ public class ForgetPasswordController implements Initializable {
     @FXML
     private Scene scene;
     private Stage stage;
+    private Double myScale =1.0 ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,48 +61,50 @@ public class ForgetPasswordController implements Initializable {
     }
 
     public void initial(double scale) {
-        this.mainPane.setPrefWidth(1000 * scale);
-        this.anchorPane.setPrefWidth(1000 * scale);
-        this.mainPane.setPrefHeight(600 * scale);
-        this.anchorPane.setPrefHeight(600 * scale);
-        this.twitterImg.setLayoutX(252d * scale);
+        myScale = scale;
+        scale *= 1.5;
+        this.mainPane.setPrefWidth(1000 * myScale);
+        this.anchorPane.setPrefWidth(1000 * myScale);
+        this.mainPane.setPrefHeight(600 * myScale);
+        this.anchorPane.setPrefHeight(600 * myScale);
+        this.twitterImg.setLayoutX(292d * scale);
         this.twitterImg.setLayoutY(0d * scale);
         this.twitterImg.setFitHeight(107d * scale);
         this.twitterImg.setFitWidth(119d * scale);
         this.changeText.setFont(Font.font(26D * scale));
-        this.changeText.setLayoutX(168d * scale);
+        this.changeText.setLayoutX(208d * scale);
         this.changeText.setLayoutY(121d * scale);
         this.animalText.setFont(Font.font(15D * scale));
-        this.animalText.setLayoutX(185d * scale);
+        this.animalText.setLayoutX(225d * scale);
         this.animalText.setLayoutY(208d * scale);
         this.accountText.setFont(Font.font(16D * scale));
-        this.accountText.setLayoutX(190d * scale);
+        this.accountText.setLayoutX(230d * scale);
         this.accountText.setLayoutY(386d * scale);
         this.signUpText.setFont(Font.font(16D * scale));
-        this.signUpText.setLayoutX(357d * scale);
+        this.signUpText.setLayoutX(397d * scale);
         this.signUpText.setLayoutY(386d * scale);
         this.logInText.setFont(Font.font(20D * scale));
-        this.logInText.setLayoutX(274d * scale);
+        this.logInText.setLayoutX(314d * scale);
         this.logInText.setLayoutY(354d * scale);
         this.tooShortText.setFont(Font.font(12D * scale));
-        this.tooShortText.setLayoutX(189d * scale);
+        this.tooShortText.setLayoutX(229d * scale);
         this.tooShortText.setLayoutY(321d * scale);
         this.WrongText.setFont(Font.font(12D * scale));
-        this.WrongText.setLayoutX(189d * scale);
+        this.WrongText.setLayoutX(229d * scale);
         this.WrongText.setLayoutY(321d * scale);
         this.noUserText.setFont(Font.font(12D * scale));
-        this.noUserText.setLayoutX(185d * scale);
+        this.noUserText.setLayoutX(225d * scale);
         this.noUserText.setLayoutY(385d * scale);
         this.answerText.setFont(Font.font(12D * scale));
-        this.answerText.setLayoutX(185d * scale);
+        this.answerText.setLayoutX(225d * scale);
         this.answerText.setLayoutY(263d * scale);
-        this.circ1.setLayoutX(203d * scale);
+        this.circ1.setLayoutX(243d * scale);
         this.circ1.setLayoutY(347d * scale);
         this.circ1.setRadius(20d * scale);
-        this.circ2.setLayoutX(396d * scale);
+        this.circ2.setLayoutX(436d * scale);
         this.circ2.setLayoutY(347d * scale);
         this.circ2.setRadius(20d * scale);
-        this.logInRect.setLayoutX(203d * scale);
+        this.logInRect.setLayoutX(243d * scale);
         this.logInRect.setLayoutY(327d * scale);
         this.logInRect.setHeight(40d * scale);
         this.logInRect.setWidth(193d * scale);
@@ -109,24 +112,25 @@ public class ForgetPasswordController implements Initializable {
         this.usernameField.setPrefWidth(227d * scale);
         this.usernameField.setPrefHeight(40d * scale);
         this.usernameField.setFont(Font.font(20D * scale));
-        this.usernameField.setLayoutX(185d * scale);
+        this.usernameField.setLayoutX(225d * scale);
         this.usernameField.setLayoutY(134d * scale);
         this.passwordField.setPrefWidth(227d * scale);
         this.passwordField.setPrefHeight(40d * scale);
         this.passwordField.setFont(Font.font(20D * scale));
-        this.passwordField.setLayoutX(185d * scale);
+        this.passwordField.setLayoutX(225d * scale);
         this.passwordField.setLayoutY(269d * scale);
 
         this.questionField.setPrefWidth(227d * scale);
         this.questionField.setPrefHeight(40d * scale);
         this.questionField.setFont(Font.font(20D * scale));
-        this.questionField.setLayoutX(185d * scale);
+        this.questionField.setLayoutX(225d * scale);
         this.questionField.setLayoutY(211d * scale);
 
         this.exitImg.setLayoutX(0d * scale);
         this.exitImg.setLayoutY(1d * scale);
         this.exitImg.setFitHeight(54d * scale);
         this.exitImg.setFitWidth(51d * scale);
+        Creator.scale = myScale;
     }
 
     public void initialValues() {

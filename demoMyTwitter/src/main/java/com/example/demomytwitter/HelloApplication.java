@@ -20,8 +20,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignInDetail.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SignUp.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
             stage.setTitle("Hello!");
             stage.setScene(scene);
             stage.show();
