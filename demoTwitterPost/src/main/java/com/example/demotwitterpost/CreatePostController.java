@@ -89,6 +89,8 @@ public class CreatePostController implements Initializable {
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefHeight(450 * scale);
+        this.anchorPane.setPrefHeight(450 * scale);
 
 
         this.urlText.setFill(themeColor);

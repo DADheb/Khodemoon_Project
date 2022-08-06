@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
-public class ShowUsersPostsController implements Initializable {
-
+public class ShowFollowingsPostsController implements Initializable {
     @FXML
     private ScrollPane mainPane;
     public VBox myBox;
@@ -29,14 +28,17 @@ public class ShowUsersPostsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
         try{
-            Collections.sort(DataBase.getUser().getPosts());
-            for (int i = 0; i < DataBase.getUser().getPosts().size(); i++) {
-                this.myBox.getChildren().add((Pane) addPost(DataBase.getUser().getPosts().get(i)));
-                Collections.sort(DataBase.getUser().getPosts().get(i).getComments());
-                for (int j = 0; j < DataBase.getUser().getPosts().get(i).getComments().size(); j++) {
-                    this.myBox.getChildren().add((Pane) addComment (DataBase.getUser().getPosts().get(i).getComments().get(j)));
+            ArrayList<Post> posts = new ArrayList<>();
+            for (User u : DataBase.getUser().getFollowings()){
+                posts.addAll(u.getPosts());
+            }
+            Collections.sort(posts);
+            for (int i = 0; i < posts.size(); i++) {
+                this.myBox.getChildren().add((Pane) addPost(posts.get(i)));
+                Collections.sort(posts.get(i).getComments());
+                for (int j = 0; j < posts.get(i).getComments().size(); j++) {
+                    this.myBox.getChildren().add((Pane) addComment (posts.get(i).getComments().get(j)));
                 }
-                // شاید بهتر باشه که نشون ندیمش!
             }
         } catch (IOException e){
             e.printStackTrace();
@@ -102,5 +104,4 @@ public class ShowUsersPostsController implements Initializable {
         node = fxmlLoader.load();
         return node;
     }
-
 }

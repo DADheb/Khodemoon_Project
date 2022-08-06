@@ -3,15 +3,10 @@ package com.example.demotwitterpost;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -19,28 +14,19 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Set;
 
-public class MoreTextController implements Initializable {
-
+public class MoreImagePostController implements Initializable {
     @FXML
     private ScrollPane mainPane;
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private LineChart lineChart;
-    @FXML
-    private CategoryAxis date;
-    @FXML
-    private NumberAxis perDay;
-    @FXML
     private TextArea textArea;
     @FXML
     private Text editText;
     @FXML
-    private Text impText;
+    private Text postText;
     @FXML
     private Button doneButton;
     @FXML
@@ -51,13 +37,12 @@ public class MoreTextController implements Initializable {
     private Color opposite;
     private Image image;
     private Post post;
-    private Double scale = 1.0;
+    private Double scale = 0.5;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
         fillInfo();
-        this.post = Creator.post;
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -78,56 +63,37 @@ public class MoreTextController implements Initializable {
         if(DataBase.getTheme() > 2) {
             this.textArea.setStyle("-fx-control-inner-background: #" + mode.toString().substring(2) + ";-fx-font-family: Consolas; -fx-highlight-fill:" + themeColor.toString().substring(2) + ";-fx-highlight-fill:" + themeColor.toString().substring(2) + "; -fx-text-fill:" + themeColor.toString().substring(2));
         }
-        this.textArea.setPrefWidth(286d * scale);
-        this.textArea.setPrefHeight(200d * scale);
+        this.textArea.setPrefWidth(350d * scale);
+        this.textArea.setPrefHeight(152d * scale);
         this.textArea.setFont(Font.font(20D * scale));
-        this.textArea.setLayoutX(23d * scale);
-        this.textArea.setLayoutY(378d * scale);
+        this.textArea.setLayoutX(120d * scale);
+        this.textArea.setLayoutY(110d * scale);
 
         this.editText.setFill(themeColor);
-        this.editText.setLayoutX (107d* scale);
-        this.editText.setLayoutY(359d * scale);
-        this.editText.setFont(Font.font(20D * scale));
+        this.editText.setLayoutX (120d* scale);
+        this.editText.setLayoutY(104d * scale);
+        this.editText.setFont(Font.font(18D * scale));
 
-        this.impText.setFill(themeColor);
-        this.impText.setLayoutX (254d* scale);
-        this.impText.setLayoutY(18d * scale);
-        this.impText.setFont(Font.font(16D * scale));
+        this.postText.setFill(themeColor);
+        this.postText.setLayoutX (180d* scale);
+        this.postText.setLayoutY(62d * scale);
+        this.postText.setFont(Font.font(30D * scale));
 
         this.doneButton.setStyle("-fx-background-radius: 15; -fx-background-color: #" + themeColor.toString().substring(2));
         this.doneButton.setTextFill(mode);
         this.doneButton.setFont(Font.font(20D * scale));
-        this.doneButton.setLayoutX (356d* scale);
-        this.doneButton.setLayoutY(407d * scale);
-        this.doneButton.setPrefWidth(173d * scale);
+        this.doneButton.setLayoutX (307d* scale);
+        this.doneButton.setLayoutY(314d * scale);
+        this.doneButton.setPrefWidth(237d * scale);
         this.doneButton.setPrefHeight(53d * scale);
 
         this.deleteButton.setStyle("-fx-background-radius: 15; -fx-background-color: #" + themeColor.toString().substring(2));
         this.deleteButton.setTextFill(mode);
         this.deleteButton.setFont(Font.font(20D * scale));
-        this.deleteButton.setLayoutX (356d* scale);
-        this.deleteButton.setLayoutY(489d * scale);
-        this.deleteButton.setPrefWidth(173d * scale);
+        this.deleteButton.setLayoutX (40d* scale);
+        this.deleteButton.setLayoutY(314d * scale);
+        this.deleteButton.setPrefWidth(237d * scale);
         this.deleteButton.setPrefHeight(53d * scale);
-
-        //this.lineChart.setStyle();
-        this.lineChart.setPrefWidth(600d * scale);
-        this.lineChart.setPrefHeight(330d * scale);
-        this.lineChart.setLayoutX(-9d * scale);
-        this.lineChart.setLayoutY(10d * scale);
-
-        this.date.setStyle( "-fx-background-color: #"+ themeColor.toString().substring(2));
-        this.date.setLayoutX (0d* scale);
-        this.date.setLayoutY(0d * scale);
-        this.date.setPrefWidth(507d * scale);
-        this.date.setPrefHeight(32d * scale);
-
-        this.perDay.setStyle("-fx-background-color: #"+ themeColor.toString().substring(2));
-        this.perDay.setLayoutX (0d* scale);
-        this.perDay.setLayoutY(0d * scale);
-        this.perDay.setPrefWidth(40d * scale);
-        this.perDay.setPrefHeight(246d * scale);
-
     }
 
     public void theme() {
@@ -155,45 +121,9 @@ public class MoreTextController implements Initializable {
         }
     }
 
-    public void fillInfo (){
+    public void fillInfo () {
 //        this.post = Creator.post;
 //        textArea.setText(post.getText());
-//        XYChart.Series series = new XYChart.Series();
-//
-//        Set<String> keySet = post.getLikePD().keySet();
-//        ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
-//
-//        if (listOfKeys.size() < 5) {
-//            for (int i = 0; i < listOfKeys.size(); i++) {
-//                series.getData().add(i, post.getLikePD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-//        else{
-//            for (int i = listOfKeys.size()-4; i < listOfKeys.size(); i++) {
-//                series.getData().add(i, post.getLikePD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-//
-//        XYChart.Series series2 = new XYChart.Series();
-//
-//        Set<String> keySet2 = post.getViewPD().keySet();
-//        ArrayList<String> listOfKeys2 = new ArrayList<String>(keySet);
-//
-//        if (listOfKeys2.size() < 5) {
-//            for (int i = 0; i < listOfKeys2.size(); i++) {
-//                series2.getData().add(i, post.getViewPD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-//        else{
-//            for (int i = listOfKeys2.size()-4; i < listOfKeys2.size(); i++) {
-//                series2.getData().add(i, post.getViewPD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-
     }
 
     @FXML
@@ -201,7 +131,7 @@ public class MoreTextController implements Initializable {
         Creator.setPost(post);
         String newText = textArea.getText();
         if(!newText.isEmpty()) {
-            //PostController.editText(post, newText);
+            // PostManager.editText(poost, newText)
         }
     }
 
@@ -210,6 +140,4 @@ public class MoreTextController implements Initializable {
         Creator.setPost(post);
         //ControllerManager.deletePost(post);
     }
-
-    // این صفحه نیاز به پست داره امتحانش..
 }

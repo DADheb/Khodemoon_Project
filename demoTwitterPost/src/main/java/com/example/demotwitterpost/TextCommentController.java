@@ -60,6 +60,7 @@ public class TextCommentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
+        //fillComment(Creator.comment, Creator.scale);
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -72,6 +73,8 @@ public class TextCommentController implements Initializable {
         theme();
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefHeight(450 * scale);
+        this.anchorPane.setPrefHeight(450 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
 
@@ -220,7 +223,7 @@ public class TextCommentController implements Initializable {
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
         Creator.setComment(comment);
-        // برگرده به صفحه نمایش کامنت!
+        //todo نمایش کامنت های کامنت یا نه ؟
     }
 
 }

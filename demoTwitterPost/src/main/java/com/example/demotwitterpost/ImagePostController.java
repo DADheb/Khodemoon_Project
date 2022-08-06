@@ -66,17 +66,19 @@ public class ImagePostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-
+        //fillPost(Creator.post, Creator.scale);
     }
 
     public void initial(double scale) {
         theme();
-        this.postImage = new Image(new File("/Users/heliya/demoTwitterPost/src/main/resources/com/example/demotwitterpost/IMG_0490.png").toURI().toString());
-        this.hello.setImage(postImage);
+//        this.postImage = new Image(new File("/Users/heliya/demoTwitterPost/src/main/resources/com/example/demotwitterpost/IMG_0490.png").toURI().toString());
+//        this.hello.setImage(postImage);
 //        for test
 
         this.mainPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefHeight(450 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
+        this.anchorPane.setPrefHeight(450 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
 
@@ -191,12 +193,24 @@ public class ImagePostController implements Initializable {
     @FXML
     protected void onMoreClicked (MouseEvent e) throws IOException {
         Creator.setPost(post);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreTextPost.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("New Comment");
-        stage.setScene(new Scene(root1));
-        stage.show();
+        // if false == public account..
+        if(!post.getUser().getPrivacy()) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreTextPost.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Comment");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }
+        else{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreImagePost.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Comment");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }
+        // الان نال میخوره
     }
     @FXML
     protected void onLikeClicked (MouseEvent e) throws IOException {
@@ -222,9 +236,10 @@ public class ImagePostController implements Initializable {
         stage.setScene(new Scene(root1));
         stage.show();
     }
-    @FXML
-    protected void onViewClicked (MouseEvent e) throws IOException {
-        Creator.setPost(post);
-        // برگرده به صفحه نمایش کامنت!
-    }
+//    @FXML
+//    protected void onViewClicked (MouseEvent e) throws IOException {
+//        Creator.setPost(post);
+//        // قرار شد همونجا نمایش بدیم
+//
+//    }
 }

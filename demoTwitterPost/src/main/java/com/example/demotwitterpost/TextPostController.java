@@ -64,6 +64,7 @@ public class TextPostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
+        //fillPost(Creator.post, Creator.scale);
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -76,6 +77,8 @@ public class TextPostController implements Initializable {
         theme();
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefHeight(450 * scale);
+        this.anchorPane.setPrefHeight(450 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
 
@@ -190,12 +193,24 @@ public class TextPostController implements Initializable {
     @FXML
     protected void onMoreClicked (MouseEvent e) throws IOException {
         Creator.setPost(post);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreTextPost.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("New Comment");
-        stage.setScene(new Scene(root1));
-        stage.show();
+        // if false == public account..
+        if(!post.getUser().getPrivacy()) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreTextPost.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Comment");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }
+        else{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MoreImagePost.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("New Comment");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }
+        // الان نال میخوره فعلا
     }
     @FXML
     protected void onLikeClicked (MouseEvent e) throws IOException {
@@ -221,11 +236,11 @@ public class TextPostController implements Initializable {
         stage.setScene(new Scene(root1));
         stage.show();
     }
-    @FXML
-    protected void onViewClicked (MouseEvent e) throws IOException {
-        Creator.setPost(post);
-        // برگرده به صفحه نمایش کامنت!
-    }
+//    @FXML
+//    protected void onViewClicked (MouseEvent e) throws IOException {
+//        Creator.setPost(post);
+//        // قرار شد همونجا نمایش بدیم
+//    }
 
 
 }
