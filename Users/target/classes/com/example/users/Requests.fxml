@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="requestsScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.Requests">
+    <content>
+        <VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
+            <children>
+                <Pane fx:id="topPane" prefHeight="50.0" prefWidth="600.0">
+                    <children>
+                        <Label fx:id="titleL" layoutX="218.0" layoutY="11.0" text="Follow Requests">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="backImage" fitHeight="48.0" fitWidth="43.0" layoutX="14.0" layoutY="4.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Photo/Project/BackDark.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            </children></VBox>
+    </content>
+</ScrollPane>

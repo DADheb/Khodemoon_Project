@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="backPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.Menu">
+   <children>
+      <VBox fx:id="mainVBox" prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <ImageView fx:id="tweeterP" fitHeight="93.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photo/Project/Menu/tweeterBlue.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="one" prefHeight="200.0" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="homeP" fitHeight="54.0" fitWidth="52.0" onMouseClicked="#showHome" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/home.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="homeL" alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="16.0" onMouseClicked="#showHome" text="Home" textAlignment="CENTER" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="two" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="exploreP" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#showExplore" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/explore.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="exploreL" layoutX="94.0" layoutY="18.0" onMouseClicked="#showExplore" text="Explore" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="three" prefHeight="200.0" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="messagesP" fitHeight="51.0" fitWidth="50.0" onMouseClicked="#showMessages" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/messages.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="messagesL" layoutX="94.0" layoutY="15.0" onMouseClicked="#showMessages" text="Messages" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="four" prefHeight="200.0" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="proP" fitHeight="45.0" fitWidth="47.0" layoutY="6.0" onMouseClicked="#showProfile" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/profile.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="proL" layoutX="94.0" layoutY="18.0" onMouseClicked="#showProfile" text="Profile" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="five" prefHeight="200.0" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="settingP" fitHeight="49.0" fitWidth="48.0" onMouseClicked="#showSetting" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/gear.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="settingL" layoutX="94.0" layoutY="14.0" onMouseClicked="#showSetting" text="Settings" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="six" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="requestP" fitHeight="51.0" fitWidth="48.0" onMouseClicked="#showRequests" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/requests.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="requestL" layoutX="94.0" layoutY="14.0" onMouseClicked="#showRequests" text="Follow Requests" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="seven" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="suggestP" fitHeight="46.0" fitWidth="45.0" onMouseClicked="#showSuggest" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/suggestions.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="suggestL" layoutX="94.0" layoutY="13.0" onMouseClicked="#showSuggest" text="Suggestions" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="eight" prefHeight="200.0" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="postP" fitHeight="50.0" fitWidth="46.0" onMouseClicked="#addPost" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/addPost.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="postL" layoutX="94.0" layoutY="13.0" onMouseClicked="#addPost" text="Add Post" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="nine" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="logOutP" fitHeight="52.0" fitWidth="51.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/Menu/logOut.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="logOutL" layoutX="94.0" layoutY="17.0" onMouseClicked="#logOut" text="Log Out" textFill="#78a1d1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
