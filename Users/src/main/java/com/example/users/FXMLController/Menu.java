@@ -98,7 +98,7 @@ public class Menu implements Initializable {
             mainVBox.getChildren().remove(this.six);
         }
 
-        backPane.setPrefHeight(400*scale);
+        backPane.setPrefHeight(400 * scale);
         mainVBox.setPrefWidth(400 * scale);
         one.setPrefWidth(400 * scale);
         two.setPrefWidth(400 * scale);

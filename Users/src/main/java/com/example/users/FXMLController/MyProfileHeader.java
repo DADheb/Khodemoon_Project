@@ -161,17 +161,17 @@ public class MyProfileHeader implements Initializable {
     }
 
     public void showUserFollowers(MouseEvent mouseEvent) {
-        //Creator.showFollowingsOrFollowers(DataBase.getUser(),"Followers", this.scale);
+        Creator.showFollowingsOrFollowers(DataBase.getUser(), "Followers", this.scale);
         // ad beshe be safhe
     }
 
     public void showUserFollowings(MouseEvent mouseEvent) {
-        //Creator.showFollowingsOrFollowers(DataBase.getUser(),"Followings", this.scale);
+        Creator.showFollowingsOrFollowers(DataBase.getUser(), "Followings", this.scale);
         // ad beshe be safhe
     }
 
     public void showViewers(MouseEvent mouseEvent) {
-       // Creator.showViewers(this.scale);
+        Creator.showViewers(this.scale);
         // add she
     }
 }

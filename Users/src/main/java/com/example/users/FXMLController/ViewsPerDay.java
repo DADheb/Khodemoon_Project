@@ -46,8 +46,8 @@ public class ViewsPerDay implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.scale= Creator.getScale();
         initial();
-
     }
 
     public void initial() {
@@ -87,7 +87,6 @@ public class ViewsPerDay implements Initializable {
         topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         titleL.setTextFill(mode);
     }
-
 
     public void theme() {
         switch (DataBase.getTheme()) {

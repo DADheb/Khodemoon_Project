@@ -130,7 +130,7 @@ public class ShortUser implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /// be chi add she in?
+        /// add she
     }
 
 }

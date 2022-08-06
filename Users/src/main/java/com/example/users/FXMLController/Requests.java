@@ -38,6 +38,7 @@ public class Requests implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.scale = Creator.getScale();
         initial();
         Node node;
         for (int i = 0; i < DataBase.getUser().getRequests().size(); i++) {
@@ -52,7 +53,6 @@ public class Requests implements Initializable {
     }
 
     public void initial() {
-        this.scale = Creator.getScale();
         theme();
         mainVBox.setPrefWidth(600 * scale);
         requestsScrollPane.setPrefWidth(600 * scale);

@@ -26,16 +26,20 @@ public class OthersProfile implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.scale = Creator.getScale();
         initial();
         try {
-            this.mainVBox.getChildren().add((Pane)addHeader());
+            this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + 180 * scale);
+            this.mainVBox.getChildren().add((Pane) addHeader());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + Creator.getUsersPostVBox() * scale);
+        this.mainVBox.getChildren().add(Creator.showUserPosts(Creator.getUserToShow(), this.scale));
     }
 
     public void initial() {
-        this.scale = Creator.getScale();
+
         theme();
         this.otherProScrollPane.setPrefWidth(600 * scale);
         this.otherProScrollPane.setPrefHeight(600 * scale);
@@ -45,7 +49,7 @@ public class OthersProfile implements Initializable {
         this.otherProScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
     }
 
-    public Node addHeader () throws IOException {
+    public Node addHeader() throws IOException {
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("OthersProfileHeader.fxml"));
         node = fxmlLoader.load();

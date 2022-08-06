@@ -29,16 +29,20 @@ public class MyProfile implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.scale = Creator.getScale();
         initial();
         try {
+            this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + 180 * scale);
             this.mainVBox.getChildren().add((Pane) addHeader());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + Creator.getUsersPostVBox() * scale);
+        this.mainVBox.getChildren().add(Creator.showUserPosts(DataBase.getUser(), this.scale));
     }
 
     public void initial() {
-        this.scale = Creator.getScale();
+
         theme();
         this.myProScrollPane.setPrefWidth(600 * scale);
         this.myProScrollPane.setPrefHeight(600 * scale);

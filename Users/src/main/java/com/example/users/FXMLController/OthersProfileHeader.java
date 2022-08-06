@@ -170,13 +170,19 @@ public class OthersProfileHeader implements Initializable {
 
     public void followUser(ActionEvent event) {
         if (this.follow.getText().equals("Follow")) {
-            UserController.follow(DataBase.getUser(), Creator.getOthersProfileHeaderUser());
+            int n = UserController.follow(DataBase.getUser(), Creator.getOthersProfileHeaderUser());
+            if (n == 2) {
+                this.follow.setText("Requested");
+            } else if (n == 0) {
+                this.follow.setText("Following");
+            }
         } else if (this.follow.getText().equals("Following")) {
             UserController.unFollow(DataBase.getUser(), Creator.getOthersProfileHeaderUser());
+            this.follow.setText("Follow");
         } else if (this.follow.getText().equals("Requested")) {
             UserController.unRequest(DataBase.getUser(), Creator.getOthersProfileHeaderUser());
+            this.follow.setText("Follow");
         }
-        initial();
     }
 
     public void sendMessageToUser(ActionEvent event) {
@@ -184,12 +190,12 @@ public class OthersProfileHeader implements Initializable {
     }
 
     public void showFollowers(MouseEvent mouseEvent) {
-        //Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(),"Followers", this.scale);
+        Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(), "Followers", this.scale);
         // ad beshe be safhe
     }
 
     public void showFollowings(MouseEvent mouseEvent) {
-        //Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(),"Followings", this.scale);
+        Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(), "Followings", this.scale);
         // ad beshe be safhe
     }
 }

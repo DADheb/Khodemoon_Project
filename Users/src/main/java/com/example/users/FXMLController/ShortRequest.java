@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ShortRequest implements Initializable{
+public class ShortRequest implements Initializable {
     @FXML
     private Button confirmB;
     @FXML
@@ -111,17 +111,16 @@ public class ShortRequest implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /// be chi add she in?
-
+        /// add kon
     }
 
     public void deleteRequest(ActionEvent event) {
-        UserController.unRequest(DataBase.getUser(),Creator.getRequestShortUser());
-        ///show requests ro call konm
+        UserController.unRequest(DataBase.getUser(), Creator.getRequestShortUser());
+        ///show requests ro call konm az menu
     }
 
     public void confirmRequest(ActionEvent event) {
-        UserController.acceptRequest(DataBase.getUser(),Creator.getRequestShortUser());
-        ///show requests ro call konm
+        UserController.acceptRequest(DataBase.getUser(), Creator.getRequestShortUser());
+        ///show requests ro call konm az menu
     }
 }

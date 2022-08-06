@@ -12,13 +12,13 @@ import java.io.IOException;
 public class Creator {
     private static User othersProfileHeaderUser;
     private static User shortUser;
-   private static User requestShortUser;
+    private static User requestShortUser;
     private static double scale;
     private static User userToShow;
     private static String followerOrFollowing;
 
-    public static Node showOthersProfile (User user, double s)throws IOException{
-        scale=s;
+    public static Node showOthersProfile(User user, double s) throws IOException {
+        scale = s;
         othersProfileHeaderUser = user;
         UserController.view(user, DataBase.getUser());
         Node node;
@@ -27,15 +27,15 @@ public class Creator {
         return node;
     }
 
-    public static Node showMyProfile (double s)throws IOException{
-        scale=s;
+    public static Node showMyProfile(double s) throws IOException {
+        scale = s;
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyProfile.fxml"));
         node = fxmlLoader.load();
         return node;
     }
 
-    public static Node showShortUser (User user, double s) throws IOException{
+    public static Node showShortUser(User user, double s) throws IOException {
         shortUser = user;
         scale = s;
         Node node;
@@ -44,7 +44,7 @@ public class Creator {
         return node;
     }
 
-    public static Node showRequestShortUser (User user, double s) throws IOException{
+    public static Node showRequestShortUser(User user, double s) throws IOException {
         requestShortUser = user;
         scale = s;
         Node node;
@@ -53,7 +53,7 @@ public class Creator {
         return node;
     }
 
-    public static Node showFollowingsOrFollowers (User user, String s, double d) throws IOException{
+    public static Node showFollowingsOrFollowers(User user, String s, double d) throws IOException {
         followerOrFollowing = s;
         userToShow = user;
         scale = d;
@@ -63,7 +63,7 @@ public class Creator {
         return node;
     }
 
-    public static Node showRequests(double s) throws IOException{
+    public static Node showRequests(double s) throws IOException {
         scale = s;
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Requests.fxml"));
@@ -71,7 +71,7 @@ public class Creator {
         return node;
     }
 
-    public static Node showViewers(double s) throws IOException{
+    public static Node showViewers(double s) throws IOException {
         scale = s;
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ViewsPerDay.fxml"));
@@ -79,7 +79,7 @@ public class Creator {
         return node;
     }
 
-    public static Node showSuggestions(double s) throws IOException{
+    public static Node showSuggestions(double s) throws IOException {
         scale = s;
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Suggestions.fxml"));
