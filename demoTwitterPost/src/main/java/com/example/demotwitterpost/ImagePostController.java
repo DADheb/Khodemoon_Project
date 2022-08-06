@@ -236,10 +236,10 @@ public class ImagePostController implements Initializable {
         stage.setScene(new Scene(root1));
         stage.show();
     }
-//    @FXML
-//    protected void onViewClicked (MouseEvent e) throws IOException {
+    @FXML
+    protected void onViewClicked (MouseEvent e) throws IOException {
 //        Creator.setPost(post);
 //        // قرار شد همونجا نمایش بدیم
 //
-//    }
+    }
 }

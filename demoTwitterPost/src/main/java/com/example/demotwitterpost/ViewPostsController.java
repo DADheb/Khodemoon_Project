@@ -19,8 +19,10 @@ public class ViewPostsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
+            this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
             this.myBox.getChildren().add((Pane) addPost(Creator.post.getPostType()));
             for (int i = 0; i < Creator.post.getComments().size(); i++) {
+                this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
                 this.myBox.getChildren().add((Pane) addComment (Creator.post.getComments().get(i)));
             }
         } catch (IOException e){

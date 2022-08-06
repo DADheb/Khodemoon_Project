@@ -34,9 +34,11 @@ public class ViewCommentsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
         try{
+            this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
             this.myVBox.getChildren().add((Pane) addComment(Creator.comment));
             Collections.sort(Creator.post.getComments());
             for (int i = 0; i < Creator.post.getComments().size(); i++) {
+                this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
                 this.myVBox.getChildren().add((Pane) addComment (Creator.comment.getComments().get(i)));
             }
         } catch (IOException e){
@@ -49,6 +51,7 @@ public class ViewCommentsController implements Initializable {
         this.mainPane.setPrefWidth(600 * scale);
         this.mainPane.setPrefHeight(600 * scale);
         this.myVBox.setPrefWidth(600 * scale);
+        this.myVBox.setPrefHeight(600 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.myVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
     }

@@ -223,7 +223,12 @@ public class TextCommentController implements Initializable {
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
         Creator.setComment(comment);
-        //todo نمایش کامنت های کامنت یا نه ؟
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewComments.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("More Comments");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
 
 }

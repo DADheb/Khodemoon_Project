@@ -31,9 +31,11 @@ public class ShowUsersPostsController implements Initializable {
         try{
             Collections.sort(DataBase.getUser().getPosts());
             for (int i = 0; i < DataBase.getUser().getPosts().size(); i++) {
+                this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
                 this.myBox.getChildren().add((Pane) addPost(DataBase.getUser().getPosts().get(i)));
                 Collections.sort(DataBase.getUser().getPosts().get(i).getComments());
                 for (int j = 0; j < DataBase.getUser().getPosts().get(i).getComments().size(); j++) {
+                    this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
                     this.myBox.getChildren().add((Pane) addComment (DataBase.getUser().getPosts().get(i).getComments().get(j)));
                 }
                 // شاید بهتر باشه که نشون ندیمش!
@@ -47,6 +49,7 @@ public class ShowUsersPostsController implements Initializable {
         theme();
         this.mainPane.setPrefWidth(600 * scale);
         this.mainPane.setPrefHeight(600 * scale);
+        this.myBox.setPrefHeight(600 * scale);
         this.myBox.setPrefWidth(600 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.myBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
