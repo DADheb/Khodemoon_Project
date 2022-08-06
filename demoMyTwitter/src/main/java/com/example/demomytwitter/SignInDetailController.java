@@ -41,6 +41,7 @@ public class SignInDetailController implements Initializable {
     public Circle doneCirc1;
     public Circle doneCirc2;
     public ToggleGroup accountType;
+    public ImageView exitImg;
 
     String username, question, password, name, lastname, birthday, bio, email;
     Boolean type = true;
@@ -134,6 +135,10 @@ public class SignInDetailController implements Initializable {
         this.doneText.setFont(Font.font(20D * scale));
         this.doneText.setLayoutX(263d * scale);
         this.doneText.setLayoutY(373d * scale);
+        this.exitImg.setLayoutX(0d * scale);
+        this.exitImg.setLayoutY(343d * scale);
+        this.exitImg.setFitHeight(54d * scale);
+        this.exitImg.setFitWidth(51d * scale);
 
     }
 
@@ -167,4 +172,10 @@ public class SignInDetailController implements Initializable {
         //todo وارد منو شود
 
     }
+
+    @FXML
+    protected void onExitClicked (MouseEvent e) throws IOException {
+        System.exit(0);
+    }
+
 }

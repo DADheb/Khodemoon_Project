@@ -44,6 +44,7 @@ public class ForgetPasswordController implements Initializable {
     public Rectangle logInRect;
     public Circle circ1;
     public Circle circ2;
+    public ImageView exitImg;
 
     String username, question, password;
 
@@ -123,6 +124,11 @@ public class ForgetPasswordController implements Initializable {
         this.questionField.setFont(Font.font(20D * scale));
         this.questionField.setLayoutX(185d * scale);
         this.questionField.setLayoutY(211d * scale);
+
+        this.exitImg.setLayoutX(0d * scale);
+        this.exitImg.setLayoutY(1d * scale);
+        this.exitImg.setFitHeight(54d * scale);
+        this.exitImg.setFitWidth(51d * scale);
     }
 
     public void initialValues() {
@@ -193,6 +199,11 @@ public class ForgetPasswordController implements Initializable {
 //                }
 //            }
 //        }
+    }
+
+    @FXML
+    protected void onExitClicked (MouseEvent e) throws IOException {
+        System.exit(0);
     }
 
 }

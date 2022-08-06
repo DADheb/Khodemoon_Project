@@ -99,6 +99,11 @@
                   <Font size="20.0" />
                </font>
             </Text>
+            <ImageView fx:id="exitImg" fitHeight="54.0" fitWidth="51.0" layoutY="343.0" onMouseClicked="#onExitClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-emergency-exit-50.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </content>

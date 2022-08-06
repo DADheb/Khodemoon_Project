@@ -12,7 +12,7 @@
 
 <ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demomytwitter.SignUpController">
    <content>
-      <AnchorPane fx:id="anchorPane" prefHeight="399.0" prefWidth="604.0">
+      <AnchorPane fx:id="anchorPane" onMouseClicked="#onExitClicked" prefHeight="399.0" prefWidth="604.0">
          <children>
             <TextField fx:id="usernameField" layoutX="190.0" layoutY="141.0" prefHeight="35.0" prefWidth="227.0" promptText="Username">
                <font>
@@ -75,6 +75,11 @@
             <ImageView fx:id="twitterImg" fitHeight="123.0" fitWidth="131.0" layoutX="240.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-twitter-400.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="exitImg" fitHeight="54.0" fitWidth="51.0" layoutY="1.0" onMouseClicked="#onExitClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-emergency-exit-50.png" />
                </image>
             </ImageView>
          </children>

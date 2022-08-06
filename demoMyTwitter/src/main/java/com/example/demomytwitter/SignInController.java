@@ -41,6 +41,7 @@ public class SignInController implements Initializable {
     public Rectangle logInRect;
     public Circle circ1;
     public Circle circ2;
+    public ImageView exitImg;
 
     @FXML
     private Scene scene;
@@ -104,10 +105,13 @@ public class SignInController implements Initializable {
         this.wrongText.setFont(Font.font(12D * scale));
         this.wrongText.setLayoutX(186d * scale);
         this.wrongText.setLayoutY(248d * scale);
-
         this.usernameText.setFont(Font.font(15D * scale));
         this.usernameText.setLayoutX(186d * scale);
         this.usernameText.setLayoutY(146d * scale);
+        this.exitImg.setLayoutX(0d * scale);
+        this.exitImg.setLayoutY(1d * scale);
+        this.exitImg.setFitHeight(54d * scale);
+        this.exitImg.setFitWidth(51d * scale);
 
     }
 
@@ -152,6 +156,10 @@ public class SignInController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    protected void onExitClicked (MouseEvent e) throws IOException {
+        System.exit(0);
+    }
 
 
 

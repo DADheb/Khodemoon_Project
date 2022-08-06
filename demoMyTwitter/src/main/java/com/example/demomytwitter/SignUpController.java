@@ -43,6 +43,7 @@ public class SignUpController implements Initializable {
     public Circle Cicl1;
     public Circle Cicl2;
     public ImageView twitterImg;
+    public ImageView exitImg;
 
     @FXML
     private Scene scene;
@@ -118,6 +119,10 @@ public class SignUpController implements Initializable {
         this.twitterImg.setLayoutY(0d * scale);
         this.twitterImg.setFitHeight(107d * scale);
         this.twitterImg.setFitWidth(119d * scale);
+        this.exitImg.setLayoutX(0d * scale);
+        this.exitImg.setLayoutY(1d * scale);
+        this.exitImg.setFitHeight(54d * scale);
+        this.exitImg.setFitWidth(51d * scale);
     }
     public void initialValues() {
         existsText.setVisible(false);
@@ -190,6 +195,11 @@ public class SignUpController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    protected void onExitClicked (MouseEvent e) throws IOException {
+        System.exit(0);
     }
 
 }

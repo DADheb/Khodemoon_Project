@@ -43,6 +43,7 @@ public class LogInController implements Initializable {
     public Circle forgetCirc1;
     public Circle forgetCirc2;
     public ImageView twitterImg;
+    public ImageView exitImg;
 
     @FXML
     private Scene scene;
@@ -109,6 +110,10 @@ public class LogInController implements Initializable {
         this.twitterImg.setLayoutY(0d * scale);
         this.twitterImg.setFitHeight(107d * scale);
         this.twitterImg.setFitWidth(119d * scale);
+        this.exitImg.setLayoutX(0d * scale);
+        this.exitImg.setLayoutY(1d * scale);
+        this.exitImg.setFitHeight(54d * scale);
+        this.exitImg.setFitWidth(51d * scale);
 
 
     }
@@ -156,6 +161,11 @@ public class LogInController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    protected void onExitClicked (MouseEvent e) throws IOException {
+        System.exit(0);
     }
 
 }
