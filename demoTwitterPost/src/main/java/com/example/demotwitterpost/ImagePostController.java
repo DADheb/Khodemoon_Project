@@ -71,8 +71,8 @@ public class ImagePostController implements Initializable {
 
     public void initial(double scale) {
         theme();
-//        this.postImage = new Image(new File("/Users/heliya/demoTwitterPost/src/main/resources/com/example/demotwitterpost/Screen Shot 1401-05-14 at 08.53.32.png").toURI().toString());
-//        this.hello.setImage(postImage);
+        this.postImage = new Image(new File("/Users/heliya/demoTwitterPost/src/main/resources/com/example/demotwitterpost/IMG_0490.png").toURI().toString());
+        this.hello.setImage(postImage);
 //        for test
 
         this.mainPane.setPrefWidth(600 * scale);

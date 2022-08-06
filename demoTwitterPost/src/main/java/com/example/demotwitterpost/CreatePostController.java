@@ -41,7 +41,7 @@ public class CreatePostController implements Initializable {
     @FXML
     private Text urlText;
     @FXML
-    private TextField urlField;
+    private TextArea urlField;
 
     private Color themeColor;
     private Color mode;

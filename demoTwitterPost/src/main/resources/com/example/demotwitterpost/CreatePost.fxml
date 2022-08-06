@@ -4,7 +4,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -43,7 +42,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <TextField fx:id="urlField" layoutX="170.0" layoutY="137.0" prefHeight="45.0" prefWidth="325.0" style="-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: Blue; -fx-highlight-text-fill: Blue; -fx-text-fill: Blue; " />
+            <TextArea fx:id="urlField" layoutX="170.0" layoutY="137.0" prefHeight="45.0" prefWidth="325.0" promptText="URL" style="-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: Blue; -fx-highlight-text-fill: Blue; -fx-text-fill: Blue; " />
             <Text fx:id="urlText" layoutX="111.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL:" wrappingWidth="492.693359375">
                <font>
                   <Font size="20.0" />
