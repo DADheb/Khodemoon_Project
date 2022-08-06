@@ -98,6 +98,13 @@ public class Creator {
         return node;
     }
 
-    
+    public static Node viewFollowingPosts (Double s) throws IOException {
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewFollowingPosts.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
 
 }
