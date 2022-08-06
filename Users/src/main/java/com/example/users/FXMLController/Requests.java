@@ -42,7 +42,7 @@ public class Requests implements Initializable {
         Node node;
         for (int i = 0; i < DataBase.getUser().getRequests().size(); i++) {
             try {
-                mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 90);
+                mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 90 * this.scale);
                 node = Creator.showRequestShortUser(DataBase.getUser().getRequests().get(i), this.scale);
                 mainVBox.getChildren().add(node);
             } catch (IOException e) {

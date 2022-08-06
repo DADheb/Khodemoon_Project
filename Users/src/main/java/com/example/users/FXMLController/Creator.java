@@ -79,6 +79,14 @@ public class Creator {
         return node;
     }
 
+    public static Node showSuggestions(double s) throws IOException{
+        scale = s;
+        Node node;
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Suggestions.fxml"));
+        node = fxmlLoader.load();
+        return node;
+    }
+
     public static User getOthersProfileHeaderUser() {
         return othersProfileHeaderUser;
     }

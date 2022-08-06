@@ -42,11 +42,12 @@ public class Followings implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.scale = Creator.getScale();
         initial();
         Node node;
         for (int i = 0; i < usersToShow.size(); i++) {
             try {
-                mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 90);
+                mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 90*this.scale);
                 node = Creator.showShortUser(usersToShow.get(i), this.scale);
                 mainVBox.getChildren().add(node);
             } catch (IOException e) {
@@ -56,7 +57,6 @@ public class Followings implements Initializable {
     }
 
     public void initial() {
-        this.scale = Creator.getScale();
         theme();
         setValue();
         followingsScrollPane.setPrefWidth(600 * scale);
