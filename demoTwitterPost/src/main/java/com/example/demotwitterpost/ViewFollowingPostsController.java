@@ -1,16 +1,9 @@
 package com.example.demotwitterpost;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -20,13 +13,10 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.ResourceBundle;
 
-public class ViewCommentsController implements Initializable {
-    @FXML
-    private ScrollPane mainPane;
+public class ViewFollowingPostsController implements Initializable {
+
     @FXML
     private AnchorPane anchorPane;
     public VBox myVBox;
@@ -38,31 +28,20 @@ public class ViewCommentsController implements Initializable {
     private Color themeColor;
     private Color mode;
     private Color opposite;
-
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-        try{
-            this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
-            this.myVBox.getChildren().add((Pane) addComment(Creator.comment));
-            Collections.sort(Creator.post.getComments());
-            for (int i = 0; i < Creator.post.getComments().size(); i++) {
-                this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
-                this.myVBox.getChildren().add((Pane) addComment (Creator.comment.getComments().get(i)));
-            }
-        } catch (IOException e){
+        try {
+            this.myVBox.getChildren().add((Pane) Creator.showFollowingsPosts(Creator.scale));
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void initial(double scale) {
         theme();
-        this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(450 * scale);
-        this.anchorPane.setPrefHeight(450 * scale);;
+        this.anchorPane.setPrefHeight(450 * scale);
         this.myVBox.setPrefWidth(600 * scale);
         this.myVBox.setPrefHeight(600 * scale);
         this.myVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
@@ -79,8 +58,6 @@ public class ViewCommentsController implements Initializable {
         this.backButton.setLayoutY(14d * scale);
         this.backButton.setPrefWidth(91d * scale);
         this.backButton.setPrefHeight(40d * scale);
-
-
     }
 
     public void theme() {
@@ -107,18 +84,8 @@ public class ViewCommentsController implements Initializable {
                 break;
         }
     }
-
     @FXML
     protected void onBackClicked (ActionEvent e) throws IOException {
-        //todo برگرده عقب
-    }
-
-    public Node addComment(Comment comment) throws IOException {
-        Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TextComment.fxml"));
-        TextCommentController textCommentController = fxmlLoader.getController();
-        textCommentController.fillComment(comment, Creator.scale);
-        node = fxmlLoader.load();
-        return node;
+        //todo
     }
 }

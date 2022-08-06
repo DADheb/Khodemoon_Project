@@ -60,7 +60,7 @@ public class TextCommentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-        //fillComment(Creator.comment, Creator.scale);
+        fillComment(Creator.comment, Creator.scale);
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -196,14 +196,14 @@ public class TextCommentController implements Initializable {
         Creator.setComment(comment);
         likeImg.setVisible(true);
         unLikeImg.setVisible(false);
-        //ControllerManager.likeC(DataBase.getUser(), comment);
+        ControllerManager.likeC(DataBase.getUser(), comment);
     }
     @FXML
     protected void onUnlikeClicked (MouseEvent e) throws IOException {
         Creator.setComment(comment);
         likeImg.setVisible(false);
         unLikeImg.setVisible(true);
-        //ControllerManager.dislikeC(DataBase.getUser(), comment);
+        ControllerManager.dislikeC(DataBase.getUser(), comment);
     }
     @FXML
     protected void onCommentClicked (MouseEvent e) throws IOException {

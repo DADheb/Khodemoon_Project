@@ -126,8 +126,6 @@ public class CreatePostController implements Initializable {
         this.textArea.setFont(Font.font(20D * scale));
         this.textArea.setLayoutX(149d * scale);
         this.textArea.setLayoutY(79d * scale);
-
-
     }
 
     public void theme() {
@@ -169,7 +167,7 @@ public class CreatePostController implements Initializable {
     protected void onCreateClicked (ActionEvent e) throws IOException {
         if(textRadio.isSelected()) {
             String text = textArea.getText();
-            //post = ControllerManager.post(DataBase.getUser(),text,0);
+            post = ControllerManager.post(DataBase.getUser(),text,0);
             Creator.setPost(post);
             // توی خود پست درست کردم کانستراکتورشو ولی منیجر رو نیاودم ، تو فایل اصلی ادیت شه
             // یک اینت تایپ هست که صفر باشه تکسته ۱ باشه url
@@ -177,7 +175,7 @@ public class CreatePostController implements Initializable {
         }
         else{
             String url = urlField.getText();
-            //post = ControllerManager.post(DataBase.getUser(),url,1);
+            post = ControllerManager.post(DataBase.getUser(),url,1);
             Creator.setPost(post);
             //// برگرده به صفحه منو!
         }

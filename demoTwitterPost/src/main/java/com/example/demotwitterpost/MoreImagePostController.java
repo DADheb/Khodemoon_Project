@@ -37,7 +37,7 @@ public class MoreImagePostController implements Initializable {
     private Color opposite;
     private Image image;
     private Post post;
-    private Double scale = 0.5;
+    private Double scale = 1.0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -128,13 +128,13 @@ public class MoreImagePostController implements Initializable {
         Creator.setPost(post);
         String newText = textArea.getText();
         if(!newText.isEmpty()) {
-            // PostManager.editText(post, newText);
+            PostManager.editText(post, newText);
         }
     }
 
     @FXML
     protected void onDeleteClicked (ActionEvent e) throws IOException {
         Creator.setPost(post);
-        //ControllerManager.deletePost(post);
+        ControllerManager.deletePost(post);
     }
 }

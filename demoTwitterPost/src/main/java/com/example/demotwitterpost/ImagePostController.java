@@ -66,14 +66,11 @@ public class ImagePostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-        //fillPost(Creator.post, Creator.scale);
+        fillPost(Creator.post, Creator.scale);
     }
 
     public void initial(double scale) {
         theme();
-//        this.postImage = new Image(new File("/Users/heliya/demoTwitterPost/src/main/resources/com/example/demotwitterpost/IMG_0490.png").toURI().toString());
-//        this.hello.setImage(postImage);
-//        for test
 
         this.mainPane.setPrefWidth(600 * scale);
         this.mainPane.setPrefHeight(450 * scale);
@@ -130,8 +127,6 @@ public class ImagePostController implements Initializable {
         this.profilePic.setLayoutX(44d * scale);
         this.profilePic.setLayoutY(44d * scale);
         this.profilePic.setRadius(34d * scale);
-
-
     }
 
     public void fillPost(Post post, Double scale) {
@@ -206,14 +201,14 @@ public class ImagePostController implements Initializable {
         likeImg.setVisible(true);
         unLikeImg.setVisible(false);
         Creator.setPost(post);
-        //ControllerManager.likeP(DataBase.getUser(), post);
+        ControllerManager.likeP(DataBase.getUser(), post);
     }
     @FXML
     protected void onUnlikeClicked (MouseEvent e) throws IOException {
         likeImg.setVisible(false);
         unLikeImg.setVisible(true);
         Creator.setPost(post);
-        //ControllerManager.dislikeP(DataBase.getUser(), post);
+        ControllerManager.dislikeP(DataBase.getUser(), post);
     }
     @FXML
     protected void onCommentClicked (MouseEvent e) throws IOException {
@@ -228,8 +223,6 @@ public class ImagePostController implements Initializable {
     }
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
-//        Creator.setPost(post);
-//        // قرار شد همونجا نمایش بدیم
-//
+        Creator.setPost(post);
     }
 }

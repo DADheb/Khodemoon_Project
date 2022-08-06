@@ -131,7 +131,7 @@ public class MoreCommentController implements Initializable {
         Creator.setComment(comment);
         String newText = textArea.getText();
         if(!newText.isEmpty()) {
-            //  CommentManager.editText(comment, newText)
+            CommentManager.editText(comment, newText);
         }
     }
 
@@ -139,10 +139,10 @@ public class MoreCommentController implements Initializable {
     protected void onDeleteClicked (ActionEvent e) throws IOException {
         Creator.setComment(comment);
             if(!comment.isType()){
-                //ManagerController.deleteCommentC(comment.getPost(), comment);
+                ManagerController.deleteCommentC(comment.getPost(), comment);
             }
             else{
-                //ManagerController.deleteCommentP(comment.getComment(), comment);
+                ManagerController.deleteCommentP(comment.getComment(), comment);
             }
     }
 }

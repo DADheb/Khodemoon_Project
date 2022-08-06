@@ -64,7 +64,7 @@ public class TextPostController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
-        //fillPost(Creator.post, Creator.scale);
+        fillPost(Creator.post, Creator.scale);
         if(DataBase.getTheme() == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -206,14 +206,14 @@ public class TextPostController implements Initializable {
         Creator.setPost(post);
         likeImg.setVisible(true);
         unLikeImg.setVisible(false);
-        //ControllerManager.likeP(DataBase.getUser(), post);
+        ControllerManager.likeP(DataBase.getUser(), post);
     }
     @FXML
     protected void onUnlikeClicked (MouseEvent e) throws IOException {
         Creator.setPost(post);
         likeImg.setVisible(false);
         unLikeImg.setVisible(true);
-        //ControllerManager.dislikeP(DataBase.getUser(), post);
+        ControllerManager.dislikeP(DataBase.getUser(), post);
     }
     @FXML
     protected void onCommentClicked (MouseEvent e) throws IOException {
@@ -228,8 +228,7 @@ public class TextPostController implements Initializable {
     }
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
-//        Creator.setPost(post);
-//        // قرار شد همونجا نمایش بدیم
+        Creator.setPost(post);
     }
 
 

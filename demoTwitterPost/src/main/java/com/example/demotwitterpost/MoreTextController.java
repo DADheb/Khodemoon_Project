@@ -110,7 +110,6 @@ public class MoreTextController implements Initializable {
         this.deleteButton.setPrefWidth(173d * scale);
         this.deleteButton.setPrefHeight(53d * scale);
 
-        //this.lineChart.setStyle();
         this.lineChart.setPrefWidth(600d * scale);
         this.lineChart.setPrefHeight(330d * scale);
         this.lineChart.setLayoutX(-9d * scale);
@@ -156,43 +155,39 @@ public class MoreTextController implements Initializable {
     }
 
     public void fillInfo (){
-//        this.post = Creator.post;
-//        textArea.setText(post.getText());
-//        XYChart.Series series = new XYChart.Series();
-//
-//        Set<String> keySet = post.getLikePD().keySet();
-//        ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
-//
-//        if (listOfKeys.size() < 5) {
-//            for (int i = 0; i < listOfKeys.size(); i++) {
-//                series.getData().add(i, post.getLikePD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-//        else{
-//            for (int i = listOfKeys.size()-4; i < listOfKeys.size(); i++) {
-//                series.getData().add(i, post.getLikePD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-//
-//        XYChart.Series series2 = new XYChart.Series();
-//
-//        Set<String> keySet2 = post.getViewPD().keySet();
-//        ArrayList<String> listOfKeys2 = new ArrayList<String>(keySet);
-//
-//        if (listOfKeys2.size() < 5) {
-//            for (int i = 0; i < listOfKeys2.size(); i++) {
-//                series2.getData().add(i, post.getViewPD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
-//        else{
-//            for (int i = listOfKeys2.size()-4; i < listOfKeys2.size(); i++) {
-//                series2.getData().add(i, post.getViewPD().get(i));
-//                //todo بلد نبودم تاریخ بدم بهش!
-//            }
-//        }
+        this.post = Creator.post;
+        textArea.setText(post.getText());
+        XYChart.Series<String, Integer> series = new XYChart.Series();
+
+        Set<String> keySet = post.getLikePD().keySet();
+        ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
+
+        if (listOfKeys.size() < 5) {
+            for (int i = 0; i < listOfKeys.size(); i++) {
+                series.getData().add(new XYChart.Data<>(listOfKeys.get(i), post.getLikePD().get(i)));
+            }
+        }
+        else{
+            for (int i = listOfKeys.size()-4; i < listOfKeys.size(); i++) {
+                series.getData().add(new XYChart.Data<>(listOfKeys.get(i), post.getLikePD().get(i)));
+            }
+        }
+
+        XYChart.Series series2 = new XYChart.Series();
+
+        Set<String> keySet2 = post.getViewPD().keySet();
+        ArrayList<String> listOfKeys2 = new ArrayList<String>(keySet);
+
+        if (listOfKeys2.size() < 5) {
+            for (int i = 0; i < listOfKeys2.size(); i++) {
+                series2.getData().add(new XYChart.Data<>(listOfKeys.get(i), post.getLikePD().get(i)));
+            }
+        }
+        else{
+            for (int i = listOfKeys2.size()-4; i < listOfKeys2.size(); i++) {
+                series2.getData().add(new XYChart.Data<>(listOfKeys.get(i), post.getLikePD().get(i)));
+            }
+        }
 
     }
 
@@ -201,14 +196,14 @@ public class MoreTextController implements Initializable {
         Creator.setPost(post);
         String newText = textArea.getText();
         if(!newText.isEmpty()) {
-            //PostController.editText(post, newText);
+            PostController.editText(post, newText);
         }
     }
 
     @FXML
     protected void onDeleteClicked (ActionEvent e) throws IOException {
         Creator.setPost(post);
-        //ControllerManager.deletePost(post);
+        ControllerManager.deletePost(post);
     }
 
 }

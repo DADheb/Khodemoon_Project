@@ -35,7 +35,6 @@ public class CreateCommentController implements Initializable {
     @FXML
     private Button doneButton;
 
-
     private Color themeColor;
     private Color mode;
     private  int type = Creator.type ;
@@ -100,8 +99,6 @@ public class CreateCommentController implements Initializable {
         this.twitterImgP.setFitHeight(273d * scale);
         this.twitterImgP.setFitWidth(208d * scale);
 
-
-
     }
 
     public void theme() {
@@ -135,13 +132,13 @@ public class CreateCommentController implements Initializable {
         if(!text.isEmpty()){
             if(type == 0){
                 this.post = Creator.post;
-                 //Comment newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,post);
-                //ControllerManager.commentP(post, newComment);
+                 Comment newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,post);
+                ControllerManager.commentP(post, newComment);
             }
             else{
                 this.comment = Creator.comment;
-                //Comment newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,comment);
-                //ControllerManager.commentC(comment, newComment);
+                Comment newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,comment);
+                ControllerManager.commentC(comment, newComment);
             }
 
         }
