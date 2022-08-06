@@ -1,14 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.mytwitterphase2.FXMLController.Chat"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane fx:id="chat" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #78a1d1;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.ChatF">
+   <children>
+      <VBox fx:id="mainVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <Pane fx:id="infoPane" prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Circle fx:id="cir" centerX="105.0" fill="DODGERBLUE" layoutY="35.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Label fx:id="nameLabel" layoutX="155.0" layoutY="18.0" text="UserName">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="search" fitHeight="70.0" fitWidth="70.0" layoutX="460.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/SearchDark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/BackDark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="barImage" fitHeight="60.0" fitWidth="60.0" layoutX="535.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/BarDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ScrollPane fx:id="main" hbarPolicy="NEVER" prefHeight="480.0" prefWidth="600.0" style="-fx-background-color: #000000;" vvalue="1.0">
+               <content>
+                  <VBox fx:id="messageVBox" prefHeight="480.0" prefWidth="585.0" style="-fx-background-color: #78a1d1;" />
+               </content></ScrollPane>
+            <Pane fx:id="textPane" prefHeight="50.0" prefWidth="600.0">
+               <children>
+                  <TextArea fx:id="textInput" layoutX="5.0" layoutY="5.0" prefHeight="40.0" prefWidth="540.0" promptText="Enter Message" />
+                  <ImageView fx:id="sendImage" fitHeight="50.0" fitWidth="50.0" layoutX="550.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/SendDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <Rectangle fx:id="messageInfoBack" arcHeight="40.0" arcWidth="40.0" fill="DODGERBLUE" height="150.0" layoutX="225.0" layoutY="225.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+      <VBox fx:id="messageInfo" layoutX="225.0" layoutY="225.0" prefHeight="150.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-width: 4; -fx-border-radius: 20;">
+         <children>
+            <Pane fx:id="reply" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="replyLabel" layoutX="5.0" layoutY="7.0" text="Reply">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="replyImage" fitHeight="50.0" fitWidth="50.0" layoutX="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/ReplyDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator fx:id="sep" prefWidth="150.0" />
+            <Pane fx:id="forward" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="forwardLabel" layoutX="5.0" layoutY="7.0" text="Forward">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="forwardImage" fitHeight="40.0" fitWidth="40.0" layoutX="100.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/ForwardDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator fx:id="sep1" prefWidth="150.0" />
+            <Pane fx:id="cancel" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="cancelLabel" layoutX="5.0" layoutY="7.0" text="Cancel">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="cancelImage" fitHeight="40.0" fitWidth="40.0" layoutX="100.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/CancelDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <Rectangle fx:id="chatInfoBack" arcHeight="40.0" arcWidth="40.0" fill="DODGERBLUE" height="100.0" layoutX="450.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="150.0" />
+      <VBox fx:id="chatInfo" layoutX="450.0" layoutY="70.0" prefHeight="100.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-width: 4; -fx-border-radius: 20;" visible="false">
+         <children>
+            <Pane fx:id="block" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="blockLabel" layoutX="5.0" layoutY="7.0" text="Block">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="blockImage" fitHeight="50.0" fitWidth="50.0" layoutX="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/CancelDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator fx:id="sep2" prefWidth="150.0" />
+            <Pane fx:id="delete" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="deleteLabel" layoutX="5.0" layoutY="7.0" text="Delete">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="deleteImage" fitHeight="40.0" fitWidth="40.0" layoutX="100.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/DeleteDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+      <Rectangle fx:id="messageInfoBack1" arcHeight="40.0" arcWidth="40.0" fill="DODGERBLUE" height="200.0" layoutX="225.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+      <VBox fx:id="messageInfo1" layoutX="225.0" layoutY="200.0" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-border-width: 4; -fx-border-radius: 20;">
+         <children>
+            <Pane fx:id="reply1" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="replyLabel1" layoutX="5.0" layoutY="7.0" text="Reply">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="replyImage1" fitHeight="50.0" fitWidth="50.0" layoutX="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/ReplyDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator fx:id="sep3" prefWidth="150.0" />
+            <Pane fx:id="forward1" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="forwardLabel1" layoutX="5.0" layoutY="7.0" text="Forward">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="forwardImage1" fitHeight="40.0" fitWidth="40.0" layoutX="100.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/ForwardDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator fx:id="sep4" prefWidth="150.0" />
+            <Pane fx:id="edit" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="editLabel" layoutX="5.0" layoutY="7.0" text="Edit">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="editImage" fitHeight="50.0" fitWidth="50.0" layoutX="95.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/EditDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Separator fx:id="sep5" prefWidth="150.0" />
+            <Pane fx:id="cancel1" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <Label fx:id="cancelLabel1" layoutX="5.0" layoutY="7.0" text="Cancel">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="cancelImage1" fitHeight="40.0" fitWidth="40.0" layoutX="100.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/CancelDark.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</Pane>

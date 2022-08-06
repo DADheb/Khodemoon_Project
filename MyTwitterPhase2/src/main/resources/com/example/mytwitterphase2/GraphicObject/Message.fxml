@@ -8,25 +8,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Objects.Message">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Objects.MessageF">
    <children>
-      <ImageView fx:id="BImage" fitHeight="50.0" fitWidth="500.0" layoutX="70.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="BImage" fitHeight="50.0" fitWidth="500.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Photo/Project/BMessage.png" />
+            <Image url="@../Photo/Project/BMessageA.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="TImage" fitHeight="50.0" fitWidth="500.0" layoutX="70.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="TImage" fitHeight="50.0" fitWidth="500.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Photo/Project/TMessage.png" />
+            <Image url="@../Photo/Project/TMessageA.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="rect" fill="#00d0ff" height="60.0" layoutX="132.0" layoutY="34.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
-      <Label fx:id="username" layoutX="141.0" layoutY="5.0" prefHeight="27.0" prefWidth="241.0" text="UserName">
+      <Rectangle fx:id="rect" fill="#0437f2" height="60.0" layoutX="62.0" layoutY="34.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+      <Label fx:id="username" layoutX="70.0" layoutY="5.0" prefHeight="27.0" prefWidth="240.0" text="UserName">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Text fx:id="text" layoutX="143.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sdflkadgkmdkmldksmfkmadfmkladmflaaaaaaaaaaaaaaaaaaaaaaaaaaaaafm;amdf;lmf;lamf;lmf;lmad;lfma;dfmad;lmfal;mdf;lmdfl;;;;;;;;mdfklajssssssssssssssssssssssssssssssag'fmkjldcfadvjkalafkljladjflkajfdajfkljlkfadf'ldf" wrappingWidth="380.0">
+      <Text fx:id="text" layoutX="70.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="aaaaaaaaaaaaaaaaaaaaaaaafm;amdf;lmf;lamf;lmf;lmad;lfma;dfmad;lmfal;mdf;lmdfl;;;;;;;;mdfklajssssssssssssssssssssssssssssssag'fmkjldcfadvj&#10;kalafkljladjflkajf" wrappingWidth="350.0">
          <font>
             <Font size="16.0" />
          </font>
