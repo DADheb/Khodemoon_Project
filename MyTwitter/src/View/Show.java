@@ -1,6 +1,8 @@
 package View;
 
 import Controller.ControllerManager;
+import Controller.MessageController;
+import Controller.PostController;
 import Controller.UserController;
 import DataBase.DataBase;
 import entity.*;
@@ -83,6 +85,9 @@ public class Show {
         } else {
             System.out.println("this account is private");
         }
+        if(!u.equals(DataBase.getUser())) {
+            UserController.view(u, DataBase.getUser());
+        }
     }
 
     static public void showSettingUser(User u) {
@@ -153,6 +158,9 @@ public class Show {
             printLine();
             System.out.println("this post is private");
             printLine();
+        }
+        if(!p.getUser().equals(DataBase.getUser())){
+            PostController.newView(p,DataBase.getUser());
         }
     }
 
@@ -283,14 +291,14 @@ public class Show {
             showSpace(space);
             System.out.println("Chat with : " + users.get(1).getUserName());
             showSpace(space);
-            System.out.println("ID : " + DataBase.getComments().indexOf(c));
+            System.out.println("ID : " + (DataBase.getComments().indexOf(c)+1));
             printLine();
         } else if (users.get(1).equals(DataBase.getUser())) {
             printLine();
             showSpace(space);
             System.out.println("Chat with : " + users.get(0).getUserName());
             showSpace(space);
-            System.out.println("ID : " + DataBase.getComments().indexOf(c));
+            System.out.println("ID : " + (DataBase.getComments().indexOf(c)+1));
             printLine();
         } else {
             System.out.println("invalid command");
@@ -323,7 +331,7 @@ public class Show {
         showSpace(space);
         System.out.println("Group Name : " + g.getName());
         showSpace(space);
-        System.out.println("Group ID : " + DataBase.getGroups().indexOf(g));
+        System.out.println("Group ID : " + (DataBase.getGroups().indexOf(g)+1));
         printLine();
     }
 
@@ -367,7 +375,7 @@ public class Show {
             case 0:
                 System.out.println("Member");
         }
-        System.out.println("ID : "+DataBase.getUserID(member)+1);
+        System.out.println("ID : "+(DataBase.getUserID(member)+1));
         printLine();
     }
 
@@ -378,12 +386,14 @@ public class Show {
                 System.out.println("Me :");
             } else {
                 System.out.println(m.getForwarder().getUserName() + " :");
+                MessageController.seen(m);
             }
         } else {
             if (m.getUser().equals(DataBase.getUser())) {
                 System.out.println("Me :");
             } else {
                 System.out.println(m.getForwarder().getUserName() + " :");
+                MessageController.seen(m);
             }
         }
         if (m.isForwarded()) {
@@ -400,7 +410,9 @@ public class Show {
         if (m.isSeen()) {
             System.err.println("SEEN");
         }
+        System.out.println("ID : "+(DataBase.getMessageID(m)+1));
         printLine();
+
     }
 
     static public void showUserList(ArrayList<User> users, int start, int limit, int space) {

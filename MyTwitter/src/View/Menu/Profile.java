@@ -196,7 +196,7 @@ public class Profile {
                     break;
             }
         } else {
-            if(ID==DataBase.getUserID(DataBase.getUser())){
+            if(ID==DataBase.getUserID(DataBase.getUser())+1){
                 showProfileMenu();
             } else {
                 showUser(DataBase.getUsers().get(ID - 1), n);

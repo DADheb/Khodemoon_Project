@@ -377,7 +377,7 @@ class GroupRepository {
                 group = new Group();
                 group.setName(resultSet.getString("name"));
                 group.setBio(resultSet.getString("bio"));
-                group.setCreatDate(resultSet.getString("creeatDate"));
+                group.setCreatDate(resultSet.getString("creatDate"));
                 User u = DataBase.getUsers().get(resultSet.getInt("user_id")-1);
                 group.getMembers().add(u);
                 switch (resultSet.getInt("type")){
@@ -418,7 +418,7 @@ class GroupRepository {
         for (Group group : DataBase.getGroups()){
             for (User u : group.getMembers()){
                 PreparedStatement preparedStatementA = connection.prepareStatement(
-                        "INSERT INTO project.group(name, bio, creeatDate, user_id, type, g_id)"+
+                        "INSERT INTO project.group(name, bio, creatDate, user_id, type, g_id)"+
                                 "VALUES(?, ?, ?, ?, ?, ?)");
                 preparedStatementA.setString(1,group.getName());
                 preparedStatementA.setString(2,group.getBio());
@@ -621,39 +621,40 @@ class MessageRepository {
         preparedStatement.executeUpdate();
         for (Message message : DataBase.getMessages()){
             PreparedStatement preparedStatementA = connection.prepareStatement(
-                    "INSERT INTO message(user_id, type, mother_id, text, time,  edited, seen, reply_id, forward_id, date)"+
-                            "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            preparedStatementA.setInt(1,DataBase.getUserID(message.getUser())+1);
+                    "INSERT INTO message(id,user_id, type, mother_id, text, time,  edited, seen, reply_id, forward_id, date)"+
+                            "VALUES(?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?)");
+            preparedStatementA.setInt(2,DataBase.getUserID(message.getUser())+1);
+            preparedStatementA.setInt(1,DataBase.getMessageID(message)+1);
             if(message.isType()){
-                preparedStatementA.setInt(2,0);
-                preparedStatementA.setInt(3,DataBase.getGroups().indexOf(message.getGroup())+1);
+                preparedStatementA.setInt(3,0);
+                preparedStatementA.setInt(4,DataBase.getGroups().indexOf(message.getGroup())+1);
             } else {
-                preparedStatementA.setInt(2,1);
-                preparedStatementA.setInt(3,DataBase.getChats().indexOf(message.getChat())+1);
+                preparedStatementA.setInt(3,1);
+                preparedStatementA.setInt(4,DataBase.getChats().indexOf(message.getChat())+1);
             }
-            preparedStatementA.setString(4,message.getText());
-            preparedStatementA.setString(5,Long.toString(message.getTime()));
+            preparedStatementA.setString(5,message.getText());
+            preparedStatementA.setString(6,Long.toString(message.getTime()));
             if(message.isEdited()){
-                preparedStatementA.setInt(6,1);
-            } else {
-                preparedStatementA.setInt(6,0);
-            }
-            if(message.isSeen()){
                 preparedStatementA.setInt(7,1);
             } else {
                 preparedStatementA.setInt(7,0);
             }
-            if(message.isReply()){
-                preparedStatementA.setInt(8,DataBase.getMessages().indexOf(message.getMessage())+1);
+            if(message.isSeen()){
+                preparedStatementA.setInt(8,1);
             } else {
-                preparedStatementA.setInt(8,-1);
+                preparedStatementA.setInt(8,0);
             }
-            if(message.isForwarded()){
-                preparedStatementA.setInt(9,DataBase.getUserID(message.getUser())+1);
+            if(message.isReply()){
+                preparedStatementA.setInt(9,DataBase.getMessages().indexOf(message.getMessage())+1);
             } else {
                 preparedStatementA.setInt(9,-1);
             }
-            preparedStatementA.setString(10 , message.getDate());
+            if(message.isForwarded()){
+                preparedStatementA.setInt(10,DataBase.getUserID(message.getUser())+1);
+            } else {
+                preparedStatementA.setInt(10,-1);
+            }
+            preparedStatementA.setString(11, message.getDate());
             preparedStatementA.executeUpdate();
         }
     }

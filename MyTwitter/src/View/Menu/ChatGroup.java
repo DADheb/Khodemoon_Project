@@ -44,7 +44,7 @@ public class ChatGroup {
         System.out.println("3) See group info");
         System.out.println("4) Search message");
         System.out.println("5) Back");
-        switch (Show.inputProcessor(1,4)){
+        switch (Show.inputProcessor(1,5)){
             case 1 : selectMessage(group);
                 break;
             case 2 : creatMessage(group);
@@ -76,7 +76,7 @@ public class ChatGroup {
         }
         System.out.println("5) Search message");
         System.out.println("6) Back");
-        switch (Show.inputProcessor(1,4)){
+        switch (Show.inputProcessor(1,6)){
             case 1 : selectMessage(chat);
             break;
             case 2 : creatMessage(chat);
@@ -549,7 +549,7 @@ public class ChatGroup {
             System.out.println("9) See profile of member");
             System.out.println("10) Delete all message from some user");
             System.out.println("11) Back");
-            switch (Show.inputProcessor(1,9)){
+            switch (Show.inputProcessor(1,11)){
                 case 1 :
                     System.out.println("Select member");
                     User user = returnMember(group);
@@ -705,7 +705,7 @@ public class ChatGroup {
             System.out.println("7) See profile of member");
             System.out.println("8) Delete all message from some user");
             System.out.println("9) Back");
-            switch (Show.inputProcessor(1,7)){
+            switch (Show.inputProcessor(1,9)){
                 case 1 :
                     System.out.println("Select member");
                     User user = returnMember(group);
