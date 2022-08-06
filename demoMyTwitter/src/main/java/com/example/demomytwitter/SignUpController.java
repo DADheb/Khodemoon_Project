@@ -56,8 +56,10 @@ public class SignUpController implements Initializable {
     }
 
     public void initial(double scale) {
-        this.mainPane.setPrefWidth(600 * scale);
-        this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefWidth(1000 * scale);
+        this.anchorPane.setPrefWidth(1000 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);
         this.joinText.setLayoutX (195d* scale);
         this.joinText.setLayoutY(121d * scale);
         this.joinText.setFont(Font.font(24D * scale));

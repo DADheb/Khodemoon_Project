@@ -60,8 +60,10 @@ public class ForgetPasswordController implements Initializable {
     }
 
     public void initial(double scale) {
-        this.mainPane.setPrefWidth(600 * scale);
-        this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefWidth(1000 * scale);
+        this.anchorPane.setPrefWidth(1000 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);
         this.twitterImg.setLayoutX(252d * scale);
         this.twitterImg.setLayoutY(0d * scale);
         this.twitterImg.setFitHeight(107d * scale);

@@ -56,8 +56,10 @@ public class LogInController implements Initializable {
     }
 
     public void initial(double scale) {
-        this.mainPane.setPrefWidth(600 * scale);
-        this.anchorPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefWidth(1000 * scale);
+        this.anchorPane.setPrefWidth(1000 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);
         this.usernameField.setPrefWidth(227d * scale);
         this.usernameField.setPrefHeight(35d * scale);
         this.usernameField.setFont(Font.font(16D * scale));
@@ -109,7 +111,6 @@ public class LogInController implements Initializable {
         this.exitImg.setLayoutY(1d * scale);
         this.exitImg.setFitHeight(54d * scale);
         this.exitImg.setFitWidth(51d * scale);
-
 
     }
 
