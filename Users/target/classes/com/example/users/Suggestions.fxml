@@ -11,7 +11,7 @@
 <ScrollPane fx:id="suggestionScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.users.FXMLController.Followings">
+            fx:controller="com.example.users.FXMLController.Suggestions">
     <content>
         <VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
               prefHeight="600.0" prefWidth="600.0">

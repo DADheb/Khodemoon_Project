@@ -28,7 +28,7 @@
                         </ImageView>
                     </children>
                 </Pane>
-                <BarChart fx:id="barChart" layoutX="42.0" layoutY="100.0" prefHeight="400.0" prefWidth="500.0">
+                <BarChart fx:id="barChart" layoutX="42.0" layoutY="100.0" prefHeight="400.0" prefWidth="500.0" style="bar: Black;">
                     <xAxis>
                         <CategoryAxis side="BOTTOM" />
                     </xAxis>
