@@ -19,6 +19,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MyProfile implements Initializable {
+    private static int state = 2;
     @FXML
     private ScrollPane myProScrollPane;
     @FXML

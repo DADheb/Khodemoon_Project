@@ -26,6 +26,7 @@ public class OthersProfile implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        private static int state = 1;
         this.scale = Creator.getScale();
         initial();
         try {

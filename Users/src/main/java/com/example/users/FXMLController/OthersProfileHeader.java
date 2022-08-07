@@ -217,4 +217,7 @@ public class OthersProfileHeader implements Initializable {
         Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(), "Followings", this.scale);
         // ad beshe be safhe
     }
+
+    public void back(MouseEvent mouseEvent) {
+    }
 }

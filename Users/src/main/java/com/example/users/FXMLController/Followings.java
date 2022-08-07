@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Followings implements Initializable {
-    @FXML
+
     private ScrollPane followingsScrollPane;
     @FXML
     private Pane topPane;
