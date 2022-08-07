@@ -17,6 +17,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.Objects;
@@ -119,8 +120,8 @@ public class MyProfileHeader implements Initializable {
         this.numOfPostL.setTextFill(themeColor);
         this.numOfFollowingsL.setTextFill(themeColor);
         this.numOfFollowersL.setTextFill(themeColor);
-        this.topLine.setFill(themeColor);
-        this.bottomLine.setFill(themeColor);
+        this.topLine.setStroke(themeColor);
+        this.bottomLine.setStroke(themeColor);
         this.proHeadPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.proPhoto.setStroke(themeColor);
     }
@@ -144,41 +145,42 @@ public class MyProfileHeader implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }
     }
 
-    public void showUserFollowers(MouseEvent mouseEvent) {
+
+    public void showUserFollowers(MouseEvent mouseEvent) throws IOException {
         Creator.showFollowingsOrFollowers(DataBase.getUser(), "Followers", this.scale);
         // ad beshe be safhe
     }
 
-    public void showUserFollowings(MouseEvent mouseEvent) {
+    public void showUserFollowings(MouseEvent mouseEvent) throws IOException {
         Creator.showFollowingsOrFollowers(DataBase.getUser(), "Followings", this.scale);
         // ad beshe be safhe
     }
 
-    public void showViewers(MouseEvent mouseEvent) {
+    public void showViewers(MouseEvent mouseEvent) throws IOException {
         Creator.showViewers(this.scale);
         // add she
     }

@@ -46,14 +46,13 @@ public class ViewsPerDay implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.scale= Creator.getScale();
+        this.scale = Creator.getScale();
         initial();
     }
 
     public void initial() {
         XYChart.Series<String, Integer> series = new XYChart.Series<>();
         series.setName("Views");
-        //Stream<Map.Entry<String, Integer>> sorted = DataBase.getUser().getViewPD().entrySet().stream().sorted(Map.Entry.comparingByKey());
         Set<String> day = DataBase.getUser().getViewPD().keySet();
         Collection<Integer> view = DataBase.getUser().getViewPD().values();
         ArrayList<String> days = new ArrayList<>(day);

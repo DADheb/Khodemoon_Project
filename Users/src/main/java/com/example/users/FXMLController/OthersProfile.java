@@ -26,12 +26,11 @@ public class OthersProfile implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        private static int state = 1;
         this.scale = Creator.getScale();
         initial();
         try {
             this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + 180 * scale);
-            this.mainVBox.getChildren().add((Pane) addHeader());
+            this.mainVBox.getChildren().add(addHeader());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +39,6 @@ public class OthersProfile implements Initializable {
     }
 
     public void initial() {
-
         theme();
         this.otherProScrollPane.setPrefWidth(600 * scale);
         this.otherProScrollPane.setPrefHeight(600 * scale);
@@ -52,7 +50,7 @@ public class OthersProfile implements Initializable {
 
     public Node addHeader() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("OthersProfileHeader.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("GraphicObjects/OthersProfileHeader.fxml"));
         node = fxmlLoader.load();
         return node;
     }

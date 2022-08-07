@@ -23,7 +23,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Followings implements Initializable {
-
+    @FXML
     private ScrollPane followingsScrollPane;
     @FXML
     private Pane topPane;
@@ -43,6 +43,7 @@ public class Followings implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.scale = Creator.getScale();
+        //this.scale = 1;
         initial();
         Node node;
         for (int i = 0; i < usersToShow.size(); i++) {
@@ -59,8 +60,10 @@ public class Followings implements Initializable {
     public void initial() {
         theme();
         setValue();
+
         followingsScrollPane.setPrefWidth(600 * scale);
         followingsScrollPane.setPrefHeight(600 * scale);
+        System.out.println(followingsScrollPane.getPrefWidth());
         mainVBox.setPrefWidth(600 * scale);
         topPane.setPrefWidth(600 * scale);
         topPane.setPrefHeight(50 * scale);
@@ -73,12 +76,17 @@ public class Followings implements Initializable {
         backImage.setFitHeight(48 * scale);
 
         topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
+        followingsScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+        mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         titleFollowingL.setTextFill(mode);
+
     }
 
     public void setValue() {
         String s = Creator.getFollowerOrFollowing();
+        //String s = "Followers";
         this.user = Creator.getUserToShow();
+        //this.user=DataBase.getUser();
         if (s.equals("Followings")) {
             usersToShow = this.user.getFollowings();
         } else if (s.equals("Followers")) {

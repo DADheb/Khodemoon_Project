@@ -20,6 +20,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -163,25 +164,25 @@ public class OthersProfileHeader implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }
@@ -208,13 +209,13 @@ public class OthersProfileHeader implements Initializable {
         // behdad
     }
 
-    public void showFollowers(MouseEvent mouseEvent) {
+    public void showFollowers(MouseEvent mouseEvent) throws IOException {
         Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(), "Followers", this.scale);
         // ad beshe be safhe
     }
 
-    public void showFollowings(MouseEvent mouseEvent) {
-        Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(), "Followings", this.scale);
+    public void showFollowings(MouseEvent mouseEvent) throws IOException {
+       Creator.showFollowingsOrFollowers(Creator.getOthersProfileHeaderUser(), "Followings", this.scale);
         // ad beshe be safhe
     }
 

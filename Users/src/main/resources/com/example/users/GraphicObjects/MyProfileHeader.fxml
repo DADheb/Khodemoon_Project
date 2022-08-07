@@ -8,55 +8,64 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="proHeadPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.MyProfileHeader">
-   <children>
-      <Label fx:id="userNameL" layoutX="244.0" layoutY="8.0" text="UserName" textFill="#78a1d1">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Line fx:id="topLine" endX="600.0" endY="-9.0" layoutY="45.0" startY="-9.0" stroke="#78a1d1" />
-      <Circle fx:id="proPhoto" fill="#78a1d1" layoutX="112.0" layoutY="100.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="postsL" layoutX="244.0" layoutY="93.0" text="Posts" textAlignment="CENTER" textFill="#78a1d1">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="followersL" layoutX="341.0" layoutY="93.0" onMouseClicked="#showUserFollowers" text="Followers" textAlignment="CENTER" textFill="#78a1d1">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="followingsL" layoutX="451.0" layoutY="93.0" onMouseClicked="#showUserFollowings" text="Followings" textFill="#78a1d1">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="viewersL" layoutX="346.0" layoutY="122.0" onMouseClicked="#showViewers" text="Viewers" textFill="#78a1d1">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="numOfPostL" layoutX="252.0" layoutY="69.0" text="00" textFill="#78a1d1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="numOfFollowersL" layoutX="362.0" layoutY="69.0" onMouseClicked="#showUserFollowers" text="00" textFill="#78a1d1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="numOfFollowingsL" layoutX="476.0" layoutY="69.0" onMouseClicked="#showUserFollowings" text="00" textFill="#78a1d1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Line fx:id="bottomLine" endX="600.0" endY="-9.0" layoutY="175.0" startY="-9.0" stroke="#78a1d1" />
-      <ImageView fx:id="backImage" fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="8.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Photo/Project/BackDark.png" />
-         </image>
-      </ImageView>
-   </children>
+<Pane fx:id="proHeadPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="180.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.MyProfileHeader">
+    <children>
+        <Label fx:id="userNameL" layoutX="244.0" layoutY="8.0" text="UserName" textFill="#78a1d1">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Label>
+        <Line fx:id="topLine" endX="600.0" endY="-9.0" layoutY="45.0" startY="-9.0" stroke="#78a1d1"/>
+        <Circle fx:id="proPhoto" fill="#78a1d1" layoutX="112.0" layoutY="100.0" radius="56.0" stroke="BLACK"
+                strokeType="INSIDE"/>
+        <Label fx:id="postsL" layoutX="244.0" layoutY="93.0" text="Posts" textAlignment="CENTER" textFill="#78a1d1">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <Label fx:id="followersL" layoutX="341.0" layoutY="93.0" onMouseClicked="#showUserFollowers" text="Followers"
+               textAlignment="CENTER" textFill="#78a1d1">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <Label fx:id="followingsL" layoutX="451.0" layoutY="93.0" onMouseClicked="#showUserFollowings" text="Followings"
+               textFill="#78a1d1">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <Label fx:id="viewersL" layoutX="346.0" layoutY="122.0" onMouseClicked="#showViewers" text="Viewers"
+               textFill="#78a1d1">
+            <font>
+                <Font size="16.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numOfPostL" layoutX="252.0" layoutY="69.0" text="00" textFill="#78a1d1">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numOfFollowersL" layoutX="362.0" layoutY="69.0" onMouseClicked="#showUserFollowers" text="00"
+               textFill="#78a1d1">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="numOfFollowingsL" layoutX="476.0" layoutY="69.0" onMouseClicked="#showUserFollowings" text="00"
+               textFill="#78a1d1">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Line fx:id="bottomLine" endX="600.0" endY="-9.0" layoutY="175.0" startY="-9.0" stroke="#78a1d1"/>
+        <ImageView fx:id="backImage" fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="8.0"
+                   onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Photo/Project/BackDark.png"/>
+            </image>
+        </ImageView>
+    </children>
 </Pane>

@@ -38,11 +38,12 @@ public class ShortRequest implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //this.scale = 1;
         this.scale = Creator.getScale();
         theme();
         this.proPhoto.setFill(new ImagePattern(Creator.getRequestShortUser().getProfileImage()));
         this.usernameL.setText(Creator.getRequestShortUser().getUserName());
-        this.nameL.setText(Creator.getRequestShortUser().getName() + Creator.getRequestShortUser().getLastName());
+        this.nameL.setText(Creator.getRequestShortUser().getName() + " " + Creator.getRequestShortUser().getLastName());
         initial();
     }
 
@@ -71,7 +72,7 @@ public class ShortRequest implements Initializable {
         this.shortRequestPane.setPrefWidth(600 * scale);
 
         //theme
-        this.shortRequestPane.setStyle("-fx-border-width:2; -fx-border-color: #" + themeColor.toString().substring(2) + "-fx-background-color: #" + mode.toString().substring(2));
+        this.shortRequestPane.setStyle("-fx-border-width:2; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
         this.usernameL.setTextFill(themeColor);
         this.nameL.setTextFill(themeColor);
         this.confirmB.setTextFill(mode);
@@ -116,6 +117,7 @@ public class ShortRequest implements Initializable {
 
     public void deleteRequest(ActionEvent event) {
         UserController.unRequest(DataBase.getUser(), Creator.getRequestShortUser());
+        //System.out.println("1");
         ///show requests ro call konm az menu
     }
 

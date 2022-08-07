@@ -38,15 +38,16 @@ public class ShortUser implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.scale = Creator.getScale();
+        //this.scale = 2;
         theme();
         this.proPhoto.setFill(new ImagePattern(Creator.getShortUser().getProfileImage()));
         this.usernameL.setText(Creator.getShortUser().getUserName());
-        this.nameL.setText(Creator.getShortUser().getName() +" "+ Creator.getShortUser().getLastName());
-        if (DataBase.getUser().getFollowings().contains(Creator.getShortUser())){
+        this.nameL.setText(Creator.getShortUser().getName() + " " + Creator.getShortUser().getLastName());
+        if (DataBase.getUser().getFollowings().contains(Creator.getShortUser())) {
             this.followB.setText("Following");
-        }else if (Creator.getShortUser().getRequests().contains(DataBase.getUser())){
+        } else if (Creator.getShortUser().getRequests().contains(DataBase.getUser())) {
             this.followB.setText("Requested");
-        }else {
+        } else {
             this.followB.setText("Follow");
         }
         initial();
@@ -74,7 +75,7 @@ public class ShortUser implements Initializable {
         this.shortUserPane.setPrefWidth(600 * scale);
 
         //theme
-        this.shortUserPane.setStyle("-fx-border-width:2; -fx-border-color: #" +  themeColor.toString().substring(2)+"-fx-background-color: #" + mode.toString().substring(2));
+        this.shortUserPane.setStyle("-fx-border-width:2; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
         this.usernameL.setTextFill(themeColor);
         this.nameL.setTextFill(themeColor);
         this.followB.setTextFill(mode);
@@ -107,29 +108,27 @@ public class ShortUser implements Initializable {
 
     public void followAction(ActionEvent event) {
         String s = this.usernameL.getText();
-        if (s.equals("Following")){
-            UserController.unFollow(DataBase.getUser(),Creator.getShortUser());
-        } else if (s.equals("Requested")){
-            UserController.unRequest(DataBase.getUser(),Creator.getShortUser());
-        } else if (s.equals("Follow")){
-            int n = UserController.follow(DataBase.getUser(),Creator.getShortUser());
-            if(n==0){
+        if (s.equals("Following")) {
+            UserController.unFollow(DataBase.getUser(), Creator.getShortUser());
+            this.followB.setText("Follow");
+        } else if (s.equals("Requested")) {
+            UserController.unRequest(DataBase.getUser(), Creator.getShortUser());
+            this.followB.setText("Follow");
+        } else if (s.equals("Follow")) {
+            int n = UserController.follow(DataBase.getUser(), Creator.getShortUser());
+            if (n == 0) {
                 this.followB.setText("Following");
-            }
-            else if (n==2){
+            } else if (n == 2) {
                 this.followB.setText("Requested");
             }
         }
     }
 
-    public void showUserPro(MouseEvent mouseEvent) {
+    public void showUserPro(MouseEvent mouseEvent) throws IOException {
         int i = DataBase.getUserNames().indexOf(this.usernameL.getText());
         User user = DataBase.getUsers().get(i);
-        try {
-            Creator.showOthersProfile(user, this.scale);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Creator.showOthersProfile(user, this.scale);
+
         /// add she
     }
 

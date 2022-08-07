@@ -7,6 +7,7 @@ package com.example.users.Controller;
 
 import com.example.users.DataBase.DataBase;
 import com.example.users.Models.User;
+
 import java.time.LocalDate;
 
 public class UserController {
@@ -123,7 +124,7 @@ public class UserController {
     }
 
     public static User getUser(String userName) {
-        return (User)DataBase.getUsers().get(DataBase.getUserID(userName));
+        return (User) DataBase.getUsers().get(DataBase.getUserID(userName));
     }
 
     public static void setDate(User u) {
@@ -132,15 +133,15 @@ public class UserController {
 
     public static void view(User u, User a) {
         if (u.getViewPD().keySet().contains(LocalDate.now().toString())) {
-            u.getViewPD().replace(LocalDate.now().toString(), (Integer)u.getViewPD().get(LocalDate.now().toString()) + 1);
+            u.getViewPD().replace(LocalDate.now().toString(), (Integer) u.getViewPD().get(LocalDate.now().toString()) + 1);
         } else {
             u.getViewPD().put(LocalDate.now().toString(), 1);
         }
 
         if (a.getInterest().keySet().contains(u)) {
-            a.getInterest().replace(u, (Integer)a.getInterest().get(u) + 1);
+            a.getInterest().replace(u, (Integer) a.getInterest().get(u) + 1);
             if (u.isUserType()) {
-                a.getInterestAD().replace(u, (Integer)a.getInterestAD().get(u) + 1);
+                a.getInterestAD().replace(u, (Integer) a.getInterestAD().get(u) + 1);
             }
         } else {
             if (a.getFollowings().contains(u)) {
@@ -157,9 +158,9 @@ public class UserController {
 
     public static void interestLike(User u, User a) {
         if (a.getInterest().containsKey(u)) {
-            a.getInterest().replace(u, (Integer)a.getInterest().get(u) + 5);
+            a.getInterest().replace(u, (Integer) a.getInterest().get(u) + 5);
             if (u.isUserType()) {
-                a.getInterestAD().replace(u, (Integer)a.getInterestAD().get(u) + 5);
+                a.getInterestAD().replace(u, (Integer) a.getInterestAD().get(u) + 5);
             }
         } else {
             if (a.getFollowings().contains(u)) {
@@ -176,9 +177,9 @@ public class UserController {
 
     public static void interestDislike(User u, User a) {
         if (a.getInterest().containsKey(u)) {
-            a.getInterest().replace(u, (Integer)a.getInterest().get(u) - 5);
+            a.getInterest().replace(u, (Integer) a.getInterest().get(u) - 5);
             if (u.isUserType()) {
-                a.getInterestAD().replace(u, (Integer)a.getInterestAD().get(u) - 5);
+                a.getInterestAD().replace(u, (Integer) a.getInterestAD().get(u) - 5);
             }
         } else {
             if (a.getFollowings().contains(u)) {
@@ -195,9 +196,9 @@ public class UserController {
 
     public static void interestComment(User u, User a) {
         if (a.getInterest().containsKey(u)) {
-            a.getInterest().replace(u, (Integer)a.getInterest().get(u) + 10);
+            a.getInterest().replace(u, (Integer) a.getInterest().get(u) + 10);
             if (u.isUserType()) {
-                a.getInterestAD().replace(u, (Integer)a.getInterestAD().get(u) + 10);
+                a.getInterestAD().replace(u, (Integer) a.getInterestAD().get(u) + 10);
             }
         } else {
             if (a.getFollowings().contains(u)) {
@@ -214,9 +215,9 @@ public class UserController {
 
     public static void interestDeleteComment(User u, User a) {
         if (a.getInterest().containsKey(u)) {
-            a.getInterest().replace(u, (Integer)a.getInterest().get(u) - 10);
+            a.getInterest().replace(u, (Integer) a.getInterest().get(u) - 10);
             if (u.isUserType()) {
-                a.getInterestAD().replace(u, (Integer)a.getInterestAD().get(u) - 10);
+                a.getInterestAD().replace(u, (Integer) a.getInterestAD().get(u) - 10);
             }
         } else {
             if (a.getFollowings().contains(u)) {

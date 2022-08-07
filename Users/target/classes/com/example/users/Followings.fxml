@@ -8,24 +8,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="followingsScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.Followings">
+<ScrollPane fx:id="followingsScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: Pink;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.users.FXMLController.Followings">
     <content>
-        <VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0">
-         <children>
-            <Pane fx:id="topPane" prefHeight="50.0" prefWidth="600.0">
-               <children>
-                  <Label fx:id="titleFollowingL" layoutX="239.0" layoutY="11.0" text="Followings">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="backImage" fitHeight="48.0" fitWidth="43.0" layoutX="14.0" layoutY="4.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Photo/Project/BackDark.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children></VBox>
+        <VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: BLACK;">
+            <children>
+                <Pane fx:id="topPane" prefHeight="50.0" prefWidth="600.0">
+                    <children>
+                        <Label fx:id="titleFollowingL" layoutX="239.0" layoutY="11.0" text="Followings">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="backImage" fitHeight="48.0" fitWidth="43.0" layoutX="14.0" layoutY="4.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Photo/Project/BackDark.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
     </content>
 </ScrollPane>

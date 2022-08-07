@@ -156,15 +156,15 @@ public class Menu implements Initializable {
         proP.setLayoutX(6 * scale);
 
         backPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        one.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        two.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        three.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        four.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        five.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        six.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        seven.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        eight.setStyle("-fx-background-color: #" + mode.toString().substring(2));
-        nine.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+        one.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        two.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        three.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        four.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        five.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        six.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        seven.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        eight.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
+        nine.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
 
         homeL.setTextFill(themeColor);
         exploreL.setTextFill(themeColor);
@@ -208,6 +208,7 @@ public class Menu implements Initializable {
     }
 
     public void showHome(MouseEvent mouseEvent) {
+        System.out.println("home");
     }
 
     public void showExplore(MouseEvent mouseEvent) {

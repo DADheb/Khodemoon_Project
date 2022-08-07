@@ -19,7 +19,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MyProfile implements Initializable {
-    private static int state = 2;
     @FXML
     private ScrollPane myProScrollPane;
     @FXML
@@ -30,11 +29,12 @@ public class MyProfile implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //this.scale = 1;
         this.scale = Creator.getScale();
         initial();
         try {
             this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + 180 * scale);
-            this.mainVBox.getChildren().add((Pane) addHeader());
+            this.mainVBox.getChildren().add(addHeader());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,7 +43,6 @@ public class MyProfile implements Initializable {
     }
 
     public void initial() {
-
         theme();
         this.myProScrollPane.setPrefWidth(600 * scale);
         this.myProScrollPane.setPrefHeight(600 * scale);
@@ -55,7 +54,7 @@ public class MyProfile implements Initializable {
 
     public Node addHeader() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyProfileHeader.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("GraphicObjects/MyProfileHeader.fxml"));
         node = fxmlLoader.load();
         return node;
     }

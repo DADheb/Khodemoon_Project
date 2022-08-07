@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Creator {
     private static User othersProfileHeaderUser;
     private static User shortUser;
-    private static User requestShortUser;
+    private static User requestShortUser = DataBase.getUser();
     private static double scale;
     private static User userToShow;
     private static String followerOrFollowing;
@@ -39,7 +39,7 @@ public class Creator {
         shortUser = user;
         scale = s;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ShortUser.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("GraphicObjects/ShortUser.fxml"));
         node = fxmlLoader.load();
         return node;
     }
@@ -48,7 +48,7 @@ public class Creator {
         requestShortUser = user;
         scale = s;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ShortRequest.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("GraphicObjects/ShortRequest.fxml"));
         node = fxmlLoader.load();
         return node;
     }
