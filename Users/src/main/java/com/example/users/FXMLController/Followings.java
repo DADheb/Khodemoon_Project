@@ -71,9 +71,9 @@ public class Followings implements Initializable {
         titleFollowingL.setLayoutX(239 * scale);
         titleFollowingL.setLayoutY(11 * scale);
         backImage.setLayoutX(14 * scale);
-        backImage.setLayoutY(4 * scale);
-        backImage.setFitWidth(43 * scale);
-        backImage.setFitHeight(48 * scale);
+        backImage.setLayoutY(11 * scale);
+        backImage.setFitWidth(29 * scale);
+        backImage.setFitHeight(33 * scale);
 
         topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         followingsScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));

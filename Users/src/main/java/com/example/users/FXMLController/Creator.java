@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Creator {
     private static User othersProfileHeaderUser;
     private static User shortUser;
-    private static User requestShortUser = DataBase.getUser();
+    private static User requestShortUser;
     private static double scale;
     private static User userToShow;
     private static String followerOrFollowing;

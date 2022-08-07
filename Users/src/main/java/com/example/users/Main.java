@@ -8,6 +8,8 @@ import com.example.users.Models.User;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 public class Main extends Application {
     private static Stage stage;
 
@@ -26,8 +28,13 @@ public class Main extends Application {
         UserController.follow(user2,user);
         user.getRequests().add(user1);
         user.getRequests().add(user2);
+        HashMap<String,Integer> hashMap = new HashMap<>();
+        hashMap.put("Saturday",1);
+        hashMap.put("Sunday",2);
+        user.setViewPD(hashMap);
         DataBase.setUser(user);
         Creator.setOthersProfileHeaderUser(user);
+
         stage.setHeight(600);
         stage.setWidth(600);
         Windows.load(stage);

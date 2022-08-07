@@ -46,7 +46,8 @@ public class ViewsPerDay implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.scale = Creator.getScale();
+        //this.scale = Creator.getScale();
+        this.scale=1;
         initial();
     }
 
@@ -57,8 +58,15 @@ public class ViewsPerDay implements Initializable {
         Collection<Integer> view = DataBase.getUser().getViewPD().values();
         ArrayList<String> days = new ArrayList<>(day);
         Collections.sort(days);
-        for (int i = days.size() - 1; i >= days.size() - 5; i--) {
-            series.getData().add(new XYChart.Data<>(days.get(i), DataBase.getUser().getViewPD().get(days.get(i))));
+        if (days.size()>=5) {
+            for (int i = days.size() - 1; i >= days.size() - 5; i--) {
+                series.getData().add(new XYChart.Data<>(days.get(i), DataBase.getUser().getViewPD().get(days.get(i))));
+            }
+        }
+        else {
+            for (int i = days.size() - 1; i >= 0; i--) {
+                series.getData().add(new XYChart.Data<>(days.get(i), DataBase.getUser().getViewPD().get(days.get(i))));
+            }
         }
         barChart.getData().add(series);
 
@@ -66,6 +74,8 @@ public class ViewsPerDay implements Initializable {
         barChart.setLayoutY(100 * scale);
         barChart.setPrefWidth(500 * scale);
         barChart.setPrefHeight(400 * scale);
+
+        //barChart.setStyle("-fx-fill: #ff00ff");
 
         theme();
         viewsScrollPane.setPrefWidth(600 * scale);
@@ -79,11 +89,12 @@ public class ViewsPerDay implements Initializable {
         titleL.setLayoutX(239 * scale);
         titleL.setLayoutY(11 * scale);
         backImage.setLayoutX(14 * scale);
-        backImage.setLayoutY(4 * scale);
-        backImage.setFitWidth(43 * scale);
-        backImage.setFitHeight(48 * scale);
+        backImage.setLayoutY(10 * scale);
+        backImage.setFitWidth(30 * scale);
+        backImage.setFitHeight(31 * scale);
 
         topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
+        //mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         titleL.setTextFill(mode);
     }
 
@@ -92,29 +103,30 @@ public class ViewsPerDay implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }
     }
+
 
     public void back(MouseEvent mouseEvent) {
         // remove az pane

@@ -38,8 +38,8 @@ public class MyProfile implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + Creator.getUsersPostVBox() * scale);
-        this.mainVBox.getChildren().add(Creator.showUserPosts(DataBase.getUser(), this.scale));
+//        this.mainVBox.setPrefHeight(this.mainVBox.getPrefHeight() + Creator.getUsersPostVBox() * scale);
+//        this.mainVBox.getChildren().add(Creator.showUserPosts(DataBase.getUser(), this.scale));
     }
 
     public void initial() {

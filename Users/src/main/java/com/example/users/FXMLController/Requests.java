@@ -63,9 +63,9 @@ public class Requests implements Initializable {
         titleL.setLayoutX(218 * scale);
         titleL.setLayoutY(11 * scale);
         backImage.setLayoutX(14 * scale);
-        backImage.setLayoutY(4 * scale);
-        backImage.setFitWidth(43 * scale);
-        backImage.setFitHeight(48 * scale);
+        backImage.setLayoutY(11 * scale);
+        backImage.setFitWidth(29 * scale);
+        backImage.setFitHeight(33 * scale);
 
         topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));

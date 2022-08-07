@@ -96,7 +96,7 @@ public class DataBase {
         userNames = new ArrayList();
         userPasswords = new ArrayList();
         scale = 1.0D;
-        theme = 1;
+        theme = 2;
     }
 
 }
