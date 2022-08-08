@@ -5,6 +5,7 @@ import com.example.users.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -20,6 +21,8 @@ import java.util.ResourceBundle;
 public class Menu implements Initializable {
     @FXML
     private VBox mainVBox;
+    @FXML
+    private ScrollPane mainScrollPane;
     @FXML
     private Pane backPane;
     @FXML
@@ -87,7 +90,7 @@ public class Menu implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.scale = Creator.getScale();
-        //this.scale = 1;
+        //this.scale = 2;
         theme();
         initial();
 
@@ -98,7 +101,8 @@ public class Menu implements Initializable {
             mainVBox.getChildren().remove(this.six);
         }
 
-        backPane.setPrefHeight(400 * scale);
+        mainScrollPane.setPrefWidth(400 * scale);
+        backPane.setPrefWidth(400 * scale);
         mainVBox.setPrefWidth(400 * scale);
         one.setPrefWidth(400 * scale);
         two.setPrefWidth(400 * scale);
@@ -110,7 +114,9 @@ public class Menu implements Initializable {
         eight.setPrefWidth(400 * scale);
         nine.setPrefWidth(400 * scale);
 
+        mainScrollPane.setPrefHeight(600 * scale);
         mainVBox.setPrefHeight(600 * scale);
+        backPane.setPrefHeight(600 * scale);
         one.setPrefHeight(200 * scale);
         two.setPrefHeight(200 * scale);
         three.setPrefHeight(200 * scale);
@@ -155,6 +161,7 @@ public class Menu implements Initializable {
 
         proP.setLayoutX(6 * scale);
 
+        mainScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         backPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         one.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));
         two.setStyle("-fx-border-width:0.5; -fx-border-color: #" + themeColor.toString().substring(2) + ";-fx-background-color: #" + mode.toString().substring(2));

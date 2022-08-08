@@ -36,7 +36,7 @@ public class Main extends Application {
         Creator.setOthersProfileHeaderUser(user);
 
         stage.setHeight(600);
-        stage.setWidth(600);
+        stage.setWidth(400);
         Windows.load(stage);
         //  Windows.myProfile();
         Windows.othersProfile();

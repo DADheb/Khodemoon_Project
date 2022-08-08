@@ -39,6 +39,7 @@ public class Requests implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.scale = Creator.getScale();
+        this.scale = 1;
         initial();
         Node node;
         for (int i = 0; i < DataBase.getUser().getRequests().size(); i++) {
