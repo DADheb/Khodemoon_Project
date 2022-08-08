@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -23,6 +24,8 @@ public class ViewFollowingPostsController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private ScrollPane mainPane;
     public VBox myVBox;
     @FXML
     private Text seeText;
@@ -54,6 +57,10 @@ public class ViewFollowingPostsController implements Initializable {
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefHeight(600 * scale);
+        this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+        this.mainPane.setPrefWidth(600 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+
         this.myVBox.setPrefWidth(600 * scale);
         this.myVBox.setPrefHeight(600 * scale);
         this.myVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));

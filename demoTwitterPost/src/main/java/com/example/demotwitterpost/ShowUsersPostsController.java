@@ -33,12 +33,8 @@ public class ShowUsersPostsController implements Initializable {
             Collections.sort(Creator.user.getPosts());
             for (int i = 0; i < Creator.user.getPosts().size(); i++) {
                 this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
+                this.mainPane.setPrefHeight(mainPane.getPrefHeight() + 420 * Creator.scale);
                 this.myBox.getChildren().add((Pane) addPost(Creator.user.getPosts().get(i)));
-                Collections.sort(Creator.user.getPosts().get(i).getComments());
-                for (int j = 0; j < Creator.user.getPosts().get(i).getComments().size(); j++) {
-                    this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
-                    this.myBox.getChildren().add((Pane) addComment (Creator.user.getPosts().get(i).getComments().get(j)));
-                }
             }
             Creator.usersPostVBox = myBox.getPrefHeight();
         } catch (IOException e){
@@ -48,6 +44,8 @@ public class ShowUsersPostsController implements Initializable {
 
     public void initial(double scale) {
         theme();
+        myBox.setPrefHeight(0.0);
+        mainPane.setPrefHeight(0.0);
         this.mainPane.setPrefWidth(600 * scale);
         this.mainPane.setPrefHeight(600 * scale);
         this.myBox.setPrefHeight(600 * scale);
@@ -97,14 +95,6 @@ public class ShowUsersPostsController implements Initializable {
             node = fxmlLoader.load();
             return node;
         }
-    }
-    public Node addComment(Comment comment) throws IOException {
-        Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TextComment.fxml"));
-        TextCommentController textCommentController = fxmlLoader.getController();
-        textCommentController.fillComment(comment, Creator.scale);
-        node = fxmlLoader.load();
-        return node;
     }
 
 }

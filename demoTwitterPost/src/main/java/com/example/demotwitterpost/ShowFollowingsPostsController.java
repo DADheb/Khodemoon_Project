@@ -42,6 +42,7 @@ public class ShowFollowingsPostsController implements Initializable {
 
     public void initial(double scale) {
         theme();
+        myBox.setPrefHeight(0.0);
         this.mainPane.setPrefWidth(600 * scale);
         this.mainPane.setPrefHeight(600 * scale);
         this.myBox.setPrefWidth(600 * scale);

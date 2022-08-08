@@ -57,6 +57,7 @@ public class ViewCommentsController implements Initializable {
 
     public void initial(double scale) {
         theme();
+        myVBox.setPrefHeight(0.0);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
