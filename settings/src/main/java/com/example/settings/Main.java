@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        User user = new User("tina.hlm","12345678","its tina", "TINA","Halimi","2003-05-27","t@gmail.com","khar",false,true);
+        User user = new User("tina.hlm", "12345678", "its tina", "TINA", "Halimi", "2003-05-27", "t@gmail.com", "khar", false, true);
         DataBase.setUser(user);
         stage.setHeight(600);
         stage.setWidth(1000);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-public class User implements Comparable<User>{
+public class User implements Comparable<User> {
     private String userName;
     private String password;
     private String bio;
@@ -17,11 +17,11 @@ public class User implements Comparable<User>{
     private String email;
     private String date;
     private String securityQuestionsAnswers;
-    private boolean privacy=false;
+    private boolean privacy = false;
     private boolean userType;
-    private int numberOfPosts=0;
-    private int numberOfFollowers=0;
-    private int numberOfFollowings=0;
+    private int numberOfPosts = 0;
+    private int numberOfFollowers = 0;
+    private int numberOfFollowings = 0;
 
     //private String profileImageURL
 
@@ -33,9 +33,9 @@ public class User implements Comparable<User>{
     private ArrayList<User> followRequests = new ArrayList<>();
     private ArrayList<User> requests = new ArrayList<>();
     private ArrayList<User> block = new ArrayList<>();
-    private HashMap<String,Integer> viewPD = new HashMap<String,Integer>();
-    private HashMap<User,Integer> interest = new HashMap<User,Integer>();
-    private HashMap<User,Integer> interestAD = new HashMap<User,Integer>();
+    private HashMap<String, Integer> viewPD = new HashMap<String, Integer>();
+    private HashMap<User, Integer> interest = new HashMap<User, Integer>();
+    private HashMap<User, Integer> interestAD = new HashMap<User, Integer>();
 
     public Image getProfileImage() {
         return profileImage;
@@ -311,6 +311,6 @@ public class User implements Comparable<User>{
 
     @Override
     public int compareTo(User o) {
-        return Integer.compare(this.numberOfFollowers,o.numberOfFollowers);
+        return Integer.compare(this.numberOfFollowers, o.numberOfFollowers);
     }
 }

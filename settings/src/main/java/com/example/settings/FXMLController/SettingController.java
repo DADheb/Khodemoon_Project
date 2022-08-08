@@ -154,7 +154,7 @@ public class SettingController implements Initializable {
     private Color themeColor;
     private Color mode;
 
-     final FileChooser fileChooser = new FileChooser();
+    final FileChooser fileChooser = new FileChooser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -163,7 +163,7 @@ public class SettingController implements Initializable {
         this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                initial(Windows.getStage().getWidth() / 1000);
+                initial(Creator.getScale());
             }
         });
     }
@@ -175,8 +175,8 @@ public class SettingController implements Initializable {
         //RESPONSIVE
         this.mainScrollPane.setPrefWidth(1000 * scale);
         this.mainBorderPane.setPrefWidth(1000 * scale);
-//        this.mainScrollPane.setPrefHeight(Windows.getStage().getHeight());
-//        this.mainBorderPane.setPrefHeight(Windows.getStage().getHeight());
+        this.mainScrollPane.setPrefHeight(600 * scale);
+        this.mainBorderPane.setPrefHeight(600 * scale);
 
         this.titleSettingL.setFont(Font.font(24D * scale));
         this.proL.setFont(Font.font(18D * scale));
@@ -207,8 +207,9 @@ public class SettingController implements Initializable {
         this.birthPicker.setPrefHeight(35 * scale);
 
         //this.titleSettingL.setLayoutX(this.mainBorderPane.getPrefWidth() / 2 - 54);
-        this.titleSettingL.setLayoutX(446 *scale);
-        this.titleSettingL.setPrefWidth(109 * scale);
+        this.titleSettingL.setLayoutX(446 * scale);
+        //this.titleSettingL.setPrefWidth(109 * scale);
+        this.titleSettingL.setLayoutY(3 * scale);
         // y moonde
 
         this.usernameField.setPrefWidth(442D * scale);
@@ -242,7 +243,6 @@ public class SettingController implements Initializable {
         this.darkBlueB.setLayoutX(15 * scale);
         this.darkRedB.setLayoutX(174 * scale);
         this.lightBlueB.setLayoutX(324 * scale);
-
 
 
         this.changeProB.setFont(Font.font(16D * scale));
@@ -551,17 +551,15 @@ public class SettingController implements Initializable {
         fileChooser.setTitle("choose profile photo");
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.getExtensionFilters().clear();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter( "Image Files","*.png","*.jpg"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg"));
         File file = fileChooser.showOpenDialog(null);
-        if (file !=null){
+        if (file != null) {
             System.out.println("are");
             this.image = new Image(file.toURI().toString());
             DataBase.getUser().setProfileImage(this.image);
             this.proPhoto.setFill(new ImagePattern(image));
-        }
-        else{
+        } else {
             System.out.println("na");
         }
-
     }
 }
