@@ -45,6 +45,7 @@ public class ViewFollowingPostsController implements Initializable {
             Collections.sort(posts);
             for (int i = 0; i < posts.size(); i++) {
                 this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
+                this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.scale);
                 this.myVBox.getChildren().add((Pane) addPost(posts.get(i)));
             }
         } catch (IOException e){
@@ -54,6 +55,8 @@ public class ViewFollowingPostsController implements Initializable {
 
     public void initial(double scale) {
         theme();
+        myVBox.setPrefHeight(0.0);
+        anchorPane.setPrefHeight(59.0 * scale);
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefHeight(600 * scale);

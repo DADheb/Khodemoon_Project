@@ -133,6 +133,7 @@ public class MoreCommentController implements Initializable {
         if(!newText.isEmpty()) {
             CommentManager.editText(comment, newText);
         }
+
     }
 
     @FXML

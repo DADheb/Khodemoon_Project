@@ -44,10 +44,12 @@ public class ViewCommentsController implements Initializable {
         initial(Creator.scale);
         try{
             this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
+            this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.scale);
             this.myVBox.getChildren().add((Pane) addComment(Creator.comment));
-            Collections.sort(Creator.post.getComments());
-            for (int i = 0; i < Creator.post.getComments().size(); i++) {
+            Collections.sort(Creator.comment.getComments());
+            for (int i = 0; i < Creator.comment.getComments().size(); i++) {
                 this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.scale);
+                this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.scale);
                 this.myVBox.getChildren().add((Pane) addComment (Creator.comment.getComments().get(i)));
             }
         } catch (IOException e){
@@ -58,6 +60,7 @@ public class ViewCommentsController implements Initializable {
     public void initial(double scale) {
         theme();
         myVBox.setPrefHeight(0.0);
+        anchorPane.setPrefHeight(59.0 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
