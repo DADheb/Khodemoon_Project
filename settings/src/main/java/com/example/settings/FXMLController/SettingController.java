@@ -158,14 +158,7 @@ public class SettingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        this.mainScrollPane.setPrefHeight(Windows.getStage().getHeight());
-//        this.mainBorderPane.setPrefHeight(Windows.getStage().getHeight());
-        this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                initial(Creator.getScale());
-            }
-        });
+        initial(Creator.getScale());
     }
 
     public void initial(double scale) {
@@ -206,11 +199,9 @@ public class SettingController implements Initializable {
         this.birthPicker.setPrefWidth(425D * scale);
         this.birthPicker.setPrefHeight(35 * scale);
 
-        //this.titleSettingL.setLayoutX(this.mainBorderPane.getPrefWidth() / 2 - 54);
         this.titleSettingL.setLayoutX(446 * scale);
-        //this.titleSettingL.setPrefWidth(109 * scale);
-        this.titleSettingL.setLayoutY(3 * scale);
-        // y moonde
+        this.titleSettingL.setPrefWidth(109 * scale);
+        this.titleSettingL.setPrefHeight(25 * scale);
 
         this.usernameField.setPrefWidth(442D * scale);
         this.nameField.setPrefWidth(442D * scale);
@@ -243,6 +234,13 @@ public class SettingController implements Initializable {
         this.darkBlueB.setLayoutX(15 * scale);
         this.darkRedB.setLayoutX(174 * scale);
         this.lightBlueB.setLayoutX(324 * scale);
+        this.darkBlueB.setLayoutY(10 * scale);
+        this.darkRedB.setLayoutY(10 * scale);
+        this.lightBlueB.setLayoutY(10 * scale);
+        this.publicRadio.setLayoutX(76 * scale);
+        this.publicRadio.setLayoutY(14 * scale);
+        this.privateRadio.setLayoutX(273 * scale);
+        this.privateRadio.setLayoutY(14 * scale);
 
 
         this.changeProB.setFont(Font.font(16D * scale));
@@ -352,21 +350,14 @@ public class SettingController implements Initializable {
     }
 
     public void passwordVBox() {
-        showPasswordVBox(1);
-        this.mainPane.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                System.out.println(1);
-                showPasswordVBox(Windows.getStage().getWidth() / 1000);
-            }
-        });
+        showPasswordVBox(Creator.getScale());
     }
 
     public void showPasswordVBox(double scale) {
         this.mainScrollPane.setVisible(false);
         this.passBox.setVisible(true);
-        this.passBox.setLayoutX(this.mainPane.getWidth() / 2 - 50);
-        this.passBox.setLayoutY(this.mainPane.getHeight() / 4);
+        this.passBox.setLayoutX(450 * scale);
+        this.passBox.setLayoutY(150 * scale);
 
         this.passBox.setPrefWidth(140 * scale);
         this.passBox.setPrefHeight(200 * scale);
@@ -393,12 +384,10 @@ public class SettingController implements Initializable {
         this.passBackB.setStyle("-fx-background-radius: 15; -fx-background-color: #" + mode.toString().substring(2));
 
         this.titlePassL.setTextFill(mode);
-
     }
 
     public void changeUserName(ActionEvent event) {
         String newUsername = this.usernameField.getText();
-        System.out.println(newUsername);
         if (newUsername.length() == 0) {
             this.userNameErrorL.setVisible(true);
             this.userNameErrorL.setText("Enter New UserName");
