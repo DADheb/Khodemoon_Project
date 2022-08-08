@@ -55,6 +55,7 @@ public class Requests implements Initializable {
     public void initial() {
         theme();
         mainVBox.setPrefWidth(600 * scale);
+        mainVBox.setPrefHeight(600 * scale);
         requestsScrollPane.setPrefWidth(600 * scale);
         requestsScrollPane.setPrefHeight(600 * scale);
         topPane.setPrefWidth(600 * scale);

@@ -68,6 +68,7 @@ public class Suggestions implements Initializable {
         suggestionScrollPane.setPrefWidth(600 * scale);
         suggestionScrollPane.setPrefHeight(600 * scale);
         mainVBox.setPrefWidth(600 * scale);
+        mainVBox.setPrefHeight(600 * scale);
         topPane.setPrefWidth(600 * scale);
         topPane.setPrefHeight(50 * scale);
         titleL.setFont(Font.font(24 * scale));

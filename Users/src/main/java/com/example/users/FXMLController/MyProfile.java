@@ -47,6 +47,7 @@ public class MyProfile implements Initializable {
         this.myProScrollPane.setPrefWidth(600 * scale);
         this.myProScrollPane.setPrefHeight(600 * scale);
         this.mainVBox.setPrefWidth(600 * scale);
+        this.mainVBox.setPrefHeight(600 * scale);
 
         this.mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.myProScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));

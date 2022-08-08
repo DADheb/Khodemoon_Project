@@ -46,9 +46,11 @@ public class Followings implements Initializable {
         //this.scale = 1;
         initial();
         Node node;
+        System.out.println(mainVBox.getPrefHeight());
         for (int i = 0; i < usersToShow.size(); i++) {
             try {
                 mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 90 * this.scale);
+                System.out.println(mainVBox.getPrefHeight());
                 node = Creator.showShortUser(usersToShow.get(i), this.scale);
                 mainVBox.getChildren().add(node);
             } catch (IOException e) {
@@ -65,6 +67,7 @@ public class Followings implements Initializable {
         followingsScrollPane.setPrefHeight(600 * scale);
         System.out.println(followingsScrollPane.getPrefWidth());
         mainVBox.setPrefWidth(600 * scale);
+        mainVBox.setPrefHeight(600 * scale);
         topPane.setPrefWidth(600 * scale);
         topPane.setPrefHeight(50 * scale);
         titleFollowingL.setFont(Font.font(24 * scale));
@@ -84,9 +87,9 @@ public class Followings implements Initializable {
 
     public void setValue() {
         String s = Creator.getFollowerOrFollowing();
-        //String s = "Followers";
+       // String s = "Followers";
         this.user = Creator.getUserToShow();
-        //this.user=DataBase.getUser();
+        this.user=DataBase.getUser();
         if (s.equals("Followings")) {
             usersToShow = this.user.getFollowings();
         } else if (s.equals("Followers")) {

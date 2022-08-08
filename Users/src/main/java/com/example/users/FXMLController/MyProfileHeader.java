@@ -137,7 +137,6 @@ public class MyProfileHeader implements Initializable {
         }
         this.image = DataBase.getUser().getProfileImage();
         this.proPhoto.setFill(new ImagePattern(image));
-        System.out.println(3);
     }
 
     public void theme() {

@@ -43,6 +43,7 @@ public class OthersProfile implements Initializable {
         this.otherProScrollPane.setPrefWidth(600 * scale);
         this.otherProScrollPane.setPrefHeight(600 * scale);
         this.mainVBox.setPrefWidth(600 * scale);
+        this.mainVBox.setPrefHeight(600 * scale);
 
         this.mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.otherProScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));

@@ -20,7 +20,9 @@ public class Creator {
     public static Node showOthersProfile(User user, double s) throws IOException {
         scale = s;
         othersProfileHeaderUser = user;
-        UserController.view(user, DataBase.getUser());
+        if (DataBase.getUser().getUserType() == true) {
+            UserController.view(user, DataBase.getUser());
+        }
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("OthersProfile.fxml"));
         node = fxmlLoader.load();

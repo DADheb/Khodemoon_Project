@@ -33,7 +33,7 @@ public class Windows {
 
     public static void othersProfile() {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Requests.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("MyProfile.fxml")));
             Scene scene = new Scene(root);
             stage.setTitle("My Twitter");
             stage.setScene(scene);
