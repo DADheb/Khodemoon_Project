@@ -28,20 +28,13 @@ public class ShowFollowingsPostsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initial(Creator.scale);
         try{
-            ArrayList<Post> posts = new ArrayList<>();
-            for (User u : DataBase.getUser().getFollowings()){
-                posts.addAll(u.getPosts());
-            }
-            Collections.sort(posts);
-            for (int i = 0; i < posts.size(); i++) {
-                this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
-                this.myBox.getChildren().add((Pane) addPost(posts.get(i)));
-                Collections.sort(posts.get(i).getComments());
-                for (int j = 0; j < posts.get(i).getComments().size(); j++) {
+            this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
+            this.myBox.getChildren().add((Pane) addPost(Creator.post));
+            Collections.sort(Creator.post.getComments());
+                for (int j = 0; j < Creator.post.getComments().size(); j++) {
                     this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.scale);
-                    this.myBox.getChildren().add((Pane) addComment (posts.get(i).getComments().get(j)));
+                    this.myBox.getChildren().add((Pane) addComment (Creator.post.getComments().get(j)));
                 }
-            }
         } catch (IOException e){
             e.printStackTrace();
         }

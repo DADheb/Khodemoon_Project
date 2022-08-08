@@ -33,19 +33,11 @@ public class Creator {
         node = fxmlLoader.load();
         return node;
     }
-
+    // show a post with comments
     public static Node showFollowingsPosts (Double s) throws IOException {
         scale = s;
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ShowFollowingsPost.fxml"));
-        node = fxmlLoader.load();
-        return node;
-    }
-
-    public static Node viewPosts (Double s) throws IOException {
-        scale = s;
-        Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewPosts.fxml"));
         node = fxmlLoader.load();
         return node;
     }

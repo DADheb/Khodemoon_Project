@@ -137,7 +137,7 @@ public class CreateCommentController implements Initializable {
             }
             else{
                 this.comment = Creator.comment;
-                Comment newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,comment);
+                Comment newComment = ControllerManager.commentOnComment(Creator.comment.getUser(),text,comment);
                 ControllerManager.commentC(comment, newComment);
             }
 

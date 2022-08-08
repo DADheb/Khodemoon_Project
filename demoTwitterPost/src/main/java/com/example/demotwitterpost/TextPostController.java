@@ -229,6 +229,8 @@ public class TextPostController implements Initializable {
     @FXML
     protected void onViewClicked (MouseEvent e) throws IOException {
         Creator.setPost(post);
+        // todo
+        // call node showFollowingsPost..
     }
 
 

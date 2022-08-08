@@ -11,7 +11,7 @@
 <AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.demotwitterpost.ViewFollowingPostsController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="600.0" prefWidth="600.0">
     <children>
         <VBox fx:id="myVBox" layoutX="3.0" layoutY="59.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" />
         <Button fx:id="backButton" layoutX="469.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="Back" textFill="WHITE">
@@ -19,7 +19,7 @@
                 <Font size="20.0" />
             </font>
         </Button>
-        <Text fx:id="seeText" layoutX="85.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See more posts" wrappingWidth="510.6494140625">
+        <Text fx:id="seeText" layoutX="85.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See some posts" wrappingWidth="510.6494140625">
             <font>
                 <Font size="30.0" />
             </font>

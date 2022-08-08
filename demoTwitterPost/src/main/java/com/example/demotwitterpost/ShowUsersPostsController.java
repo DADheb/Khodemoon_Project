@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
 public class ShowUsersPostsController implements Initializable {
 
     @FXML
-    private ScrollPane mainPane;
+    private AnchorPane mainPane;
     public VBox myBox;
 
     private Color themeColor;
