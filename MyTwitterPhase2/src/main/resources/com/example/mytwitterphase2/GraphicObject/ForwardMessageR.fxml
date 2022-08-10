@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Objects.ForwardMessageR">
+    <children>
+        <ImageView fx:id="BImage" fitHeight="50.0" fitWidth="500.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Photo/Project/BMessageAR.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="TImage" fitHeight="50.0" fitWidth="500.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Photo/Project/TMessageAR.png" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="rect" fill="#0437f2" height="80.0" layoutX="35.0" layoutY="34.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="403.0" />
+        <Label fx:id="username" layoutX="50.0" layoutY="5.0" onMouseClicked="#goU" prefHeight="27.0" prefWidth="240.0" text="UserName">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Text fx:id="text" layoutX="50.0" layoutY="75.0" onMouseClicked="#addM" strokeType="OUTSIDE" strokeWidth="0.0" text="aaaaaaaaaaaaaaaaaaaaaaaafm;amdf;lmf;lamf;lmf;lmad;lfma;dfmad;lmfal;mdf;lmdfl;;;;;;;;mdfklajssssssssssssssssssssssssssssssag'fmkjldcfadvj" wrappingWidth="350.0">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Text>
+        <ImageView fx:id="seen" fitHeight="17.0" fitWidth="27.0" layoutX="50.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Photo/Project/Seen.png" />
+            </image>
+        </ImageView>
+      <Label fx:id="forwardLabel" layoutX="80.0" layoutY="30.0" onMouseClicked="#goF" prefWidth="350.0" text="Forwarded from Behdaddd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="forwardImage" fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photo/Project/ForwardOnDark.png" />
+         </image>
+      </ImageView>
+    </children>
+</Pane>

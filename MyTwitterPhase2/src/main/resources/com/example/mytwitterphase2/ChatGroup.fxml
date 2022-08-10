@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.ChatGroupF">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0">
+         <content>
+            <VBox fx:id="vBox" prefHeight="550.0" prefWidth="385.0" />
+         </content>
+      </ScrollPane>
+      <Pane fx:id="top" prefHeight="50.0" prefWidth="400.0">
+         <children>
+            <Label fx:id="all" layoutX="100.0" layoutY="10.0" text="All">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="chat" layoutX="205.0" layoutY="10.0" onMouseClicked="#goJustChat" text="Chats">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="group" layoutX="310.0" layoutY="10.0" onMouseClicked="#goJustGroup" text="Groups">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Line fx:id="line" endX="171.0" endY="49.0" startX="57.0" startY="49.0" strokeWidth="3.0" />
+            <Separator fx:id="sep1" layoutX="55.0" orientation="VERTICAL" prefHeight="50.0" />
+            <Separator fx:id="sep2" layoutX="170.0" orientation="VERTICAL" prefHeight="50.0" />
+            <Separator fx:id="sep3" layoutX="285.0" orientation="VERTICAL" prefHeight="50.0" />
+            <ImageView fx:id="backImage" fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="5.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photo/Project/BackDark.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Circle fx:id="chatCir" centerX="340.0" centerY="550.0" fill="DODGERBLUE" onMouseClicked="#goNewChat" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="groupCir" centerX="250.0" centerY="550.0" fill="DODGERBLUE" onMouseClicked="#goNewGroup" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fx:id="chatImage" fitHeight="70.0" fitWidth="70.0" layoutX="305.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photo/Project/newChatDark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="groupImage" fitHeight="65.0" fitWidth="65.0" layoutX="217.5" layoutY="517.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photo/Project/newGroupDark.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="shortRequestPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="90.0" prefWidth="600.0" style="-fx-border-width: 2; -fx-border-color: BLACK;"
+      xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.mytwitterphase2.FXMLController.Objects.ShortRequest">
+    <children>
+        <Circle fx:id="proPhoto" fill="DODGERBLUE" layoutX="110.0" layoutY="45.0" onMouseClicked="#showUserPro"
+                radius="40.0" stroke="BLACK" strokeType="INSIDE"/>
+        <Label fx:id="usernameL" layoutX="190.0" layoutY="18.0" onMouseClicked="#showUserPro" text="UserName">
+            <font>
+                <Font size="22.0"/>
+            </font>
+        </Label>
+        <Button fx:id="deleteB" layoutX="500.0" layoutY="28.0" mnemonicParsing="false" onAction="#deleteRequest"
+                text="Delete" textAlignment="CENTER">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+        <Label fx:id="nameL" layoutX="190.0" layoutY="52.0" onMouseClicked="#showUserPro" text="name">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Button fx:id="confirmB" layoutX="392.0" layoutY="28.0" mnemonicParsing="false" onAction="#confirmRequest"
+                text="Confirm" textAlignment="CENTER">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Button>
+    </children>
+</Pane>

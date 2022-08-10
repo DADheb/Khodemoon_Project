@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.CreateCommentController">
+  <content>
+    <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <Text fx:id="mainText" layoutX="139.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add your comment" wrappingWidth="350.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+            <Text fx:id="textText" layoutX="128.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text:" wrappingWidth="474.3720703125">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="textArea" layoutX="192.0" layoutY="320.0" prefHeight="98.0" prefWidth="280.0" promptText="Insert your comment here">
+               <font>
+                  <Font size="20.0" />
+               </font></TextArea>
+            <ImageView fx:id="twitterImg" fitHeight="175.0" fitWidth="181.0" layoutX="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photo/Project/icons8-twitter-400.png" />
+               </image></ImageView>
+             <ImageView fx:id="twitterImgP" fitHeight="237.0" fitWidth="208.0" layoutX="198.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@Photo/Project/photo-output.png" />
+                 </image></ImageView>
+             <Button fx:id="doneButton" layoutX="246.0" layoutY="439.0" mnemonicParsing="false" onAction="#onDoneClicked" prefHeight="40.0" prefWidth="113.0" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="Done" textFill="WHITE">
+                 <font>
+                     <Font size="20.0" />
+                 </font>
+             </Button>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

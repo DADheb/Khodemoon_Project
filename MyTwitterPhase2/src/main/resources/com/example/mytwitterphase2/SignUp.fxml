@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.SignUpController">
+   <content>
+      <AnchorPane fx:id="anchorPane" onMouseClicked="#onExitClicked" prefHeight="399.0" prefWidth="604.0">
+         <children>
+            <TextField fx:id="usernameField" layoutX="190.0" layoutY="141.0" prefHeight="35.0" prefWidth="227.0" promptText="Username">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="questionField" layoutX="190.0" layoutY="212.0" prefHeight="35.0" prefWidth="227.0" promptText="Security Questtion">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="passwordField" layoutX="190.0" layoutY="254.0" prefHeight="35.0" prefWidth="227.0" promptText="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Text fx:id="existsText" fill="#e41717" layoutX="191.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Username already exists">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="animalText" layoutX="193.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter your favorite animal">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="tooShortText" fill="#e41717" layoutX="188.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password too short!">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <Text fx:id="WrongText" fill="#e41717" layoutX="190.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong characters are used">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="signUpRect" arcHeight="5.0" arcWidth="5.0" fill="#78a1d1" height="40.0" layoutX="206.0" layoutY="313.0" onMouseClicked="#onSignUpClicked" stroke="#78a1d1" strokeType="INSIDE" width="193.0" />
+            <Circle fx:id="Cicl1" fill="#78a1d1" layoutX="206.0" layoutY="333.0" onMouseClicked="#onSignUpClicked" radius="20.0" stroke="#78a1d1" strokeType="INSIDE" />
+            <Circle fx:id="Cicl2" fill="#78a1d1" layoutX="399.0" layoutY="333.0" onMouseClicked="#onSignUpClicked" radius="20.0" stroke="#78a1d1" strokeType="INSIDE" />
+            <Text fx:id="alreadyHaveText" layoutX="182.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Have an account Already?" wrappingWidth="413.734375">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="logInText" fill="#78a1d1" layoutX="363.0" layoutY="377.0" onMouseClicked="#onLogInClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in" wrappingWidth="231.671875">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="signUpText" fill="WHITE" layoutX="270.0" layoutY="340.0" onMouseClicked="#onSignUpClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="joinText" fill="#78a1d1" layoutX="195.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join myTwitter today" wrappingWidth="407.1875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="twitterImg" fitHeight="123.0" fitWidth="131.0" layoutX="240.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photo/Project/icons8-twitter-400.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="exitImg" fitHeight="54.0" fitWidth="51.0" layoutY="1.0" onMouseClicked="#onExitClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Photo/Project/icons8-emergency-exit-50.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
