@@ -66,7 +66,7 @@ public class MainGraphic extends Application {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "84626382");
         DataBase.setConnection(connection);
         SQL.getDatabaseInitializer().createTables(connection);
         SQL.loadAll(connection);
