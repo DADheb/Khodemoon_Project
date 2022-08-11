@@ -115,6 +115,7 @@ public class SignInController implements Initializable {
 
     public void initialValues() {
         wrongText.setVisible(false);
+        usernameField.setText(Creator.setUsername);
     }
 
     @FXML

@@ -66,21 +66,21 @@ public class CreatePostController implements Initializable {
         theme();
         this.createText.setFill(themeColor);
         this.createText.setLayoutX (191d* scale);
-        this.createText.setLayoutY(57d * scale);
+        this.createText.setLayoutY(157d * scale);
         this.createText.setFont(Font.font(30D * scale));
 
         this.cancelButton.setStyle("-fx-background-radius: 15; -fx-background-color: #" + themeColor.toString().substring(2));
         this.cancelButton.setTextFill(mode);
         this.cancelButton.setFont(Font.font(20D * scale));
         this.cancelButton.setLayoutX (191d* scale);
-        this.cancelButton.setLayoutY(319d * scale);
+        this.cancelButton.setLayoutY(419d * scale);
         this.cancelButton.setPrefWidth(91d * scale);
         this.cancelButton.setPrefHeight(40d * scale);
         this.createButton.setStyle("-fx-background-radius: 15; -fx-background-color: #" + themeColor.toString().substring(2));
         this.createButton.setTextFill(mode);
         this.createButton.setFont(Font.font(20D * scale));
         this.createButton.setLayoutX (325d* scale);
-        this.createButton.setLayoutY(319d * scale);
+        this.createButton.setLayoutY(419d * scale);
         this.createButton.setPrefWidth(91d * scale);
         this.createButton.setPrefHeight(40d * scale);
 
@@ -88,25 +88,25 @@ public class CreatePostController implements Initializable {
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(450 * scale);
-        this.anchorPane.setPrefHeight(450 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);
 
 
         this.urlText.setFill(themeColor);
         this.urlText.setFont(Font.font(20D * scale));
         this.urlText.setLayoutX (108d* scale);
-        this.urlText.setLayoutY(166d * scale);
+        this.urlText.setLayoutY(266d * scale);
 
         this.textRadio.setTextFill(themeColor);
         this.imageRadio.setTextFill(themeColor);
         this.textRadio.setFont(Font.font(20D * scale));
         this.imageRadio.setFont(Font.font(20D * scale));
         this.textRadio.setLayoutX (191d* scale);
-        this.textRadio.setLayoutY(250d * scale);
+        this.textRadio.setLayoutY(350d * scale);
         this.textRadio.setPrefWidth(170d * scale);
         this.textRadio.setPrefHeight(27d * scale);
         this.imageRadio.setLayoutX (326d* scale);
-        this.imageRadio.setLayoutY(250d * scale);
+        this.imageRadio.setLayoutY(350d * scale);
         this.imageRadio.setPrefWidth(170d * scale);
         this.imageRadio.setPrefHeight(27d * scale);
 
@@ -118,13 +118,15 @@ public class CreatePostController implements Initializable {
         this.urlField.setPrefHeight(45d * scale);
         this.urlField.setFont(Font.font(20D * scale));
         this.urlField.setLayoutX(170d * scale);
-        this.urlField.setLayoutY(137d * scale);
+        this.urlField.setLayoutY(237d * scale);
 
         this.textArea.setPrefWidth(304d * scale);
         this.textArea.setPrefHeight(161d * scale);
         this.textArea.setFont(Font.font(20D * scale));
         this.textArea.setLayoutX(149d * scale);
-        this.textArea.setLayoutY(79d * scale);
+        this.textArea.setLayoutY(179d * scale);
+
+
     }
 
     public void theme() {
