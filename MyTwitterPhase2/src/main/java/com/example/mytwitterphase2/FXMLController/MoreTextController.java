@@ -137,6 +137,12 @@ public class MoreTextController implements Initializable {
         this.perDay.setPrefWidth(40d * scale);
         this.perDay.setPrefHeight(246d * scale);
 
+        // more text post
+        this.backImage.setLayoutX(542d * scale);
+        this.backImage.setLayoutY(554d * scale);
+        this.backImage.setFitHeight(35d * scale);
+        this.backImage.setFitWidth(35d * scale);
+
     }
 
     public void theme() {
