@@ -185,6 +185,7 @@ public class User implements Comparable<User>{
 
     public void setPrivacy(Boolean privacy) {
         this.privacy = privacy;
+        System.out.println(this.privacy);
     }
 
     public void setUserName(String userName) {

@@ -174,16 +174,19 @@ public class MyProfileHeader implements Initializable {
 
     public void showUserFollowers(MouseEvent mouseEvent) throws IOException {
         LiveState.state = 16;
+        LiveState.user = DataBase.getUser();
         DataBase.main.showFollowers();
     }
 
     public void showUserFollowings(MouseEvent mouseEvent) throws IOException {
         LiveState.state = 17;
+        LiveState.user = DataBase.getUser();
         DataBase.main.showFollowings();
     }
 
     public void showViewers(MouseEvent mouseEvent) throws IOException {
         LiveState.state = 18;
+        LiveState.user = DataBase.getUser();
         DataBase.main.showViewPerDay();
     }
 

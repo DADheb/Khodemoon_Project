@@ -81,6 +81,8 @@ public class GetMember implements Initializable {
                                 throw new RuntimeException(e);
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
                             }
                             break;
                         case 2 :
@@ -92,6 +94,8 @@ public class GetMember implements Initializable {
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (InterruptedException e) {
                                 throw new RuntimeException(e);
                             }
                             break;
@@ -105,6 +109,8 @@ public class GetMember implements Initializable {
                                 throw new RuntimeException(e);
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
                             }
                             break;
                         case 4 :
@@ -117,6 +123,8 @@ public class GetMember implements Initializable {
                                 throw new RuntimeException(e);
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
                             }
                             break;
                         case 5 :
@@ -128,6 +136,8 @@ public class GetMember implements Initializable {
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (InterruptedException e) {
                                 throw new RuntimeException(e);
                             }
                             break;

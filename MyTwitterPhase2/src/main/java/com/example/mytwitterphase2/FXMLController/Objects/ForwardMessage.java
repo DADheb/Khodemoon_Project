@@ -110,7 +110,7 @@ public class ForwardMessage implements Initializable {
         LiveState.message = message;
     }
 
-    public void goF(MouseEvent mouseEvent) throws IOException {
+    public void goF(MouseEvent mouseEvent) throws IOException, InterruptedException {
         LiveState.user = message.getForwarder();
         if(message.getForwarder().equals(DataBase.getUser())){
             LiveState.state = 10;
@@ -121,7 +121,7 @@ public class ForwardMessage implements Initializable {
         }
     }
 
-    public void goU(MouseEvent mouseEvent) throws IOException {
+    public void goU(MouseEvent mouseEvent) throws IOException, InterruptedException {
         LiveState.user = message.getUser();
         LiveState.state = 15;
         DataBase.main.showUser();

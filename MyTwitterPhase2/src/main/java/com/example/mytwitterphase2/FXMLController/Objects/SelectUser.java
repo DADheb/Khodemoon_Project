@@ -43,10 +43,12 @@ public class SelectUser implements Initializable {
         username.setFont(Font.font(24*scale));
         username.setLayoutX(120*scale);
         username.setLayoutY(15*scale);
+        username.setText(user.getUserName());
 
         name.setFont(Font.font(20*scale));
         name.setLayoutX(120*scale);
         name.setLayoutY(55*scale);
+        name.setText(user.getName() + " " + user.getLastName());
 
         select.setFitWidth(50*scale);
         select.setFitHeight(50*scale);
@@ -71,6 +73,7 @@ public class SelectUser implements Initializable {
         } else {
             Creator.selectedUsers.remove(user);
         }
+        System.out.println(1);
         LiveState.user = user;
     }
 }

@@ -22,6 +22,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -73,8 +74,8 @@ public class MoreTextController implements Initializable {
         theme();
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(450 * scale);
-        this.anchorPane.setPrefHeight(450 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);
         this.mainPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
 
@@ -195,18 +196,24 @@ public class MoreTextController implements Initializable {
     }
 
     @FXML
-    protected void onDoneClicked (ActionEvent e) throws IOException {
+    protected void onDoneClicked (ActionEvent e) throws IOException, SQLException, InterruptedException {
         Creator.setPost(post);
         String newText = textArea.getText();
         if(!newText.isEmpty()) {
-            PostController.editText(post, newText);
+            if(!newText.equals(post.getText())) {
+                PostController.editText(post, newText);
+            }
         }
+        LiveState.state = 10;
+        DataBase.main.refresh();
     }
 
     @FXML
-    protected void onDeleteClicked (ActionEvent e) throws IOException {
+    protected void onDeleteClicked (ActionEvent e) throws IOException, SQLException, InterruptedException {
         Creator.setPost(post);
         ControllerManager.deletePost(post);
+        LiveState.state = 10;
+        DataBase.main.refresh();
     }
 
 }

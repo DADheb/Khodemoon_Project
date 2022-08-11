@@ -338,9 +338,11 @@ public class SettingController implements Initializable {
         if (DataBase.getUser().getPrivacy() == false) {
             this.publicRadio.setSelected(true);
             this.privateRadio.setSelected(false);
+            System.out.println("publice");
         } else {
-            this.privateRadio.setSelected(false);
-            this.publicRadio.setSelected(true);
+            this.privateRadio.setSelected(true);
+            this.publicRadio.setSelected(false);
+            System.out.println("privatee");
         }
     }
 
@@ -423,9 +425,10 @@ public class SettingController implements Initializable {
     public void changePrivacy(ActionEvent event) {
         if (this.publicRadio.isSelected()) {
             UserController.changePrivacy(DataBase.getUser(), false);
+            System.out.println("public shod");
         } else if (this.privateRadio.isSelected()) {
             UserController.changePrivacy(DataBase.getUser(), true);
-            System.out.println("Private");
+            System.out.println("Private shod");
         }
     }
 

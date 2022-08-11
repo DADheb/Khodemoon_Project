@@ -47,7 +47,7 @@ public class Michka implements Initializable {
 
     }
 
-    public void enterProgram(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void enterProgram(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.state = 1;
         DataBase.main.refresh();
     }

@@ -37,16 +37,18 @@ public class SignInDetailController implements Initializable {
     public Text gmailText;
     public Text typeText;
     public DatePicker birthdayPick;
-    public RadioButton publicButton;
-    public RadioButton privateButton;
+//    public RadioButton publicButton;
+//    public RadioButton privateButton;
     public Rectangle doneRect;
     public Circle doneCirc1;
     public Circle doneCirc2;
     public ToggleGroup accountType;
     public ImageView exitImg;
+    public RadioButton isBusinessB;
+    public RadioButton ordinaryB;
 
     String username, question, password, name, lastname, birthday, bio, email;
-    Boolean type = true;
+    Boolean type = false;
     private Double myScale = 1.0;
 
     @Override
@@ -119,16 +121,16 @@ public class SignInDetailController implements Initializable {
         this.birthdayPick.setPrefHeight(40d * scale);
         this.birthdayPick.setLayoutX(325d * scale);
         this.birthdayPick.setLayoutY(155d * scale);
-        this.publicButton.setLayoutX(330d * scale);
-        this.publicButton.setLayoutY(296d * scale);
-        this.publicButton.setPrefWidth(90d * scale);
-        this.publicButton.setPrefHeight(40d * scale);
-        this.publicButton.setFont(Font.font(16D * scale));
-        this.privateButton.setFont(Font.font(16D * scale));
-        this.privateButton.setLayoutX(439d * scale);
-        this.privateButton.setLayoutY(296d * scale);
-        this.privateButton.setPrefWidth(90d * scale);
-        this.privateButton.setPrefHeight(40d * scale);
+        this.isBusinessB.setLayoutX(330d * scale);
+        this.isBusinessB.setLayoutY(296d * scale);
+        this.isBusinessB.setPrefWidth(90d * scale);
+        this.isBusinessB.setPrefHeight(40d * scale);
+        this.isBusinessB.setFont(Font.font(14 * scale));
+        this.ordinaryB.setFont(Font.font(16D * scale));
+        this.ordinaryB.setLayoutX(439d * scale);
+        this.ordinaryB.setLayoutY(296d * scale);
+        this.ordinaryB.setPrefWidth(90d * scale);
+        this.ordinaryB.setPrefHeight(40d * scale);
         this.doneCirc1.setLayoutX(229d * scale);
         this.doneCirc1.setLayoutY(366d * scale);
         this.doneCirc1.setRadius(20d * scale);
@@ -150,7 +152,7 @@ public class SignInDetailController implements Initializable {
     }
 
     public void initialValues() {
-        publicButton.setSelected(true);
+        ordinaryB.setSelected(true);
     }
 
     @FXML
@@ -162,11 +164,11 @@ public class SignInDetailController implements Initializable {
             birthday = birthdayPick.getValue().toString();
         email = emailField.getText();
         bio = bioField.getText();
-        if(privateButton.isSelected()){
-            type = false;
+        if(isBusinessB.isSelected()){
+            type = true;
         }
         else {
-            type = true;
+            type = false;
         }
         User u = ControllerManager.newUser(username, password, type, name, lastname, bio, question, birthday, email);
         DataBase.setUser(u);

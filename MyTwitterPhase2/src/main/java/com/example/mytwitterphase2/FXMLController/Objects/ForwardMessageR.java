@@ -116,7 +116,7 @@ public class ForwardMessageR implements Initializable {
         LiveState.message = message;
     }
 
-    public void goF(MouseEvent mouseEvent) throws IOException {
+    public void goF(MouseEvent mouseEvent) throws IOException, InterruptedException {
         LiveState.user = message.getForwarder();
         if(message.getForwarder().equals(DataBase.getUser())){
             LiveState.state = 10;

@@ -96,7 +96,7 @@ public class SearchUser implements Initializable {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     try {
-                        selected();
+                        selected(u);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     } catch (IOException e) {
@@ -157,7 +157,7 @@ public class SearchUser implements Initializable {
                             @Override
                             public void handle(MouseEvent mouseEvent) {
                                 try {
-                                    selected();
+                                    selected(u);
                                 } catch (InterruptedException e) {
                                     throw new RuntimeException(e);
                                 } catch (IOException e) {
@@ -183,7 +183,7 @@ public class SearchUser implements Initializable {
                         @Override
                         public void handle(MouseEvent mouseEvent) {
                             try {
-                                selected();
+                                selected(u);
                             } catch (InterruptedException e) {
                                 throw new RuntimeException(e);
                             } catch (IOException e) {
@@ -198,8 +198,8 @@ public class SearchUser implements Initializable {
         }
     }
 
-    public void selected() throws InterruptedException, IOException {
-        Thread.sleep(10);
+    public void selected(User user) throws InterruptedException, IOException {
+        LiveState.user = user;
         LiveState.state = 15;
         DataBase.main.showUser();
     }

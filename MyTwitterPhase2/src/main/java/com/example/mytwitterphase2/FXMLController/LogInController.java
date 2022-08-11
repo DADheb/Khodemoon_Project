@@ -120,7 +120,7 @@ public class LogInController implements Initializable {
     @FXML
     public void onNextClicked (MouseEvent e) throws IOException{
         String username = usernameField.getText();
-        Creator.setUsername = username;
+
 
         if(!username.isEmpty()){
             if (!DataBase.getUserNames().contains(username)){
@@ -129,6 +129,7 @@ public class LogInController implements Initializable {
                 usernameField.clear();
             }
             else{
+                Creator.setUsername = username;
                 LiveState.state = 2;
                 DataBase.main.showSignIn();
             }

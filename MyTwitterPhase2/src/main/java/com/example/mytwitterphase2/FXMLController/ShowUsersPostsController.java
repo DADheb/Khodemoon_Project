@@ -40,7 +40,7 @@ public class ShowUsersPostsController implements Initializable {
             for (int i = 0; i < Creator.user.getPosts().size(); i++) {
                 this.myBox.setPrefHeight(myBox.getPrefHeight() + 420 * Creator.mainScale);
                 this.mainPane.setPrefHeight(mainPane.getPrefHeight() + 420 * Creator.mainScale);
-                this.myBox.getChildren().add((Pane) addPost(Creator.user.getPosts().get(i)));
+                this.myBox.getChildren().add( addPost(Creator.user.getPosts().get(i)));
             }
             Creator.usersPostVBox = myBox.getPrefHeight();
         } catch (IOException e){
@@ -85,19 +85,18 @@ public class ShowUsersPostsController implements Initializable {
         }
     }
 
-    public Node addPost(Post post) throws IOException {
+    public Node addPost(Post posst) throws IOException {
+        Creator.post = posst;
         Node node;
-        if(post.getPostType() != 0) {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/ImagePost.fxml"));
+        if(posst.getPostType() != 0) {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ImagePost.fxml"));
             ImagePostController imagePostController = fxmlLoader.getController();
-            imagePostController.fillPost(Creator.post, Creator.subScale);
             node = fxmlLoader.load();
             return node;
         }
         else{
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextPost.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextPost.fxml"));
             TextPostController textPostController = fxmlLoader.getController();
-            textPostController.fillPost(Creator.post, Creator.subScale);
             node = fxmlLoader.load();
             return node;
         }

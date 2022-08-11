@@ -48,7 +48,7 @@ public class GroupInfo implements Initializable {
     public Button leave;
     public Button removeA;
     public Group group;
-    public void removeAdmin(ActionEvent actionEvent) throws SQLException, IOException {
+    public void removeAdmin(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         Creator.selectedUsers = (ArrayList<User>) group.getAdmins().clone();
         Creator.selectedUsers.remove(group.getCreator());
         LiveState.searchMState = 3;
@@ -56,7 +56,7 @@ public class GroupInfo implements Initializable {
         DataBase.main.refresh();
     }
 
-    public void leaveGroup(ActionEvent actionEvent) throws SQLException, IOException {
+    public void leaveGroup(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         if(group.getCreator().equals(DataBase.getUser())){
             ControllerManager.deleteGroup(group);
             LiveState.CGState = 0;
@@ -68,7 +68,7 @@ public class GroupInfo implements Initializable {
         }
     }
 
-    public void banMember(ActionEvent actionEvent) throws SQLException, IOException {
+    public void banMember(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         Creator.selectedUsers = (ArrayList<User>) group.getMembers().clone();
         if(group.getCreator().equals(DataBase.getUser())) {
             Creator.selectedUsers.remove(group.getCreator());
@@ -80,14 +80,14 @@ public class GroupInfo implements Initializable {
         DataBase.main.refresh();
     }
 
-    public void unbanMember(ActionEvent actionEvent) throws SQLException, IOException {
+    public void unbanMember(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         Creator.selectedUsers = (ArrayList<User>) group.getBans().clone();
         LiveState.searchMState = 5;
         LiveState.groupState = 2;
         DataBase.main.refresh();
     }
 
-    public void removeMember(ActionEvent actionEvent) throws SQLException, IOException {
+    public void removeMember(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         Creator.selectedUsers = (ArrayList<User>) group.getMembers().clone();
         if(group.getCreator().equals(DataBase.getUser())) {
             Creator.selectedUsers.remove(group.getCreator());
@@ -99,7 +99,7 @@ public class GroupInfo implements Initializable {
         DataBase.main.refresh();
     }
 
-    public void addAdmin(ActionEvent actionEvent) throws SQLException, IOException {
+    public void addAdmin(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         Creator.selectedUsers = (ArrayList<User>) group.getMembers().clone();
         Creator.selectedUsers.removeAll(group.getAdmins());
         LiveState.searchMState = 2;
@@ -115,12 +115,12 @@ public class GroupInfo implements Initializable {
         Creator.aBoolean = true;
     }
 
-    public void changeGroup(ActionEvent actionEvent) throws SQLException, IOException {
+    public void changeGroup(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         LiveState.groupState = 4;
         DataBase.main.refresh();
     }
 
-    public void back(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void back(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.groupState = 1;
         DataBase.main.refresh();
     }

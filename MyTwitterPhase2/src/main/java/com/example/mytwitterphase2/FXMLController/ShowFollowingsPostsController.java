@@ -48,12 +48,12 @@ public class ShowFollowingsPostsController implements Initializable {
         try{
             this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.mainScale);
             this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.mainScale);
-            this.myVBox.getChildren().add((Pane) addPost(Creator.post));
+            this.myVBox.getChildren().add( addPost(Creator.post));
             Collections.sort(Creator.post.getComments());
             for (int i = 0; i < Creator.post.getComments().size(); i++) {
                 this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.mainScale);
                 this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.mainScale);
-                this.myVBox.getChildren().add((Pane) addComment (Creator.post.getComments().get(i)));
+                this.myVBox.getChildren().add( addComment (Creator.post.getComments().get(i)));
             }
         } catch (IOException e){
             e.printStackTrace();
@@ -68,8 +68,8 @@ public class ShowFollowingsPostsController implements Initializable {
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(450 * scale);
-        this.anchorPane.setPrefHeight(450 * scale);;
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);;
         this.myVBox.setPrefWidth(600 * scale);
         this.myVBox.setPrefHeight(600 * scale);
         this.myVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
@@ -123,27 +123,26 @@ public class ShowFollowingsPostsController implements Initializable {
         DataBase.main.setMenuPane();
     }
     public Node addPost(Post post) throws IOException {
+        Creator.post = post;
         Node node;
         if(post.getPostType() != 0) {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/ImagePost.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ImagePost.fxml"));
             ImagePostController imagePostController = fxmlLoader.getController();
-            imagePostController.fillPost(Creator.post, Creator.mainScale);
             node = fxmlLoader.load();
             return node;
         }
         else{
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextPost.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextPost.fxml"));
             TextPostController textPostController = fxmlLoader.getController();
-            textPostController.fillPost(Creator.post, Creator.mainScale);
             node = fxmlLoader.load();
             return node;
         }
     }
     public Node addComment(Comment comment) throws IOException {
+        Creator.comment = comment;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextComment.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextComment.fxml"));
         TextCommentController textCommentController = fxmlLoader.getController();
-        textCommentController.fillComment(comment, Creator.mainScale);
         node = fxmlLoader.load();
         return node;
     }

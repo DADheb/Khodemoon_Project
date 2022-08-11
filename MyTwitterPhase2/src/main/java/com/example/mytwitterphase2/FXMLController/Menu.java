@@ -1,6 +1,7 @@
 package com.example.mytwitterphase2.FXMLController;
 
 import com.example.mytwitterphase2.DataBase.DataBase;
+import com.example.mytwitterphase2.MainGraphic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -96,7 +97,7 @@ public class Menu implements Initializable {
     }
 
     public void initial() {
-        if (DataBase.getUser().getUserType() == false) {
+        if (DataBase.getUser().getPrivacy() == false) {
             mainVBox.getChildren().remove(this.six);
         }
 
@@ -189,25 +190,25 @@ public class Menu implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/Menu/tweeterBlue.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/Menu/tweeterBlue.png")).toExternalForm());
                 this.tweeterP.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/Menu/tweeterBlue.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/Menu/tweeterBlue.png")).toExternalForm());
                 this.tweeterP.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/Menu/tweeterRed.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/Menu/tweeterRed.png")).toExternalForm());
                 this.tweeterP.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/Menu/tweeterRed.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/Menu/tweeterRed.png")).toExternalForm());
                 this.tweeterP.setImage(this.image);
                 break;
         }

@@ -130,7 +130,7 @@ public class SearchMessage implements Initializable {
         }
     }
 
-    public void close(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void close(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         if (type){
             LiveState.group = group;
             LiveState.CGState = 2;

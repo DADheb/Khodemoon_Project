@@ -90,7 +90,7 @@ public class ShortMessage implements Initializable {
         cir.setFill(new ImagePattern(Creator.image));
     }
 
-    public void goU(MouseEvent mouseEvent) throws IOException {
+    public void goU(MouseEvent mouseEvent) throws IOException, InterruptedException {
         if(ControllerManager.getMessageUser(message).equals(DataBase.getUser())){
             LiveState.user = message.getUser();
             LiveState.state = 10;

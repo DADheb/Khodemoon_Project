@@ -52,7 +52,7 @@ public class ViewFollowingPostsController implements Initializable {
             for (int i = 0; i < posts.size(); i++) {
                 this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.mainScale);
                 this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.mainScale);
-                this.myVBox.getChildren().add((Pane) addPost(posts.get(i)));
+                this.myVBox.getChildren().add( addPost(posts.get(i)));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -118,18 +118,15 @@ public class ViewFollowingPostsController implements Initializable {
         }
     }
     public Node addPost(Post post) throws IOException {
+        Creator.post = post;
         Node node;
         if(post.getPostType() != 0) {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/ImagePost.fxml"));
-            ImagePostController imagePostController = fxmlLoader.getController();
-            imagePostController.fillPost(Creator.post, Creator.mainScale);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ImagePost.fxml"));
             node = fxmlLoader.load();
             return node;
         }
         else{
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextPost.fxml"));
-            TextPostController textPostController = fxmlLoader.getController();
-            textPostController.fillPost(Creator.post, Creator.mainScale);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextPost.fxml"));
             node = fxmlLoader.load();
             return node;
         }

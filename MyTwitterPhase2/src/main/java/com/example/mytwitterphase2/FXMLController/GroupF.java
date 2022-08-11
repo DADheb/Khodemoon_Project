@@ -477,7 +477,7 @@ public class GroupF implements Initializable {
                 break;
         }
     }
-    public void cCancel(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cCancel(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         DataBase.main.refresh();
     }
     public void cReply(MouseEvent mouseEvent) {
@@ -489,7 +489,7 @@ public class GroupF implements Initializable {
         messageInfo.setVisible(false);
         messageInfoBack.setVisible(false);
     }
-    public void cForward(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cForward(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.CGState = 6;
         DataBase.main.refresh();
     }
@@ -506,11 +506,11 @@ public class GroupF implements Initializable {
     public void goToInfo(){
         LiveState.groupState = 1;
     }
-    public void cBack(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cBack(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.CGState = 0;
         DataBase.main.refresh();
     }
-    public void cSearch(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cSearch(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         Creator.aBoolean = true;
         LiveState.group = mainGroup;
         LiveState.CGState = 7 ;
@@ -551,7 +551,7 @@ public class GroupF implements Initializable {
             }
         }
     }
-    public void cSend(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cSend(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         String s =textInput.getText();
         if(s.length()!=0){
             switch (sendType){

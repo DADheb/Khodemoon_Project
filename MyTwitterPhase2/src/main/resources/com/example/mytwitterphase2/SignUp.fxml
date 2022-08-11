@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.SignUpController">
+<ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.SignUpController">
    <content>
-      <AnchorPane fx:id="anchorPane" onMouseClicked="#onExitClicked" prefHeight="399.0" prefWidth="604.0">
+      <AnchorPane fx:id="anchorPane" prefHeight="399.0" prefWidth="604.0">
          <children>
             <TextField fx:id="usernameField" layoutX="190.0" layoutY="141.0" prefHeight="35.0" prefWidth="227.0" promptText="Username">
                <font>

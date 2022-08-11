@@ -29,7 +29,7 @@ public class AddMembers implements Initializable {
     public Button add;
     public Label select;
     public Group group;
-    public void addAndGo(ActionEvent actionEvent) throws SQLException, IOException {
+    public void addAndGo(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         for (User u : Creator.selectedUsers){
             GroupController.newMember(group,u);
         }

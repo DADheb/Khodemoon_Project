@@ -2,6 +2,7 @@ package com.example.mytwitterphase2.FXMLController;
 
 
 import com.example.mytwitterphase2.DataBase.DataBase;
+import com.example.mytwitterphase2.MainGraphic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -66,11 +67,6 @@ public class Requests implements Initializable {
         backImage.setLayoutY(11 * scale);
         backImage.setFitWidth(29 * scale);
         backImage.setFitHeight(33 * scale);
-        if (LiveState.subState == 1){
-            backImage.setVisible(false);
-        } else {
-            backImage.setVisible(true);
-        }
 
         topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
@@ -83,25 +79,25 @@ public class Requests implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }

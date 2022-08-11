@@ -228,7 +228,7 @@ public class GetUser implements Initializable {
         }
     }
 
-    public void back(MouseEvent mouseEvent) throws IOException, SQLException {
+    public void back(MouseEvent mouseEvent) throws IOException, SQLException, InterruptedException {
         LiveState.state = 9;
         LiveState.CGState = 0;
         DataBase.main.refresh();

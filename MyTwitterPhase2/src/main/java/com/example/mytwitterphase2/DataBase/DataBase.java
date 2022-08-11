@@ -1,6 +1,7 @@
 package com.example.mytwitterphase2.DataBase;
 
 import com.example.mytwitterphase2.FXMLController.Main;
+import com.example.mytwitterphase2.FXMLController.Objects.Waiter;
 import com.example.mytwitterphase2.entity.*;
 
 import java.sql.Connection;
@@ -22,8 +23,9 @@ public class DataBase {
     static private ArrayList<String> userPasswords = new ArrayList<>();
     static private User mainUser;
     public static Main main;
+    public static Waiter waiter;
     static private double scale = 1;
-    static public int theme = 2;
+    static public int theme = 1;
 
     public static double getScale() {
         return scale;

@@ -38,16 +38,12 @@ public class ViewPostsController implements Initializable {
     public Node addPost(int No) throws IOException {
         Node node;
         if(No == 1) {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/ImagePost.fxml"));
-            ImagePostController imagePostController = fxmlLoader.getController();
-            imagePostController.fillPost(Creator.post, Creator.mainScale);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ImagePost.fxml"));
             node = fxmlLoader.load();
             return node;
         }
         else{
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextPost.fxml"));
-            TextPostController textPostController = fxmlLoader.getController();
-            textPostController.fillPost(Creator.post, Creator.mainScale);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextPost.fxml"));
             node = fxmlLoader.load();
             return node;
         }
@@ -55,10 +51,9 @@ public class ViewPostsController implements Initializable {
     }
 
     public Node addComment(Comment comment) throws IOException {
+        Creator.comment = comment;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextComment.fxml"));
-        TextCommentController textCommentController = fxmlLoader.getController();
-        textCommentController.fillComment(comment, Creator.mainScale);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextComment.fxml"));
         node = fxmlLoader.load();
         return node;
     }

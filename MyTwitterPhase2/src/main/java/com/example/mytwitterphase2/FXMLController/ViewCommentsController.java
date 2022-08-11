@@ -43,12 +43,12 @@ public class ViewCommentsController implements Initializable {
         initial(Creator.mainScale);
         try{
             this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.mainScale);
-            this.myVBox.getChildren().add((Pane) addComment(Creator.comment));
+            this.myVBox.getChildren().add( addComment(Creator.comment));
             Collections.sort(Creator.comment.getComments());
             for (int i = 0; i < Creator.comment.getComments().size(); i++) {
                 this.myVBox.setPrefHeight(myVBox.getPrefHeight() + 420 * Creator.mainScale);
                 this.anchorPane.setPrefHeight(anchorPane.getPrefHeight() + 420 * Creator.mainScale);
-                this.myVBox.getChildren().add((Pane) addComment (Creator.comment.getComments().get(i)));
+                this.myVBox.getChildren().add( addComment (Creator.comment.getComments().get(i)));
             }
         } catch (IOException e){
             e.printStackTrace();
@@ -63,8 +63,8 @@ public class ViewCommentsController implements Initializable {
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(450 * scale);
-        this.anchorPane.setPrefHeight(450 * scale);;
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);;
         this.myVBox.setPrefWidth(600 * scale);
         this.myVBox.setPrefHeight(600 * scale);
         this.myVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
@@ -124,10 +124,9 @@ public class ViewCommentsController implements Initializable {
     }
 
     public Node addComment(Comment comment) throws IOException {
+        Creator.comment = comment;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/TextComment.fxml"));
-        TextCommentController textCommentController = fxmlLoader.getController();
-        textCommentController.fillComment(comment, Creator.subScale);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextComment.fxml"));
         node = fxmlLoader.load();
         return node;
     }

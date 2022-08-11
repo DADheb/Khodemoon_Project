@@ -269,7 +269,8 @@ public class Main {
         }
     }
 
-    public void showUser() throws IOException {
+    public void showUser() throws IOException, InterruptedException {
+        System.out.println(3);
         Node node = Creator.showOthersProfile(LiveState.user);
         master.getChildren().clear();
         master.getChildren().add(node);
@@ -458,7 +459,7 @@ public class Main {
         }
     }
 
-    public void setWidth(double w) throws IOException, SQLException {
+    public void setWidth(double w) throws IOException, SQLException, InterruptedException {
         if (w < 600.0) {
             Creator.mainScale = w / 600;
             Creator.menuScale = w / 400;
@@ -477,7 +478,7 @@ public class Main {
         refresh();
     }
 
-    public void setHeight(double h) throws IOException, SQLException {
+    public void setHeight(double h) throws IOException, SQLException, InterruptedException {
         Creator.height = h;
         main.setPrefHeight(h);
         master.setPrefHeight(h);
@@ -485,7 +486,7 @@ public class Main {
         refresh();
     }
 
-    public void refresh() throws IOException, SQLException {
+    public void refresh() throws IOException, SQLException, InterruptedException {
         switch (LiveState.state) {
             case 0 :
                 exit();

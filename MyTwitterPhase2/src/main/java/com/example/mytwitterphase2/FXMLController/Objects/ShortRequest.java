@@ -105,7 +105,7 @@ public class ShortRequest implements Initializable {
         }
     }
 
-    public void showUserPro(MouseEvent mouseEvent) throws IOException {
+    public void showUserPro(MouseEvent mouseEvent) throws IOException, InterruptedException {
         int i = DataBase.getUserNames().indexOf(this.usernameL.getText());
         User user = DataBase.getUsers().get(i);
         LiveState.user = user;

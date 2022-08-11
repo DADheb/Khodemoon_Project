@@ -65,8 +65,8 @@ public class TextPostController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initial(Creator.subScale);
-        fillPost(Creator.post, Creator.subScale);
+        initial(Creator.mainScale);
+        fillPost();
         if(DataBase.theme == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -138,10 +138,10 @@ public class TextPostController implements Initializable {
         this.textArea.setLayoutY(87d * scale);
     }
 
-    public void fillPost(Post post, Double scale) {
+    public void fillPost() {
         int liked = 0;
-        this.post = post;
-        this.scale = scale;
+        this.post = Creator.post;
+        this.scale = Creator.mainScale;
         this.image = post.getUser().getProfileImage();
         textArea.setText(post.getText());
         usernameLabel.setText(post.getUser().getUserName());
@@ -188,7 +188,7 @@ public class TextPostController implements Initializable {
     }
 
     @FXML
-    protected void onUsernameClicked (MouseEvent e) throws IOException {
+    protected void onUsernameClicked (MouseEvent e) throws IOException, InterruptedException {
         Creator.setPost(post);
         LiveState.user = post.getUser();
         if(post.getUser().equals(DataBase.getUser())){

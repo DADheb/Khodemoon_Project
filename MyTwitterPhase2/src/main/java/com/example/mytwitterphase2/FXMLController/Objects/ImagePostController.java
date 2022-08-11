@@ -68,8 +68,8 @@ public class ImagePostController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initial(Creator.subScale);
-        fillPost(Creator.post, Creator.subScale);
+        initial(Creator.mainScale);
+        fillPost();
     }
 
     public void initial(double scale) {
@@ -132,11 +132,11 @@ public class ImagePostController implements Initializable {
         this.profilePic.setRadius(34d * scale);
     }
 
-    public void fillPost(Post post, Double scale) {
-        String url = post.getText();
+    public void fillPost() {
+        String url = Creator.post.getText();
         int liked = 0;
-        this.post = post;
-        this.scale = scale;
+        this.post = Creator.post;
+        this.scale = Creator.mainScale;
         this.image = post.getUser().getProfileImage();
         usernameLabel.setText(post.getUser().getUserName());
         this.postImage = new Image(new File(url).toURI().toString());
@@ -184,7 +184,7 @@ public class ImagePostController implements Initializable {
     }
 
     @FXML
-    protected void onUsernameClicked (MouseEvent e) throws IOException {
+    protected void onUsernameClicked (MouseEvent e) throws IOException, InterruptedException {
         Creator.setPost(post);
         LiveState.user = post.getUser();
         if(post.getUser().equals(DataBase.getUser())){

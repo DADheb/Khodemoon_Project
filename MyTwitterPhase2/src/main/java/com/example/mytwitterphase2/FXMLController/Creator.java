@@ -203,21 +203,21 @@ public class Creator {
 
     public static Node showChatGroup() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ChatGroupF.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ChatGroup.fxml"));
         node = fxmlLoader.load();
         return node;
     }
 
     public static Node showJustChat() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("JustChat.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("JustChats.fxml"));
         node = fxmlLoader.load();
         return node;
     }
 
     public static Node showJustGroup() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("JustGroup.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("JustGroups.fxml"));
         node = fxmlLoader.load();
         return node;
     }
@@ -290,20 +290,24 @@ public class Creator {
 
     public static Node showSettings() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Setting.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("Setting.fxml"));
         node = fxmlLoader.load();
         return node;
     }
 
-    public static Node showOthersProfile(User user) throws IOException {
-        othersProfileHeaderUser = user;
+    public static Node showOthersProfile(User userr) throws IOException {
+        othersProfileHeaderUser = userr;
         if (DataBase.getUser().getUserType() == true) {
-            UserController.view(user, DataBase.getUser());
+            UserController.view(userr, DataBase.getUser());
         }
         Node node;
         FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("OthersProfile.fxml"));
         node = fxmlLoader.load();
         return node;
+    }
+
+    public static void setUserToShow(User userToShow) {
+        Creator.userToShow = userToShow;
     }
 
     public static Node showMyProfile() throws IOException {
@@ -317,7 +321,7 @@ public class Creator {
         shortUser = user;
         subScale = s;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/ShortUser.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ShortUser.fxml"));
         node = fxmlLoader.load();
         return node;
     }
@@ -326,7 +330,7 @@ public class Creator {
         requestShortUser = user;
         subScale = s;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObjects/ShortRequest.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ShortRequest.fxml"));
         node = fxmlLoader.load();
         return node;
     }
@@ -462,14 +466,14 @@ public class Creator {
 
     public static Node showUserPosts() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ShowUsersPost.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ShowUsersPosts.fxml"));
         node = fxmlLoader.load();
         return node;
     }
 
     public static Node showFollowingsPosts() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ShowFollowingsPost.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ShowFollowingsPosts.fxml"));
         node = fxmlLoader.load();
         return node;
     }

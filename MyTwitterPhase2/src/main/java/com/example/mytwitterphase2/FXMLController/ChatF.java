@@ -442,7 +442,7 @@ public class ChatF implements Initializable {
         }
     }
 
-    public void cCancel(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cCancel(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         DataBase.main.refresh();
     }
 
@@ -455,7 +455,7 @@ public class ChatF implements Initializable {
         messageInfoBack.setVisible(false);
     }
 
-    public void cForward(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cForward(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.CGState = 6;
         DataBase.main.refresh();
     }
@@ -468,7 +468,7 @@ public class ChatF implements Initializable {
         messageInfoBack.setVisible(false);
     }
 
-    public void cDelete(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cDelete(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         ControllerManager.deleteChat(mainChat);
         LiveState.CGState = 0;
         DataBase.main.refresh();
@@ -482,7 +482,7 @@ public class ChatF implements Initializable {
         }
     }
 
-    public void cSend(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cSend(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         String s =textInput.getText();
         if(s.length()!=0){
             switch (sendType){
@@ -506,12 +506,12 @@ public class ChatF implements Initializable {
         chatInfoBack.setVisible(!chatInfoBack.isVisible());
     }
 
-    public void cBack(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cBack(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.CGState = 0;
         DataBase.main.refresh();
     }
 
-    public void cSearch(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void cSearch(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         Creator.aBoolean = false;
         LiveState.chat = mainChat;
         LiveState.CGState = 7 ;

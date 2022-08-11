@@ -81,8 +81,8 @@ public class CreateCommentController implements Initializable {
         this.anchorPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         this.mainPane.setPrefWidth(600 * scale);
         this.anchorPane.setPrefWidth(600 * scale);
-        this.mainPane.setPrefHeight(450 * scale);
-        this.anchorPane.setPrefHeight(450 * scale);
+        this.mainPane.setPrefHeight(600 * scale);
+        this.anchorPane.setPrefHeight(600 * scale);
 
         if(DataBase.theme > 2) {
             this.textArea.setStyle("-fx-control-inner-background: #" + mode.toString().substring(2) + ";-fx-font-family: Consolas; -fx-highlight-fill:" + themeColor.toString().substring(2) + ";-fx-highlight-fill:" + themeColor.toString().substring(2) + "; -fx-text-fill:" + themeColor.toString().substring(2));
@@ -90,8 +90,8 @@ public class CreateCommentController implements Initializable {
         this.textArea.setPrefWidth(280d * scale);
         this.textArea.setPrefHeight(98d * scale);
         this.textArea.setFont(Font.font(20D * scale));
-        this.textArea.setLayoutX(170d * scale);
-        this.textArea.setLayoutY(239d * scale);
+        this.textArea.setLayoutX(192 * scale);
+        this.textArea.setLayoutY(320 * scale);
 
         this.twitterImg.setLayoutX(214d * scale);
         this.twitterImg.setLayoutY(0d * scale);
@@ -134,23 +134,25 @@ public class CreateCommentController implements Initializable {
     protected void onDoneClicked (ActionEvent e) throws IOException {
         String text = textArea.getText();
         if(!text.isEmpty()){
+            Comment newComment ;
             if(type == 0){
                 this.post = Creator.post;
-                 Comment newComment = ControllerManager.commentOnPost(Creator.post.getUser(),text,post);
+                 newComment = ControllerManager.commentOnPost(Creator.post.getUser(),text,post);
             }
             else{
                 this.comment = Creator.comment;
-                Comment newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,comment);
+                newComment = ControllerManager.commentOnComment(Creator.post.getUser(),text,comment);
             }
-        }
-        if(LiveState.comment.isType()){
-            LiveState.post = LiveState.comment.getPost();
-            LiveState.state = 19;
-            DataBase.main.showPost();
-        } else {
-            LiveState.comment = LiveState.comment.getComment();
-            LiveState.state = 20;
-            DataBase.main.showComment();
+            LiveState.comment = newComment;
+            if(LiveState.comment.isType()){
+                LiveState.post = LiveState.comment.getPost();
+                LiveState.state = 19;
+                DataBase.main.showPost();
+            } else {
+                LiveState.comment = LiveState.comment.getComment();
+                LiveState.state = 20;
+                DataBase.main.showComment();
+            }
         }
     }
 }

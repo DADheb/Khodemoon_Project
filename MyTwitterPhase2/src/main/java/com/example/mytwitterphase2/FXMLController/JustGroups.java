@@ -139,7 +139,7 @@ public class JustGroups implements Initializable {
                 chat.setTextFill(Color.web("#ffffff"));
                 group.setTextFill(Color.web("#ffffff"));
                 line.setStroke(Color.web("#ffffff"));
-                backImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/backWhite.png")).toExternalForm()));
+                backImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm()));
                 groupCir.setFill(Color.web("#00008b"));
                 groupImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/newGroupWhite.png")).toExternalForm()));
                 break;
@@ -155,7 +155,7 @@ public class JustGroups implements Initializable {
                 chat.setTextFill(Color.web("#ffffff"));
                 group.setTextFill(Color.web("#ffffff"));
                 line.setStroke(Color.web("#ffffff"));
-                backImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/backWhite.png")).toExternalForm()));
+                backImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm()));
                 groupCir.setFill(Color.web("#8b0000"));
                 groupImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/newGroupWhite.png")).toExternalForm()));
                 break;
@@ -163,18 +163,18 @@ public class JustGroups implements Initializable {
     }
 
 
-    public void goNewGroup(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void goNewGroup(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.CGState = 4;
         DataBase.main.refresh();
     }
 
-    public void goJustChat(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void goJustChat(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.state = 9;
         LiveState.chatMenuState = 2;
         DataBase.main.refresh();
     }
 
-    public void goChatGroup(MouseEvent mouseEvent) throws SQLException, IOException {
+    public void goChatGroup(MouseEvent mouseEvent) throws SQLException, IOException, InterruptedException {
         LiveState.state = 9;
         LiveState.chatMenuState = 1;
         DataBase.main.refresh();

@@ -1,6 +1,7 @@
 package com.example.mytwitterphase2.FXMLController;
 
 import com.example.mytwitterphase2.DataBase.DataBase;
+import com.example.mytwitterphase2.MainGraphic;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,7 +35,7 @@ public class OthersProfile implements Initializable {
             e.printStackTrace();
         }
         Node node = null;
-        Creator.user = DataBase.getUser();
+        Creator.user = Creator.getOthersProfileHeaderUser();
         try {
             node = Creator.showUserPosts();
         } catch (IOException e) {
@@ -58,7 +59,7 @@ public class OthersProfile implements Initializable {
 
     public Node addHeader() throws IOException {
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("GraphicObjects/OthersProfileHeader.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/OthersProfileHeader.fxml"));
         node = fxmlLoader.load();
         return node;
     }

@@ -8,6 +8,7 @@ import com.example.mytwitterphase2.DataBase.DataBase;
 import com.example.mytwitterphase2.FXMLController.Creator;
 import com.example.mytwitterphase2.FXMLController.LiveState;
 import com.example.mytwitterphase2.FXMLController.Main;
+import com.example.mytwitterphase2.MainGraphic;
 import com.example.mytwitterphase2.ViewCommand.Menu.ChatGroup;
 import com.example.mytwitterphase2.entity.User;
 import javafx.event.ActionEvent;
@@ -27,6 +28,7 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -174,31 +176,31 @@ public class OthersProfileHeader implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }
     }
 
-    public void followUser(ActionEvent event) {
+    public void followUser(ActionEvent event) throws SQLException, IOException, InterruptedException {
         if (this.follow.getText().equals("Follow")) {
             int n = UserController.follow(DataBase.getUser(), Creator.getOthersProfileHeaderUser());
             if (n == 2) {
@@ -213,6 +215,7 @@ public class OthersProfileHeader implements Initializable {
             UserController.unRequest(DataBase.getUser(), Creator.getOthersProfileHeaderUser());
             this.follow.setText("Follow");
         }
+        DataBase.main.refresh();
     }
 
     public void sendMessageToUser(ActionEvent event) throws IOException {

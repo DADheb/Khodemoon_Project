@@ -64,8 +64,8 @@ public class TextCommentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initial(Creator.subScale);
-        fillComment(Creator.comment, Creator.subScale);
+        initial(Creator.mainScale);
+        fillComment();
         if(DataBase.theme == 1) {
             this.textArea.setStyle("-fx-control-inner-background:White; -fx-font-family: Consolas; -fx-highlight-fill: #78a1d1; -fx-highlight-text-fill: #78a1d1; -fx-text-fill: #78a1d1; ");
         }
@@ -137,10 +137,10 @@ public class TextCommentController implements Initializable {
         this.textArea.setLayoutY(87d * scale);
     }
 
-    public void fillComment(Comment comment, Double scale) {
+    public void fillComment() {
         int liked = 0;
-        this.comment = comment;
-        this.scale = scale;
+        this.comment = Creator.comment;
+        this.scale = Creator.mainScale;
         this.image = comment.getUser().getProfileImage();
         textArea.setText(comment.getText());
         usernameLabel.setText(comment.getUser().getUserName());
@@ -187,7 +187,7 @@ public class TextCommentController implements Initializable {
     }
 
     @FXML
-    protected void onUsernameClicked (MouseEvent e) throws IOException {
+    protected void onUsernameClicked (MouseEvent e) throws IOException, InterruptedException {
         Creator.setComment(comment);
         if(comment.getUser().equals(DataBase.getUser())){
             LiveState.user = comment.getUser();

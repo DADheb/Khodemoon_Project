@@ -93,27 +93,23 @@ public class Suggestions implements Initializable {
     }
 
     public Node addPost(Post post) throws IOException {
+        Creator.post = post;
         Node node;
         if (post.getPostType() != 0) {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("ImagePost.fxml"));
-            ImagePostController imagePostController = fxmlLoader.getController();
-            imagePostController.fillPost(Creator.post, Creator.subScale);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ImagePost.fxml"));
             node = fxmlLoader.load();
             return node;
         } else {
-            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("TextPost.fxml"));
-            TextPostController textPostController = fxmlLoader.getController();
-            textPostController.fillPost(Creator.post, Creator.subScale);
+            FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextPost.fxml"));
             node = fxmlLoader.load();
             return node;
         }
     }
 
     public Node addComment(Comment comment) throws IOException {
+        Creator.comment = comment;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("TextComment.fxml"));
-        TextCommentController textCommentController = fxmlLoader.getController();
-        textCommentController.fillComment(comment, Creator.subScale);
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/TextComment.fxml"));
         node = fxmlLoader.load();
         return node;
     }
@@ -206,25 +202,25 @@ public class Suggestions implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(Main.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }

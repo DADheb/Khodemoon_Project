@@ -39,7 +39,7 @@ public class ChangeGroup implements Initializable {
     public Group group;
     public Image image;
     public final FileChooser fileChooser = new FileChooser();
-    public void done(ActionEvent actionEvent) throws SQLException, IOException {
+    public void done(ActionEvent actionEvent) throws SQLException, IOException, InterruptedException {
         group.setName(nameField.getText());
         group.setBio(bioField.getText());
         LiveState.groupState = 1;

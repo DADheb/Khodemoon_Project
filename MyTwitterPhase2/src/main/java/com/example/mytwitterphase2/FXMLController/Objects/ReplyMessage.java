@@ -125,7 +125,7 @@ public class ReplyMessage implements Initializable {
         LiveState.message = message;
     }
 
-    public void goU(MouseEvent mouseEvent) throws IOException {
+    public void goU(MouseEvent mouseEvent) throws IOException, InterruptedException {
         LiveState.user = message.getUser();
         LiveState.state = 15;
         DataBase.main.showUser();
