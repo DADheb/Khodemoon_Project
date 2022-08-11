@@ -119,17 +119,20 @@ public class Suggestions implements Initializable {
     }
 
     public ArrayList<Post> showAds(User u) {
-        //Stream<Map.Entry<User, Integer>> sorted = u.getInterestAD().entrySet().stream().sorted(Map.Entry.comparingByValue());
-        LinkedHashMap<User,Integer> sorted = sortHashMapByValue(u.getInterestAD());
+        User[] users = new User[u.getInterestAD().size()];
+        int[] ints = new int[u.getInterestAD().size()];
+        int sh=0;
+        for (User uu : u.getInterestAD().keySet()){
+            users[sh] = uu;
+            ints[sh] = u.getInterestAD().get(uu);
+            sh++;
+        }
+        bubbleSort(ints,users,u.getInterestAD().size());
         int size = u.getInterestAD().size();
         int limit = Math.min(size, 5);
         ArrayList<Post> posts = new ArrayList<>();
-      // User[] users = (User[]) sorted.keySet().toArray();
-        //User[] users = (User[]) u.getInterestAD().keySet().toArray();
-        ArrayList<User> users = (ArrayList<User>) u.getInterestAD().keySet();
         for (int i = size - 1; i >= size - limit; i--) {
-            //User user = users[i];
-            User user = users.get(i);
+            User user = users[i];
             for (Post p : user.getPosts()) {
                 if (!p.getUserLikes().contains(u)) {
                     posts.add(p);
@@ -178,12 +181,17 @@ public class Suggestions implements Initializable {
     }
 
     public ArrayList<User> showInterestUser(User u) {
-//        Stream<Map.Entry<User, Integer>> sorted =
-//                u.getInterest().entrySet().stream().sorted(Map.Entry.comparingByValue());
-        LinkedHashMap<User,Integer> sorted = sortHashMapByValue(u.getInterest());
+        User[] users = new User[u.getInterest().size()];
+        int[] ints = new int[u.getInterest().size()];
+        int sh=0;
+        for (User uu : u.getInterest().keySet()){
+            users[sh] = uu;
+            ints[sh] = u.getInterest().get(uu);
+            sh++;
+        }
+        bubbleSort(ints,users,u.getInterest().size());
         int size = u.getInterest().size();
         int limit = Math.min(size, 5);
-        User[] users = (User[]) sorted.keySet().toArray();
         ArrayList<User> selectedUsers = new ArrayList<>();
         for (int i = size - 1; i >= size - limit; i--) {
             selectedUsers.add(users[i]);
@@ -260,5 +268,23 @@ public class Suggestions implements Initializable {
         }
         return sortedMap;
     }
+    public static void bubbleSort(int [] sort_arr,User[] users, int len){
 
+        for (int i=0;i<len-1;++i){
+
+            for(int j=0;j<len-i-1; ++j){
+
+                if(sort_arr[j+1]<sort_arr[j]){
+
+                    int swap = sort_arr[j];
+                    sort_arr[j] = sort_arr[j+1];
+                    sort_arr[j+1] = swap;
+                    User temp = users[j];
+                    users[j] = users[j+1];
+                    users[j+1] = temp;
+
+                }
+            }
+        }
+    }
 }

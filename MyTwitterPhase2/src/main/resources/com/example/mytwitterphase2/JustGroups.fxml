@@ -47,7 +47,7 @@
             </children>
         </Pane>
         <Circle fx:id="groupCir" centerX="340.0" centerY="550.0" fill="DODGERBLUE" onMouseClicked="#goNewGroup" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-        <ImageView fx:id="groupImage" fitHeight="65.0" fitWidth="65.0" layoutX="307.5" layoutY="517.5" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="groupImage" fitHeight="65.0" fitWidth="65.0" layoutX="307.5" layoutY="517.5" onMouseClicked="#goNewGroup" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Photo/Project/newGroupDark.png" />
             </image>

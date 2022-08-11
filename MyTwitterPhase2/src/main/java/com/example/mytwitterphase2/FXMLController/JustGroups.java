@@ -86,11 +86,6 @@ public class JustGroups implements Initializable {
         backImage.setFitHeight(40*scale);
         backImage.setLayoutX(10*scale);
         backImage.setLayoutY(5*scale);
-        if(LiveState.subState==1){
-            backImage.setVisible(false);
-        } else {
-            backImage.setVisible(true);
-        }
 
         groupCir.setCenterX(340*scale);
         groupCir.setCenterY(550*scale);
@@ -112,6 +107,7 @@ public class JustGroups implements Initializable {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         try {
+                            LiveState.group = c.getGroup();
                             goToGroup();
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);

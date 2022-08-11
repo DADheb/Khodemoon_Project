@@ -131,10 +131,10 @@ public class GroupInfo implements Initializable {
         group = Creator.g;
 
         mainPane.setPrefWidth(600*scale);
-        mainPane.setPrefHeight(Creator.height);
+        mainPane.setPrefHeight(600*scale);
 
         scrollPane.setPrefWidth(600*scale);
-        scrollPane.setPrefHeight(Creator.height-150*scale);
+        scrollPane.setPrefHeight(600*scale-150*scale);
         scrollPane.setLayoutY(150*scale);
 
         vbox.setPrefWidth(585*scale);

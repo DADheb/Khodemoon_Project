@@ -62,7 +62,7 @@ public class ReplyMessage implements Initializable {
         text.setLayoutX(70 *scale);
         text.setLayoutY(55*scale);
         rect.setLayoutX(62*scale);
-        rect.setLayoutY(40*scale);
+        rect.setLayoutY(105*scale);
         rect.setWidth(403*scale);
         rect.setHeight(text.getLayoutBounds().getHeight()+25*scale);
         pane.setPrefHeight(200*scale+text.getLayoutBounds().getHeight()-85.125*scale);
