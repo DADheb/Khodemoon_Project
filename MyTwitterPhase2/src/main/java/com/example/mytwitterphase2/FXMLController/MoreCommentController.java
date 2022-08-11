@@ -105,7 +105,6 @@ public class MoreCommentController implements Initializable {
         this.deleteButton.setLayoutY(314d * scale);
         this.deleteButton.setPrefWidth(237d * scale);
         this.deleteButton.setPrefHeight(53d * scale);
-
         this.backImage.setLayoutX(14d * scale);
         this.backImage.setLayoutY(14d * scale);
         this.backImage.setFitHeight(37d * scale);

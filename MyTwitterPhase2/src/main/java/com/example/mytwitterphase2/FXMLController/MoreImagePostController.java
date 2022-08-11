@@ -106,13 +106,10 @@ public class MoreImagePostController implements Initializable {
         this.deleteButton.setPrefWidth(237d * scale);
         this.deleteButton.setPrefHeight(53d * scale);
 
-        // more image post
         this.backImage.setLayoutX(14d * scale);
         this.backImage.setLayoutY(14d * scale);
         this.backImage.setFitHeight(37d * scale);
         this.backImage.setFitWidth(53d * scale);
-
-
     }
 
     public void theme() {

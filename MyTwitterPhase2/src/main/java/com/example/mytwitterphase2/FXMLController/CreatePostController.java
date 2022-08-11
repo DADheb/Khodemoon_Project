@@ -6,10 +6,7 @@ import com.example.mytwitterphase2.entity.Post;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -21,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class CreatePostController implements Initializable {
 
+    public ToggleGroup choose;
     @FXML
     private ScrollPane mainPane;
     @FXML
@@ -95,18 +93,18 @@ public class CreatePostController implements Initializable {
         this.urlText.setFill(themeColor);
         this.urlText.setFont(Font.font(20D * scale));
         this.urlText.setLayoutX (108d* scale);
-        this.urlText.setLayoutY(266d * scale);
+        this.urlText.setLayoutY(166d * scale);
 
         this.textRadio.setTextFill(themeColor);
         this.imageRadio.setTextFill(themeColor);
         this.textRadio.setFont(Font.font(20D * scale));
         this.imageRadio.setFont(Font.font(20D * scale));
         this.textRadio.setLayoutX (191d* scale);
-        this.textRadio.setLayoutY(350d * scale);
+        this.textRadio.setLayoutY(350 * scale);
         this.textRadio.setPrefWidth(170d * scale);
         this.textRadio.setPrefHeight(27d * scale);
         this.imageRadio.setLayoutX (326d* scale);
-        this.imageRadio.setLayoutY(350d * scale);
+        this.imageRadio.setLayoutY(350 * scale);
         this.imageRadio.setPrefWidth(170d * scale);
         this.imageRadio.setPrefHeight(27d * scale);
 
@@ -118,15 +116,13 @@ public class CreatePostController implements Initializable {
         this.urlField.setPrefHeight(45d * scale);
         this.urlField.setFont(Font.font(20D * scale));
         this.urlField.setLayoutX(170d * scale);
-        this.urlField.setLayoutY(237d * scale);
+        this.urlField.setLayoutY(237 * scale);
 
         this.textArea.setPrefWidth(304d * scale);
         this.textArea.setPrefHeight(161d * scale);
         this.textArea.setFont(Font.font(20D * scale));
         this.textArea.setLayoutX(149d * scale);
-        this.textArea.setLayoutY(179d * scale);
-
-
+        this.textArea.setLayoutY(179 * scale);
     }
 
     public void theme() {
