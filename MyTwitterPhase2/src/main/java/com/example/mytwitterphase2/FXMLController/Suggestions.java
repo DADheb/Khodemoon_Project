@@ -124,7 +124,8 @@ public class Suggestions implements Initializable {
         int size = u.getInterestAD().size();
         int limit = Math.min(size, 5);
         ArrayList<Post> posts = new ArrayList<>();
-       User[] users = (User[]) sorted.keySet().toArray();
+      // User[] users = (User[]) sorted.keySet().toArray();
+        User[] users = (User[]) u.getInterestAD().keySet().toArray();
         for (int i = size - 1; i >= size - limit; i--) {
             User user = users[i];
             for (Post p : user.getPosts()) {

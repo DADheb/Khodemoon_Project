@@ -121,11 +121,10 @@ public class LogInController implements Initializable {
     public void onNextClicked (MouseEvent e) throws IOException{
         String username = usernameField.getText();
 
-
         if(!username.isEmpty()){
             if (!DataBase.getUserNames().contains(username)){
                 // DataBase.getUserNames().indexOf(username) یا این !
-                notFound.setDisable(true);
+                notFound.setVisible(true);
                 usernameField.clear();
             }
             else{

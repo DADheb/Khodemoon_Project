@@ -3,6 +3,7 @@ package com.example.mytwitterphase2.FXMLController;
 import com.example.mytwitterphase2.Controller.ControllerManager;
 import com.example.mytwitterphase2.Controller.PostController;
 import com.example.mytwitterphase2.DataBase.DataBase;
+import com.example.mytwitterphase2.MainGraphic;
 import com.example.mytwitterphase2.entity.Post;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -18,9 +21,11 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MoreImagePostController implements Initializable {
+    public ImageView backImage;
     @FXML
     private ScrollPane mainPane;
     @FXML
@@ -108,21 +113,30 @@ public class MoreImagePostController implements Initializable {
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
                 this.opposite = Color.BLACK;
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.backImage.setImage(this.image);
+
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
                 this.opposite = Color.WHITE;
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
                 this.opposite = Color.BLACK;
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
                 this.opposite = Color.WHITE;
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.backImage.setImage(this.image);
                 break;
         }
     }
@@ -140,5 +154,8 @@ public class MoreImagePostController implements Initializable {
     protected void onDeleteClicked (ActionEvent e) throws IOException {
         Creator.setPost(post);
         ControllerManager.deletePost(post);
+    }
+
+    public void back(MouseEvent mouseEvent) {
     }
 }
