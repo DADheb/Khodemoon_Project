@@ -56,6 +56,7 @@ public class Requests implements Initializable {
     public void initial() {
         theme();
         mainVBox.setPrefWidth(600 * scale);
+        mainVBox.setPrefHeight(600 * scale);
         requestsScrollPane.setPrefWidth(600 * scale);
         requestsScrollPane.setPrefHeight(600 * scale);
         topPane.setPrefWidth(600 * scale);
@@ -68,8 +69,8 @@ public class Requests implements Initializable {
         backImage.setFitWidth(29 * scale);
         backImage.setFitHeight(33 * scale);
 
-        topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+        topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         requestsScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         titleL.setTextFill(mode);
     }

@@ -16,6 +16,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +24,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MyProfileHeader implements Initializable {
+
     @FXML
     private Pane proHeadPane;
     @FXML
@@ -36,13 +38,17 @@ public class MyProfileHeader implements Initializable {
     @FXML
     private Label viewersL;
     @FXML
-    private Label numOfViewersL;
+    private Label nameL;
     @FXML
-    private Label numOfPostL;
-    @FXML
-    private Label numOfFollowersL;
-    @FXML
-    private Label numOfFollowingsL;
+    private Label bioL;
+    //    @FXML
+//    private Label numOfViewersL;
+//    @FXML
+//    private Label numOfPostL;
+//    @FXML
+//    private Label numOfFollowersL;
+//    @FXML
+//    private Label numOfFollowingsL;
     @FXML
     private Line topLine;
     @FXML
@@ -60,7 +66,7 @@ public class MyProfileHeader implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.scale = DataBase.getScale();
+        this.scale = Creator.mainScale;
         initial();
     }
 
@@ -72,33 +78,31 @@ public class MyProfileHeader implements Initializable {
         this.followingsL.setFont(Font.font(16 * scale));
         this.postsL.setFont(Font.font(16 * scale));
         this.viewersL.setFont(Font.font(16 * scale));
-        this.numOfFollowingsL.setFont(Font.font(18 * scale));
-        this.numOfFollowersL.setFont(Font.font(18 * scale));
-        this.numOfPostL.setFont(Font.font(18 * scale));
+        //this.nameL.setFont(Font.font(19 * scale));
+        this.nameL.setFont(Font.font("System", FontPosture.findByName("Bold"), 19 * scale));
+        this.bioL.setFont(Font.font(17 * scale));
 
         this.proPhoto.setRadius(56 * scale);
         this.topLine.setEndX(600 * scale);
         this.bottomLine.setEndX(600 * scale);
 
         this.userNameL.setLayoutX(260 * scale);
-        this.followingsL.setLayoutX(451 * scale);
-        this.followersL.setLayoutX(341 * scale);
-        this.postsL.setLayoutX(244 * scale);
-        this.viewersL.setLayoutX(314 * scale);
-        this.numOfPostL.setLayoutX(252 * scale);
-        this.numOfFollowersL.setLayoutX(362 * scale);
-        this.numOfFollowingsL.setLayoutX(476 * scale);
+        this.followingsL.setLayoutX(464 * scale);
+        this.followersL.setLayoutX(333 * scale);
+        this.postsL.setLayoutX(231 * scale);
+        this.viewersL.setLayoutX(494 * scale);
+        this.nameL.setLayoutX(231 * scale);
+        this.bioL.setLayoutX(231 * scale);
         this.proPhoto.setLayoutX(112 * scale);
         this.backImage.setLayoutX(14 * scale);
 
         this.userNameL.setLayoutY(5 * scale);
-        this.followingsL.setLayoutY(93 * scale);
-        this.followersL.setLayoutY(93 * scale);
-        this.postsL.setLayoutY(93 * scale);
-        this.viewersL.setLayoutY(122 * scale);
-        this.numOfPostL.setLayoutY(69 * scale);
-        this.numOfFollowersL.setLayoutY(69 * scale);
-        this.numOfFollowingsL.setLayoutY(69 * scale);
+        this.followingsL.setLayoutY(52 * scale);
+        this.followersL.setLayoutY(52 * scale);
+        this.postsL.setLayoutY(52 * scale);
+        this.viewersL.setLayoutY(90 * scale);
+        this.nameL.setLayoutY(89 * scale);
+        this.bioL.setLayoutY(123 * scale);
         this.proPhoto.setLayoutY(100 * scale);
         this.topLine.setLayoutY(45 * scale);
         this.bottomLine.setLayoutY(175 * scale);
@@ -109,11 +113,11 @@ public class MyProfileHeader implements Initializable {
 
         this.backImage.setFitWidth(27 * scale);
         this.backImage.setFitHeight(23 * scale);
-        if(LiveState.subState == 1){
-            backImage.setVisible(false);
-        } else {
-            backImage.setVisible(true);
-        }
+//        if(LiveState.subState == 1){
+//            backImage.setVisible(false);
+//        } else {
+//            backImage.setVisible(true);
+//        }
 
         //theme
         this.userNameL.setTextFill(themeColor);
@@ -121,9 +125,8 @@ public class MyProfileHeader implements Initializable {
         this.followingsL.setTextFill(themeColor);
         this.postsL.setTextFill(themeColor);
         this.viewersL.setTextFill(themeColor);
-        this.numOfPostL.setTextFill(themeColor);
-        this.numOfFollowingsL.setTextFill(themeColor);
-        this.numOfFollowersL.setTextFill(themeColor);
+        this.nameL.setTextFill(themeColor);
+        this.bioL.setTextFill(themeColor);
         this.topLine.setStroke(themeColor);
         this.bottomLine.setStroke(themeColor);
         this.proHeadPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
@@ -133,9 +136,11 @@ public class MyProfileHeader implements Initializable {
     public void setValues() {
         theme();
         this.userNameL.setText(DataBase.getUser().getUserName());
-        this.numOfPostL.setText(String.valueOf(DataBase.getUser().getNumberOfPosts()));
-        this.numOfFollowersL.setText(String.valueOf(DataBase.getUser().getNumberOfFollowers()));
-        this.numOfFollowingsL.setText(String.valueOf(DataBase.getUser().getNumberOfFollowings()));
+        this.postsL.setText(String.valueOf(DataBase.getUser().getNumberOfPosts()) + " posts");
+        this.followersL.setText(String.valueOf(DataBase.getUser().getNumberOfFollowers()) + " followers");
+        this.followingsL.setText(String.valueOf(DataBase.getUser().getNumberOfFollowings()) + " followings");
+        this.nameL.setText(DataBase.getUser().getName() + " " + DataBase.getUser().getLastName());
+        this.bioL.setText(DataBase.getUser().getBio());
         if (DataBase.getUser().getUserType() == false) {
             viewersL.setVisible(false);
         }

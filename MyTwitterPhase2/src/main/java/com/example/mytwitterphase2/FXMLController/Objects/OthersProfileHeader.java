@@ -25,6 +25,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class OthersProfileHeader implements Initializable {
+
 
     @FXML
     private Pane proHeadPane;
@@ -45,11 +47,15 @@ public class OthersProfileHeader implements Initializable {
     @FXML
     private Label followingsL;
     @FXML
-    private Label numOfPostL;
+    private Label nameL;
     @FXML
-    private Label numOfFollowersL;
-    @FXML
-    private Label numOfFollowingsL;
+    private Label bioL;
+    //    @FXML
+//    private Label numOfPostL;
+//    @FXML
+//    private Label numOfFollowersL;
+//    @FXML
+//    private Label numOfFollowingsL;
     @FXML
     private Line topLine;
     @FXML
@@ -84,9 +90,8 @@ public class OthersProfileHeader implements Initializable {
         this.followersL.setFont(Font.font(16 * scale));
         this.followingsL.setFont(Font.font(16 * scale));
         this.postsL.setFont(Font.font(16 * scale));
-        this.numOfFollowingsL.setFont(Font.font(18 * scale));
-        this.numOfFollowersL.setFont(Font.font(18 * scale));
-        this.numOfPostL.setFont(Font.font(18 * scale));
+        this.nameL.setFont(Font.font("System", FontPosture.findByName("Bold"), 19 * scale));
+        this.bioL.setFont(Font.font(17 * scale));
         this.follow.setFont(Font.font(15 * scale));
         this.sendMessage.setFont(Font.font(15 * scale));
         //this.blockB.setFont(Font.font(15 * scale));
@@ -96,23 +101,21 @@ public class OthersProfileHeader implements Initializable {
         this.bottomLine.setEndX(600 * scale);
 
         this.userNameL.setLayoutX(260 * scale);
-        this.followingsL.setLayoutX(451 * scale);
-        this.followersL.setLayoutX(341 * scale);
-        this.postsL.setLayoutX(244 * scale);
-        this.numOfPostL.setLayoutX(252 * scale);
-        this.numOfFollowersL.setLayoutX(362 * scale);
-        this.numOfFollowingsL.setLayoutX(476 * scale);
+        this.followingsL.setLayoutX(395 * scale);
+        this.followersL.setLayoutX(300 * scale);
+        this.postsL.setLayoutX(222 * scale);
+        this.nameL.setLayoutX(222 * scale);
+        this.bioL.setLayoutX(222 * scale);
         this.proPhoto.setLayoutX(112 * scale);
         this.follow.setLayoutX(270 * scale);
         this.sendMessage.setLayoutX(398 * scale);
 
         this.userNameL.setLayoutY(5 * scale);
-        this.followingsL.setLayoutY(93 * scale);
-        this.followersL.setLayoutY(93 * scale);
-        this.postsL.setLayoutY(93 * scale);
-        this.numOfPostL.setLayoutY(69 * scale);
-        this.numOfFollowersL.setLayoutY(69 * scale);
-        this.numOfFollowingsL.setLayoutY(69 * scale);
+        this.followingsL.setLayoutY(53 * scale);
+        this.followersL.setLayoutY(53 * scale);
+        this.postsL.setLayoutY(53 * scale);
+        this.nameL.setLayoutY(88 * scale);
+        this.bioL.setLayoutY(124 * scale);
         this.proPhoto.setLayoutY(100 * scale);
         this.topLine.setLayoutY(45 * scale);
         this.bottomLine.setLayoutY(175 * scale);
@@ -127,7 +130,7 @@ public class OthersProfileHeader implements Initializable {
         this.backImage.setLayoutY(8 * scale);
         this.backImage.setFitWidth(27 * scale);
         this.backImage.setFitHeight(23 * scale);
-        if(LiveState.subState == 1){
+        if (LiveState.subState == 1) {
             backImage.setVisible(false);
         } else {
             backImage.setVisible(true);
@@ -138,9 +141,8 @@ public class OthersProfileHeader implements Initializable {
         this.followersL.setTextFill(themeColor);
         this.followingsL.setTextFill(themeColor);
         this.postsL.setTextFill(themeColor);
-        this.numOfPostL.setTextFill(themeColor);
-        this.numOfFollowingsL.setTextFill(themeColor);
-        this.numOfFollowersL.setTextFill(themeColor);
+        this.nameL.setTextFill(themeColor);
+        this.bioL.setTextFill(themeColor);
         this.topLine.setFill(themeColor);
         this.bottomLine.setFill(themeColor);
         this.follow.setTextFill(mode);
@@ -155,9 +157,11 @@ public class OthersProfileHeader implements Initializable {
         theme();
         User user = Creator.getOthersProfileHeaderUser();
         this.userNameL.setText(user.getUserName());
-        this.numOfPostL.setText(String.valueOf(user.getNumberOfPosts()));
-        this.numOfFollowersL.setText(String.valueOf(user.getNumberOfFollowers()));
-        this.numOfFollowingsL.setText(String.valueOf(user.getNumberOfFollowings()));
+        this.postsL.setText(String.valueOf(user.getNumberOfPosts()) + " posts");
+        this.followersL.setText(String.valueOf(user.getNumberOfFollowers()) + " followers");
+        this.followingsL.setText(String.valueOf(user.getNumberOfFollowings()) + " followings");
+        this.nameL.setText(user.getName() + " " + user.getLastName());
+        this.bioL.setText(user.getBio());
 
         this.image = user.getProfileImage();
         this.proPhoto.setFill(new ImagePattern(image));
@@ -223,8 +227,8 @@ public class OthersProfileHeader implements Initializable {
         LiveState.chatMenuState = 1;
         LiveState.CGState = 1;
         int index = ChatGroup.checkChatWith(LiveState.user);
-        if(index == -1){
-            LiveState.chat = ControllerManager.newChat(DataBase.getUser(),LiveState.user);
+        if (index == -1) {
+            LiveState.chat = ControllerManager.newChat(DataBase.getUser(), LiveState.user);
         } else {
             LiveState.chat = DataBase.getChats().get(index);
         }
@@ -240,6 +244,7 @@ public class OthersProfileHeader implements Initializable {
         LiveState.state = 17;
         DataBase.main.showFollowings();
     }
+
     public void back(MouseEvent mouseEvent) throws IOException {
         LiveState.state = 7;
         DataBase.main.setMenuPane();
