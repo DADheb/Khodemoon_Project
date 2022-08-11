@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.SearchMessage">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutY="70.0" prefHeight="530.0" prefWidth="600.0">
+         <content>
+            <VBox fx:id="vbox" prefHeight="530.0" prefWidth="585.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="textField" layoutX="221.0" layoutY="20.0" prefHeight="30.0" prefWidth="300.0" />
+      <Label fx:id="textLabel" layoutX="88.0" layoutY="17.0" text="Enter Text">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="search" fitHeight="60.0" fitWidth="60.0" layoutX="535.0" layoutY="5.0" onMouseClicked="#show" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photo/Project/SearchDark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photo/Project/BackDark.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

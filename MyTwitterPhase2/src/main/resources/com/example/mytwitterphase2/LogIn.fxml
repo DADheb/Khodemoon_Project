@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fx:id="mainPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vbarPolicy="ALWAYS" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.LogInController">
+  <content>
+    <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="611.0">
+         <children>
+                  <Text fx:id="signInText" fill="#78a1d1" layoutX="188.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign In to myTwitter" wrappingWidth="409.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="usernameField" layoutX="182.0" layoutY="165.0" prefHeight="35.0" prefWidth="227.0" promptText="Username">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Text fx:id="notFound" disable="true" fill="#e82424" layoutX="183.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username not found!" wrappingWidth="416.64453125">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+                  <Rectangle fx:id="nextRect" arcHeight="5.0" arcWidth="5.0" fill="#78a1d1" height="38.0" layoutX="198.0" layoutY="236.0" onMouseClicked="#onNextClicked" stroke="#78a1d1" strokeType="INSIDE" width="193.0" />
+                  <Circle fx:id="nextCirc1" fill="#78a1d1" layoutX="391.0" layoutY="255.0" onMouseClicked="#onNextClicked" radius="19.0" stroke="#78a1d1" strokeType="INSIDE" />
+                  <Circle fx:id="forgetCirc1" fill="WHITE" layoutX="391.0" layoutY="308.0" onMouseClicked="#onForgetClicked" radius="19.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Circle fx:id="nextCirc2" fill="#78a1d1" layoutX="199.0" layoutY="255.0" onMouseClicked="#onNextClicked" radius="19.0" stroke="#78a1d1" strokeType="INSIDE" />
+                  <Rectangle fx:id="forgetRect" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="38.0" layoutX="199.0" layoutY="290.0" onMouseClicked="#onForgetClicked" stroke="WHITE" strokeType="INSIDE" width="193.0" />
+                  <Circle fx:id="forgetCirc2" fill="WHITE" layoutX="198.0" layoutY="308.0" onMouseClicked="#onForgetClicked" radius="19.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Text fx:id="nextText" fill="WHITE" layoutX="275.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="forgetText" fill="#78a1d1" layoutX="225.0" layoutY="316.0" onMouseClicked="#onForgetClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget password">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="accountText" layoutX="183.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" wrappingWidth="416.609375">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="signUpText" fill="#78a1d1" layoutX="348.0" layoutY="365.0" onMouseClicked="#onSignUpClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" wrappingWidth="251.5">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="twitterImg" fitHeight="107.0" fitWidth="119.0" layoutX="252.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Photo/Project/icons8-twitter-400.png" />
+                     </image>
+                  </ImageView>
+             <ImageView fx:id="exitImg" fitHeight="54.0" fitWidth="51.0" layoutY="1.0" onMouseClicked="#onExitClicked" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@Photo/Project/icons8-emergency-exit-50.png" />
+                 </image>
+             </ImageView>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

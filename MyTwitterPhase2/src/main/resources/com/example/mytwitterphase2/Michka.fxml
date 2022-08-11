@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Michka">
+   <children>
+      <ImageView fx:id="michkaBack" fitHeight="750.0" fitWidth="1000.0" layoutX="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photo/Project/michkaBack.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="enterImage" fitHeight="100.0" fitWidth="112.0" layoutX="881.0" layoutY="471.0" onMouseClicked="#enterProgram" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Photo/Project/enterImage.PNG" />
+         </image>
+      </ImageView>
+      <Label fx:id="enterL" layoutX="905.0" layoutY="510.0" onMouseClicked="#enterProgram" prefHeight="22.0" prefWidth="53.0" text="ENTER" textFill="#2b202e">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addChat" prefHeight="150.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Objects.ShortChat">
+   <children>
+      <HBox fx:id="mainHBox" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <Region fx:id="reg1InMainHBox" prefHeight="150.0" prefWidth="15.0" />
+            <VBox fx:id="vBox1InMainHBox" prefHeight="150.0" prefWidth="130.0">
+               <children>
+                  <Region fx:id="regInVBox1" prefHeight="10.0" prefWidth="130.0" />
+                  <Circle fx:id="cir" fill="DODGERBLUE" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </VBox>
+            <Region fx:id="reg2InMainHBox" prefHeight="150.0" prefWidth="20.0" />
+            <VBox fx:id="vBox2InMainHBox" prefHeight="150.0" prefWidth="435.0">
+               <children>
+                  <Region fx:id="reg1InVBox2" prefHeight="25.0" prefWidth="435.0" />
+                  <Label fx:id="name" text="UserName">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Region fx:id="reg2InVBox2" prefHeight="15.0" prefWidth="435.0" />
+                  <HBox fx:id="hBox" prefHeight="30.0" prefWidth="435.0">
+                     <children>
+                        <Region fx:id="reg1InHBox" prefHeight="30.0" prefWidth="30.0" />
+                        <Label fx:id="lastMessage" text="You : Message ....">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Region fx:id="reg3InVBox2" prefHeight="45.0" prefWidth="435.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <ImageView fx:id="imgLabel" fitHeight="60.0" fitWidth="60.0" layoutX="500.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Photo/Project/UserLabelWhite.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
