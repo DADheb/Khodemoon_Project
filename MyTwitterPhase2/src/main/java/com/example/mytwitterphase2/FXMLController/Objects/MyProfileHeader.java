@@ -113,11 +113,11 @@ public class MyProfileHeader implements Initializable {
 
         this.backImage.setFitWidth(27 * scale);
         this.backImage.setFitHeight(23 * scale);
-//        if(LiveState.subState == 1){
-//            backImage.setVisible(false);
-//        } else {
-//            backImage.setVisible(true);
-//        }
+        if(LiveState.subState == 1){
+            backImage.setVisible(false);
+        } else {
+            backImage.setVisible(true);
+        }
 
         //theme
         this.userNameL.setTextFill(themeColor);
