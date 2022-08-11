@@ -64,8 +64,7 @@ public class GetChatGroup implements Initializable {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         try {
-                            Thread.sleep(10);
-                            ControllerManager.forwardMessageToChat(DataBase.getUser(),message,LiveState.chat);
+                            ControllerManager.forwardMessageToChat(DataBase.getUser(),message,c.getChat());
                             LiveState.CGState = 1;
                             LiveState.chatState = 0;
                             DataBase.main.refresh();
@@ -89,7 +88,7 @@ public class GetChatGroup implements Initializable {
                     public void handle(MouseEvent mouseEvent) {
                         try {
                             Thread.sleep(10);
-                            ControllerManager.forwardMessageToGroup(DataBase.getUser(),message,LiveState.group);
+                            ControllerManager.forwardMessageToGroup(DataBase.getUser(),message,c.getGroup());
                             LiveState.CGState = 2;
                             LiveState.groupState = 0;
                             DataBase.main.refresh();

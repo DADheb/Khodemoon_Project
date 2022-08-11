@@ -47,7 +47,7 @@
             </children>
         </Pane>
         <Circle fx:id="chatCir" centerX="340.0" centerY="550.0" fill="DODGERBLUE" onMouseClicked="#goNewChat" radius="40.0" stroke="BLACK" strokeType="INSIDE" />
-        <ImageView fx:id="chatImage" fitHeight="70.0" fitWidth="70.0" layoutX="305.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="chatImage" fitHeight="70.0" fitWidth="70.0" layoutX="305.0" layoutY="515.0" onMouseClicked="#goNewChat" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@Photo/Project/newChatDark.png" />
             </image>

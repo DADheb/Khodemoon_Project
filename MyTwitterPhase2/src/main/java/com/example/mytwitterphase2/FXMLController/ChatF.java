@@ -94,15 +94,15 @@ public class ChatF implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        double scale = Creator.mainScale;
+        double scale = Creator.mainScale*600.0/615.0;
         mainChat = Creator.c;
         secUser = ControllerManager.getSecUserChat(mainChat);
 
         chat.setPrefWidth(600*scale);
-        chat.setPrefHeight(Creator.height);
+        chat.setPrefHeight(600*scale);
 
         mainVbox.setPrefWidth(600*scale);
-        mainVbox.setPrefHeight(Creator.height);
+        mainVbox.setPrefHeight(600*scale);
 
         infoPane.setPrefWidth(600*scale);
         infoPane.setPrefHeight(70*scale);
@@ -110,11 +110,12 @@ public class ChatF implements Initializable {
         cir.setRadius(30*scale);
         cir.setCenterX(105*scale);
         cir.setLayoutY(35*scale);
-        cir.setFill(new ImagePattern(Creator.image));
+        cir.setFill(new ImagePattern(secUser.getProfileImage()));
 
         nameLabel.setFont(Font.font(24*scale));
         nameLabel.setLayoutX(155*scale);
         nameLabel.setLayoutY(18*scale);
+        nameLabel.setText(secUser.getUserName());
 
         search.setFitWidth(70*scale);
         search.setFitHeight(70*scale);
@@ -136,7 +137,7 @@ public class ChatF implements Initializable {
         barImage.setLayoutY(5*scale);
 
         main.setPrefWidth(600*scale);
-        main.setPrefHeight(Creator.height-120*scale);
+        main.setPrefHeight(600*scale-120*scale);
 
         textPane.setPrefWidth(600*scale);
         textPane.setPrefHeight(50*scale);
@@ -321,8 +322,9 @@ public class ChatF implements Initializable {
         }
 
         Collections.sort(mainChat.getMessages());
-        messageVBox.setPrefHeight(0.0);
-        for(Message message : mainChat.getMessages()){
+        messageVBox.setPrefHeight(600*scale);
+        for(int i = mainChat.getMessages().size()-1 ; i>=0;i--){
+            Message message = mainChat.getMessages().get(i);
             Node node ;
             try {
                 node = Creator.showShortMessage(message,messageVBox.getPrefWidth()/600.0);
@@ -333,6 +335,7 @@ public class ChatF implements Initializable {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     try {
+                        LiveState.message = message;
                         selectM();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);

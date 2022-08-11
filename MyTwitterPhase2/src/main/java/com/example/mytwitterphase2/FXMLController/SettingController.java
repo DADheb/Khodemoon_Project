@@ -153,7 +153,7 @@ public class SettingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initial(Creator.subScale);
+        initial(Creator.mainScale);
     }
 
     public void initial(double scale) {

@@ -62,7 +62,7 @@ public class ReplyMessageR implements Initializable {
         text.setLayoutX(50 *scale);
         text.setLayoutY(55*scale);
         rect.setLayoutX(35*scale);
-        rect.setLayoutY(40*scale);
+        rect.setLayoutY(105*scale);
         rect.setWidth(403*scale);
         rect.setHeight(text.getLayoutBounds().getHeight()+25*scale);
         pane.setPrefHeight(200*scale+text.getLayoutBounds().getHeight()-85.125*scale);
@@ -93,7 +93,7 @@ public class ReplyMessageR implements Initializable {
         Creator.size = pane.getPrefHeight();
         switch (DataBase.theme){
             case 1 :
-                TImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/TMessageARpng")).toExternalForm()));
+                TImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/TMessageAR.png")).toExternalForm()));
                 BImage.setImage(new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BMessageAR.png")).toExternalForm()));
                 rect.setFill(Color.web("#0437f2"));
                 break;

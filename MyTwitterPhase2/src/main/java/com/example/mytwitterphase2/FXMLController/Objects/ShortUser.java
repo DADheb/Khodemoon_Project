@@ -44,6 +44,9 @@ public class ShortUser implements Initializable {
         this.proPhoto.setFill(new ImagePattern(Creator.getShortUser().getProfileImage()));
         this.usernameL.setText(Creator.getShortUser().getUserName());
         this.nameL.setText(Creator.getShortUser().getName() +" "+ Creator.getShortUser().getLastName());
+        if (Creator.getShortUser().equals(DataBase.getUser())){
+            this.followB.setVisible(false);
+        }
         if (DataBase.getUser().getFollowings().contains(Creator.getShortUser())){
             this.followB.setText("Following");
         }else if (Creator.getShortUser().getRequests().contains(DataBase.getUser())){

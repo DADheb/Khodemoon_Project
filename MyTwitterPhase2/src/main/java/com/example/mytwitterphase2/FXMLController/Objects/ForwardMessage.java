@@ -55,7 +55,7 @@ public class ForwardMessage implements Initializable {
         }
         text.setFont(Font.font("System",16*scale));
         text.setLayoutX(70 *scale);
-        text.setLayoutY(55*scale);
+        text.setLayoutY(75*scale);
         rect.setLayoutX(62*scale);
         rect.setLayoutY(40*scale);
         rect.setWidth(403*scale);

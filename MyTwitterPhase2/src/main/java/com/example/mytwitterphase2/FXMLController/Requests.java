@@ -56,6 +56,7 @@ public class Requests implements Initializable {
     public void initial() {
         theme();
         mainVBox.setPrefWidth(600 * scale);
+        mainVBox.setPrefHeight(600 * scale);
         requestsScrollPane.setPrefWidth(600 * scale);
         requestsScrollPane.setPrefHeight(600 * scale);
         topPane.setPrefWidth(600 * scale);
@@ -68,8 +69,8 @@ public class Requests implements Initializable {
         backImage.setFitWidth(29 * scale);
         backImage.setFitHeight(33 * scale);
 
-        topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         mainVBox.setStyle("-fx-background-color: #" + mode.toString().substring(2));
+        topPane.setStyle("-fx-background-color: #" + themeColor.toString().substring(2));
         requestsScrollPane.setStyle("-fx-background-color: #" + mode.toString().substring(2));
         titleL.setTextFill(mode);
     }
@@ -79,25 +80,25 @@ public class Requests implements Initializable {
             case 1:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 2:
                 this.themeColor = Color.rgb(120, 161, 209);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 3:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.WHITE;
-                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
             case 4:
                 this.themeColor = Color.rgb(225, 121, 173);
                 this.mode = Color.BLACK;
-                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackWhite.png")).toExternalForm());
+                this.image = new Image(Objects.requireNonNull(MainGraphic.class.getResource("Photo/Project/BackDark.png")).toExternalForm());
                 this.backImage.setImage(this.image);
                 break;
         }

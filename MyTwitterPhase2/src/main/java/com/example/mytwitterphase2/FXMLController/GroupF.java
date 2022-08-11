@@ -103,7 +103,7 @@ public class GroupF implements Initializable {
     public int sendType =0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        double scale = Creator.mainScale;
+        double scale = Creator.mainScale*600.0/615.0;
         mainGroup = Creator.g;
 
         group.setPrefWidth(600*scale);
@@ -362,8 +362,9 @@ public class GroupF implements Initializable {
             textInput.setPromptText("you are BAN");
         }
         Collections.sort(mainGroup.getMessages());
-        messageVBox.setPrefHeight(0.0);
-        for(Message message : mainGroup.getMessages()){
+        messageVBox.setPrefHeight(600*scale);
+        for(int i = mainGroup.getMessages().size()-1 ; i>=0;i--){
+            Message message = mainGroup.getMessages().get(i);
             Node node ;
             try {
                 node = Creator.showShortMessage(message,messageVBox.getPrefWidth()/600.0);
@@ -374,6 +375,7 @@ public class GroupF implements Initializable {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     try {
+                        LiveState.message = message;
                         selectM();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);

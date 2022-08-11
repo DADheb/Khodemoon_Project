@@ -99,6 +99,7 @@ public class GetUser implements Initializable {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
                     try {
+                        LiveState.user = u;
                         selected();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
@@ -162,6 +163,7 @@ public class GetUser implements Initializable {
                             @Override
                             public void handle(MouseEvent mouseEvent) {
                                 try {
+                                    LiveState.user = u;
                                     selected();
                                 } catch (InterruptedException e) {
                                     throw new RuntimeException(e);
@@ -190,6 +192,7 @@ public class GetUser implements Initializable {
                         @Override
                         public void handle(MouseEvent mouseEvent) {
                             try {
+                                LiveState.user = u;
                                 selected();
                             } catch (InterruptedException e) {
                                 throw new RuntimeException(e);

@@ -101,6 +101,7 @@ public class JustChats implements Initializable {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         try {
+                            LiveState.chat = c.getChat();
                             goToChat();
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);

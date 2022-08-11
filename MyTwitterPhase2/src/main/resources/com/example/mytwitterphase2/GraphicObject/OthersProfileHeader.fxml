@@ -2,78 +2,62 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<Pane fx:id="proHeadPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="180.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Objects.OthersProfileHeader">
+<Pane fx:id="proHeadPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" style="-fx-background-color: White;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mytwitterphase2.FXMLController.Objects.OthersProfileHeader">
     <children>
-        <ImageView fx:id="backImage" fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="8.0"
-                   onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="backImage" fitHeight="23.0" fitWidth="27.0" layoutX="14.0" layoutY="8.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../Photo/Project/BackDark.png"/>
+                <Image url="@../Photo/Project/BackDark.png" />
             </image>
         </ImageView>
         <Label fx:id="userNameL" layoutX="251.0" layoutY="5.0" text="UserName" textFill="#78a1d1">
             <font>
-                <Font size="22.0"/>
+                <Font size="22.0" />
             </font>
         </Label>
-        <Line fx:id="topLine" endX="600.0" endY="-9.0" layoutY="45.0" startY="-9.0" stroke="#78a1d1"/>
-        <Circle fx:id="proPhoto" fill="#78a1d1" layoutX="112.0" layoutY="100.0" radius="56.0" stroke="BLACK"
-                strokeType="INSIDE"/>
-        <Label fx:id="postsL" layoutX="244.0" layoutY="83.0" text="Posts" textAlignment="CENTER" textFill="#78a1d1">
+        <Line fx:id="topLine" endX="600.0" endY="-9.0" layoutY="45.0" startY="-9.0" stroke="#78a1d1" strokeWidth="2.0" />
+        <Circle fx:id="proPhoto" fill="#78a1d1" layoutX="112.0" layoutY="100.0" radius="56.0" stroke="BLACK" strokeType="INSIDE" />
+        <Label fx:id="postsL" layoutX="222.0" layoutY="53.0" text="0 posts" textAlignment="CENTER" textFill="#78a1d1">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="followersL" layoutX="341.0" layoutY="83.0" onMouseClicked="#showFollowers" text="Followers"
-               textAlignment="CENTER" textFill="#78a1d1">
+        <Label fx:id="followersL" layoutX="300.0" layoutY="53.0" onMouseClicked="#showFollowers" text="0 followers" textAlignment="CENTER" textFill="#78a1d1">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="followingsL" layoutX="451.0" layoutY="83.0" onMouseClicked="#showFollowings" text="Followings"
-               textFill="#78a1d1">
+        <Label fx:id="followingsL" layoutX="395.0" layoutY="53.0" onMouseClicked="#showFollowings" text="0 followings" textFill="#78a1d1">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="numOfPostL" layoutX="252.0" layoutY="58.0" text="00" textFill="#78a1d1">
+        <Line fx:id="bottomLine" endX="600.0" endY="-9.0" layoutY="175.0" startY="-9.0" stroke="#78a1d1" strokeWidth="2.0" />
+        <Button fx:id="follow" layoutX="485.0" layoutY="128.0" mnemonicParsing="false" onAction="#followUser" prefHeight="29.0" prefWidth="81.0" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="Following" textFill="WHITE">
             <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Label fx:id="numOfFollowersL" layoutX="362.0" layoutY="58.0" onMouseClicked="#showFollowers" text="00"
-               textFill="#78a1d1">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Label fx:id="numOfFollowingsL" layoutX="476.0" layoutY="58.0" onMouseClicked="#showFollowings" text="00"
-               textFill="#78a1d1">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Label>
-        <Line fx:id="bottomLine" endX="600.0" endY="-9.0" layoutY="175.0" startY="-9.0" stroke="#78a1d1"/>
-        <Button fx:id="follow" layoutX="270.0" layoutY="121.0" mnemonicParsing="false" onAction="#followUser"
-                style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="Following" textFill="WHITE">
-            <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Button>
-        <Button fx:id="sendMessage" layoutX="398.0" layoutY="121.0" mnemonicParsing="false"
-                onAction="#sendMessageToUser" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;"
-                text="Message" textFill="#fffdfd">
+        <Button fx:id="sendMessage" layoutX="487.0" layoutY="84.0" mnemonicParsing="false" onAction="#sendMessageToUser" style="-fx-background-color: #78a1d1; -fx-background-radius: 15;" text="Message" textFill="#fffdfd">
             <font>
-                <Font size="15.0"/>
+                <Font size="15.0" />
             </font>
         </Button>
+      <Label fx:id="nameL" layoutX="223.0" layoutY="88.0" text="Name LastName" textFill="#78a1d1">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="bioL" layoutX="222.0" layoutY="124.0" text="My Bio" textFill="#78a1d1">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

@@ -88,12 +88,6 @@ public class ChatGroupF implements Initializable {
         backImage.setFitHeight(40*scale);
         backImage.setLayoutX(10*scale);
         backImage.setLayoutY(5*scale);
-        if(LiveState.subState==1){
-            backImage.setVisible(false);
-        } else {
-            backImage.setVisible(true);
-        }
-
         groupCir.setCenterX(250*scale);
         groupCir.setCenterY(550*scale);
         groupCir.setRadius(40*scale);

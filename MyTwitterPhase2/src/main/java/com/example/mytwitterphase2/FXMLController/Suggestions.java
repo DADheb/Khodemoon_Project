@@ -53,11 +53,11 @@ public class Suggestions implements Initializable {
         try {
             for (int i = 0; i < myUsers.size(); i++) {
                 this.mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 90 * scale);
-                this.mainVBox.getChildren().add( addUser(myUsers.get(i)));
+                this.mainVBox.getChildren().add(addUser(myUsers.get(i)));
             }
             for (int i = 0; i < myPosts.size(); i++) {
                 this.mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 420 * scale);
-                this.mainVBox.getChildren().add( addPost(myPosts.get(i)));
+                this.mainVBox.getChildren().add(addPost(myPosts.get(i)));
                 for (int j = 0; j < myPosts.get(i).getComments().size(); j++) {
                     this.mainVBox.setPrefHeight(mainVBox.getPrefHeight() + 420 * scale);
                     this.mainVBox.getChildren().add(addComment(myPosts.get(i).getComments().get(j)));
@@ -82,7 +82,7 @@ public class Suggestions implements Initializable {
         backImage.setLayoutY(4 * scale);
         backImage.setFitWidth(43 * scale);
         backImage.setFitHeight(48 * scale);
-        if (LiveState.subState == 1){
+        if (LiveState.subState == 1) {
             backImage.setVisible(false);
         } else {
             backImage.setVisible(true);
@@ -119,12 +119,18 @@ public class Suggestions implements Initializable {
     }
 
     public ArrayList<Post> showAds(User u) {
-        Stream<Map.Entry<User, Integer>> sorted =
-                u.getInterestAD().entrySet().stream().sorted(Map.Entry.comparingByValue());
+        User[] users = new User[u.getInterestAD().size()];
+        int[] ints = new int[u.getInterestAD().size()];
+        int sh=0;
+        for (User uu : u.getInterestAD().keySet()){
+            users[sh] = uu;
+            ints[sh] = u.getInterestAD().get(uu);
+            sh++;
+        }
+        bubbleSort(ints,users,u.getInterestAD().size());
         int size = u.getInterestAD().size();
         int limit = Math.min(size, 5);
         ArrayList<Post> posts = new ArrayList<>();
-        User[] users = (User[]) sorted.toArray();
         for (int i = size - 1; i >= size - limit; i--) {
             User user = users[i];
             for (Post p : user.getPosts()) {
@@ -175,11 +181,17 @@ public class Suggestions implements Initializable {
     }
 
     public ArrayList<User> showInterestUser(User u) {
-        Stream<Map.Entry<User, Integer>> sorted =
-                u.getInterest().entrySet().stream().sorted(Map.Entry.comparingByValue());
+        User[] users = new User[u.getInterest().size()];
+        int[] ints = new int[u.getInterest().size()];
+        int sh=0;
+        for (User uu : u.getInterest().keySet()){
+            users[sh] = uu;
+            ints[sh] = u.getInterest().get(uu);
+            sh++;
+        }
+        bubbleSort(ints,users,u.getInterest().size());
         int size = u.getInterest().size();
         int limit = Math.min(size, 5);
-        User[] users = (User[]) sorted.toArray();
         ArrayList<User> selectedUsers = new ArrayList<>();
         for (int i = size - 1; i >= size - limit; i--) {
             selectedUsers.add(users[i]);
@@ -227,7 +239,52 @@ public class Suggestions implements Initializable {
     }
 
     public void back(MouseEvent mouseEvent) throws IOException {
-        LiveState.state = 7 ;
+        LiveState.state = 7;
         DataBase.main.setMenuPane();
+    }
+
+    public LinkedHashMap<User, Integer> sortHashMapByValue(HashMap<User,Integer> hashMap) {
+        List<User> mapKeys = new ArrayList<>(hashMap.keySet());
+        List<Integer> mapValues= new ArrayList<>(hashMap.values());
+        Collections.sort(mapValues);
+        Collections.sort(mapKeys);
+
+        LinkedHashMap<User, Integer> sortedMap = new LinkedHashMap<>();
+
+        Iterator<Integer> valueIt = mapValues.iterator();
+        while (valueIt.hasNext()){
+            Integer integer = valueIt.next();
+            Iterator<User> keyIt = mapKeys.iterator();
+            while (keyIt.hasNext()){
+                User u = keyIt.next();
+                Integer comp1 = hashMap.get(u);
+                Integer comp2 = integer;
+                if (comp1.equals(comp2)){
+                    keyIt.remove();
+                    sortedMap.put(u,integer);
+                    break;
+                }
+            }
+        }
+        return sortedMap;
+    }
+    public static void bubbleSort(int [] sort_arr,User[] users, int len){
+
+        for (int i=0;i<len-1;++i){
+
+            for(int j=0;j<len-i-1; ++j){
+
+                if(sort_arr[j+1]<sort_arr[j]){
+
+                    int swap = sort_arr[j];
+                    sort_arr[j] = sort_arr[j+1];
+                    sort_arr[j+1] = swap;
+                    User temp = users[j];
+                    users[j] = users[j+1];
+                    users[j+1] = temp;
+
+                }
+            }
+        }
     }
 }

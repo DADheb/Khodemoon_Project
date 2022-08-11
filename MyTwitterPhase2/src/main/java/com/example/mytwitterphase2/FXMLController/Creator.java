@@ -170,7 +170,7 @@ public class Creator {
     public static Node showChat(Chat chat) throws IOException {
         c = chat;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/ChatF.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("Chat.fxml"));
         node = fxmlLoader.load();
         return node;
     }
@@ -178,7 +178,7 @@ public class Creator {
     public static Node showGroup(Group group) throws IOException {
         g = group;
         Node node;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("GraphicObject/GroupF.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainGraphic.class.getResource("Group.fxml"));
         node = fxmlLoader.load();
         return node;
     }

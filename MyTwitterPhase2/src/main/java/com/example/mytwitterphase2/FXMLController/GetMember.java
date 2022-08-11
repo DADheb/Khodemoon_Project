@@ -38,10 +38,10 @@ public class GetMember implements Initializable {
         users = Creator.selectedUsers;
 
         mainPane.setPrefWidth(600*scale);
-        mainPane.setPrefHeight(Creator.height);
+        mainPane.setPrefHeight(600*scale);
 
         scrollPane.setPrefWidth(600*scale);
-        scrollPane.setPrefHeight(Creator.height-70*scale);
+        scrollPane.setPrefHeight(600*scale-70*scale);
         scrollPane.setLayoutY(70*scale);
 
         vbox.setPrefWidth(585*scale);
@@ -65,14 +65,9 @@ public class GetMember implements Initializable {
             node.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
                     switch (LiveState.searchMState){
                         case 1 :
-                            GroupController.removeMember(group,LiveState.user);
+                            GroupController.removeMember(group,u);
                             LiveState.CGState = 2;
                             LiveState.groupState = 1;
                             try {
@@ -86,7 +81,7 @@ public class GetMember implements Initializable {
                             }
                             break;
                         case 2 :
-                            GroupController.newAdmin(group,LiveState.user);
+                            GroupController.newAdmin(group,u);
                             LiveState.CGState = 2;
                             LiveState.groupState = 1;
                             try {
@@ -100,7 +95,7 @@ public class GetMember implements Initializable {
                             }
                             break;
                         case 3 :
-                            GroupController.removeAdmin(group,LiveState.user);
+                            GroupController.removeAdmin(group,u);
                             LiveState.CGState = 2;
                             LiveState.groupState = 1;
                             try {
@@ -114,7 +109,7 @@ public class GetMember implements Initializable {
                             }
                             break;
                         case 4 :
-                            GroupController.banUser(group,LiveState.user);
+                            GroupController.banUser(group,u);
                             LiveState.CGState = 2;
                             LiveState.groupState = 1;
                             try {
@@ -128,7 +123,7 @@ public class GetMember implements Initializable {
                             }
                             break;
                         case 5 :
-                            GroupController.unBanUser(group,LiveState.user);
+                            GroupController.unBanUser(group,u);
                             LiveState.CGState = 2;
                             LiveState.groupState = 1;
                             try {
